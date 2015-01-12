@@ -1,0 +1,795 @@
+body, html  {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    line-height: 22px;
+    color: #444;
+}
+/* Opera Fix voor footer */
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/
+}
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+    color: #FFF;
+}
+h1 {
+    padding: 15px 10px 10px;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #DDD;
+    color: tomato;
+}
+h2 {
+    font-size: 18px;
+    padding: 0 10px 5px 0;
+    border-bottom: 1px solid #EEE;
+}
+h2.looks_like_h1 {
+    padding: 0 10px 5px 10px;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #DDD;
+    color: tomato;
+}
+h3 {
+
+}
+h4 {
+    margin: 0;
+    padding: 0;
+    color: coral;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+h5 {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+    font-size: 14px;
+}
+.bold {
+    font-weight: 800;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.tomato {
+    color: tomato;
+}
+.wrap {
+    min-height: 100%;
+}
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+/* ------------------------------ *\
+    HEADER AREA
+\* ------------------------------ */
+
+header {
+    min-width: 1000px;
+}
+
+/* LOGIN MENU */
+.menu_login {
+    height: 25px;
+    background-color: #444;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+}
+.menu_login a {
+    color: #DDD;
+}
+.menu_login a:hover {
+    color: #FFF;
+}
+.left div {
+    float: left;
+    padding: 3px 10px 6px 0px;
+}
+.right div {
+    float: right;
+    padding: 3px 0px 6px 10px;
+}
+.EN, .NL, .right_item {
+    display: inline-block;
+    margin: 0;
+}
+
+/* MAIN MENU */
+.menu_main {
+    height: 115px;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-box-shadow: 0 0 6px #666;
+       -moz-box-shadow: 0 0 6px #666;
+            box-shadow: 0 0 6px #666;
+    z-index: 9999;
+    position: relative;
+}
+.menu_main a {
+    color: #999;
+}
+.menu_main a:hover {
+    color: #555;
+}
+.logo_stagepeer {
+    height: 95px;
+    float: left;
+    margin: 10px 0;
+    margin-left: -50px;
+}
+nav {
+    float: right;
+    margin: 20px 0;
+}
+.menu_item {
+    height: 35px;
+    display: inline-block;
+    padding: 25px 0px 0px 60px;
+}
+
+/* SUB MENU */
+.sub_menu {
+    padding: 20px 0px;
+    background-color: cornflowerblue;
+    text-align: right;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.8px;
+}
+.sub_menu_home {
+    height: 4px;
+    background-color: cornflowerblue;
+}
+.sub_menu .dash {
+    padding: 0 15px;
+}
+.sub_menu a {
+    color: #FFF;
+    padding: 20px 0px;
+}
+.sub_menu a:hover {
+    color: #FFF;
+}
+
+/* ------------------------------ *\
+    SIDEBAR AREA
+\* ------------------------------ */
+
+sidebar {
+    width: 290px;
+    float: left;
+    margin: 30px 0;
+    text-align: center;
+    color: lightsalmon;
+}
+.face {
+    border-radius: 138px;
+    border: 6px solid #FFF;
+}
+.nav_sidebar {
+    width: 240px;
+    margin: -50px auto 0 auto;
+    padding: 75px 25px 25px 25px;
+    background-color: tomato;
+    text-align: left;
+}
+.sidebar_element_fist {
+    padding: 0px 30px 15px;
+    border-bottom: 1px solid coral;
+    color: lightsalmon;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+.sidebar_element {
+    padding: 15px 10px;
+    display: block;
+    border-bottom: 1px solid coral;
+    color: #FFF;
+    letter-spacing: 1px;
+}
+.sidebar_element i {
+    padding-right: 10px;
+}
+.sidebar_element_last {
+    margin: 10px 0px 20px;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+.sidebar_element_last a {
+    color: lightsalmon;
+}
+.sidebar_element_last a:hover {
+    color: #FFF;
+}
+
+/* ------------------------------ *\
+    MAIN AREA
+\* ------------------------------ */
+
+main {
+    padding: 30px 0 295px 0;
+    overflow: auto;
+}
+main.no_top_padding {
+    padding: 0 0 295px 0; 
+}
+main a, main a:active, main a:visited {
+    color: #444;
+}
+main a:hover {
+    color: coral;
+}
+.full {
+    width: 920px;
+    background-color: #FAFAFA;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+main .back {
+    margin-top: -12px;
+    margin-bottom: 20px;
+}
+main .back a {
+    font-size: 11px;
+    color: #AAA;
+    margin-top: -12px;
+    margin-bottom: 20px;
+}
+main .back i {
+    font-size: 10px;
+    margin-right: 5px;
+}
+main .col_2 {
+    width: 480px;
+    float: left;
+}
+
+
+/* ------------------------------ *\
+    FOOTER AREA
+\* ------------------------------ */
+
+footer {
+    width: 100%;
+    min-width: 1000px;
+    height: 210px;
+    background-color: cornflowerblue;
+    padding: 30px 0 0 0;
+    margin-top: -245px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    line-height: 16px;
+    clear: both;
+}
+.footer_left {
+    width: 290px;
+    float: left;
+    padding-bottom: 10px;
+}
+.footer_logo {
+    height: 75px;
+    border: none;
+}
+.footer_nav {
+    width: 610px;
+    margin-left: 30px;
+    float: left;
+    padding-bottom: 10px;
+    letter-spacing: 0.7px;
+}
+.footer_nav_col1, .footer_nav_col2, .footer_nav_col3 {
+    float: left;
+    width: 33%;
+}
+.footer_nav a {
+    display: block;
+    padding: 5px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.footer_nav a:hover {
+    color: #FFF;
+}
+.footer_nav a i {
+    color: rgba(255, 255, 255, 0.4);
+}
+.footer_copy {
+    clear: both;
+    padding: 1px 0;
+    background-color: #444;
+    color: #888;
+    text-align: center;
+}
+.footer_copy a {
+    color: #DDD;
+}
+
+
+/* ------------------------------ *\
+    PAGES
+\* ------------------------------ */
+/* INDEX */
+.search-area h3 {
+    display: block;
+    color: white;
+    font-size: 30px;
+    margin-top: 130px;
+    padding: 0px;
+    text-shadow: #444 0px 1px;
+ }
+
+.search-area {
+    display: inline-block;
+    background-image: url("../img/home.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 360px;
+}
+.search-area i {
+    margin-left: 20px;
+    font-size: 28px;
+    color: tomato;
+    text-shadow: #AAA 0px 1px 3px;; 
+}
+.search-field {
+    display: inline;
+    color: #C0C0C0;
+    border: none;
+    -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+    width: 590px;
+    padding: 10px 20px;
+    font-size: 12px; 
+    margin-top: -10px;
+    background: rgba(255, 255, 255, 0.9);
+}
+.columns {
+    float: left;
+    width: 230px;
+    padding: 40px 0 60px 0;
+}
+.columns p {
+    padding: 0 10px 5px 10px;
+}
+.col {
+    margin-left: 135px;   
+}
+
+/* ZOEKRESULTATEN */
+/* search bar */
+main .searchbar {
+    background: #F5F5F5;
+    margin: 20px 0px 20px 0px;
+    padding: 5px 18px;
+    
+}
+main .searchbar p {
+    display: inline;
+    margin-left: 10px;
+}
+main .searchbar a {
+    color: #444;
+}
+main .searchbar .search, main .searchbar .opleiding {
+    width: 150px;
+    height: 20px;
+    margin: 5px;
+    border: none;
+    background: #FFF;
+}
+main .searchbar .tijd, main .searchbar .stad {
+    height: 22px;
+    margin-left: 5px;
+}
+
+/* resultaten */
+/* - kolom links */
+main .row_left, main .row_right {
+    width: 435px;
+    float: left;
+    margin-bottom: 10px;
+    background: #FAFAFA;
+    padding: 20px;
+}
+main .row_left {
+    margin-right: 10px;
+}
+main .row_left .vac_mini, main .row_right .vac_mini {
+    float: right;
+    height: 100px;
+    margin: 5px 0;
+}
+main .row_left .vac_mini #image, main .row_right .vac_mini #image {
+    background-image: url(../img/ing.png);
+    background-size: 100%; 
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+main .row_left .vacature .beschrijving, main .row_right .vacature .beschrijving {
+    float: right;
+    width: 300px;
+    margin: 0 5px;
+}
+main .row_left .vacature .beschrijving p, main .row_right .vacature .beschrijving p {
+    font-size: 10px;
+    line-height: 16px;
+    color: #444;
+}
+
+main .clear {
+    clear: both;
+}
+
+/* DETAILPAGINA VACATURE */
+.reageren {
+    width: 100%;
+    padding: 10px 0;
+    background-color: tomato;
+    color: #FFF;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 50px 0 0 0;
+}
+.back_zoekresultaten {
+    padding-top: 6px;
+}
+.date_added {
+    font-size: 10px;
+    color: #AAA;
+    letter-spacing: 0.5px;
+    text-align: right;
+    margin: -5px 0 20px 0;
+    padding: 0;
+}
+
+/* BEHEER */
+.beheer h1 {
+    margin: 16px 0;
+    color: #444;
+    font-weight: bold;
+    display: block;
+    font-size: 2em;
+    border: none;
+}
+.beheer h2 {
+    padding: 0 10px 5px 10px;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #DDD;
+    color: tomato;
+}
+.beheer main {
+    width: 640px;
+    float: right;
+    padding: 70px 0px 30px 30px;
+}
+.beheer main .full {
+    width: 570px;
+    background-color: #FAFAFA;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.beheer main .blok_left, main .blok_right {
+    width: 250px;
+    float: left;
+    background-color: #FAFAFA;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+.beheer main .blok_left {
+    margin-right: 30px;
+}
+.blok_search form {
+    padding: 20px 0; 
+}
+.blok_search span{
+    width: 20%; 
+    float: left;
+}
+.blok_search input{
+    width: 80%;
+    border: none;
+    color: #333;
+    padding: 6px; 
+    margin-bottom: 15px;
+}
+.blok_search input#zoekwoorden {
+    width: 100%; 
+}
+.blok_search input#duur {
+    width: 20px;
+}
+.blok_search input#submit {
+    width: 100%;
+    margin-top: 10px;
+    background-color: tomato;
+    color: #FFF;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/* EDIT PROFILE */
+main .fa-pencil {
+    color: lightsalmon;
+}
+main .fa-pencil:hover {
+    color: tomato;
+}
+
+/* EDIT PROFILE - Algemene Informatie */
+.edit_face, .edit_name, .edit_email, .edit_phone, .edit_location, .edit_kvk {
+    margin: 10px 0;
+}
+.edit_face h4, .edit_name h4, .edit_email h4, .edit_phone h4, .edit_location h4, .edit_kvk h4 {
+    display: inline-block;
+    width: 150px;
+}
+.edit_name p, .edit_email p, .edit_phone p, .edit_location p, .edit_kvk p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 300px;
+}
+.preview_face {
+    vertical-align: text-top;
+}
+
+/* EDIT PROFILE - Samenvatting */
+
+
+/* EDIT PROFILE - Jouw Skills & Jouw Talen */
+.uitleg {
+    color: #888;
+    font-size: 11px;
+    text-align: right;
+    font-style: italic;
+}
+.skill, .taal {
+    display: inline-block;
+    padding: 3px 15px 3px 15px;
+    background-color: F0F0F0;
+    font-weight: 600;
+    color: #666;
+    margin: 0px 0px 8px 8px;
+}
+.skill p, .taal p {
+    display: inline-block;
+    padding-right: 10px;
+}
+.skill .fa-star {
+    color: gold;
+}
+.skill .fa-star-o {
+    color: #BBB;
+}
+.add {
+    display: inline-block;
+    padding: 3px 15px 3px 15px;
+    background-color: F0F0F0;
+    font-weight: 600;
+    color: #666;
+    margin: 8px 5px;
+}
+
+/* EDIT PROFILE - Jouw Diploma's & Jouw Werkervaring & Jouw Opledingen en Cursussen */
+
+.ervaring h4, .studie h4, .diploma h4 {
+    color: coral;
+    margin-bottom: 4px;
+}
+.ervaring .ber_mini_info, .studie .ber_mini_info, .diploma .ber_mini_info {
+    font-size: 10px;
+    margin-bottom: 4px;
+}
+.ervaring p, .studie p, .diploma p {
+    padding: 0;
+    margin: 0;
+}
+
+/* VACATURE TOEVOEGEN */
+.vac_toevoegen h4 {
+    display: inline-block;
+    width: 250px;
+    margin-bottom: 10px;
+}
+.vac_toevoegen input, .vac_toevoegen select {
+    display: inline-block;
+    width: 250px;
+}
+.vac_toevoegen input#duur, .vac_toevoegen input#logo {
+		width: 10px;	
+}
+.vac_toevoegen #duur_tag, .vac_toevoegen #logo_tag {
+		margin-right: 20px;	
+}
+.vac_toevoegen input#submit {
+    background-color: tomato;
+    border: 1px solid coral;
+    color: #FFF;
+    width: 150px;
+    margin-left: 350px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+.vac_toevoegen_textareas h4 {
+    display: block;
+    margin: 20px 0 5px 0;
+}
+.vac_toevoegen_textareas textarea {
+    width: 500px;
+    height: 200px;
+}
+.vac_toevoegen input#toevoegen {
+    background-color: tomato;
+    border: 1px solid coral;
+    color: #FFF;
+    width: 500px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    height: 50px;
+}
+
+/* WACHTWOORD AANPASSEN */
+.edit_password h4 {
+    display: inline-block;
+    width: 250px;
+    margin-bottom: 10px;
+}
+.edit_password input {
+    display: inline-block;
+    width: 250px;
+}
+.edit_password input#submit {
+    background-color: tomato;
+    border: 1px solid coral;
+    color: #FFF;
+    width: 150px;
+    margin-left: 350px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+
+/* CONTACT */
+.contact_formulier h4 {
+    display: inline-block;
+    width: 150px;
+    padding: 6px;
+    margin: 7px 0; 
+}
+.contact_formulier input, .contact_formulier textarea {
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #DDD;
+    background-color: #F5F5F5;
+    padding: 6px;
+    margin: 10px 0; 
+    float: right;
+}
+.contact_formulier input#submit {
+    background-color: tomato;
+    border: 1px solid coral;
+    color: #FFF;
+    width: 315px;
+    font-weight: 300;
+    text-transform: uppercase;
+    float: right;   
+}
+
+/* ALGEMENE VOORWAARDEN */
+.alg_vw, .pr_bel {
+    line-height: 17px;
+}
+.alg_vw h2, .pr_bel h2 {
+    font-size: 14px;
+    margin-top: 15px; 
+}
+
+
+
+
+
+/* ------------------------------ *\
+    VASTE ELEMENTEN
+\* ------------------------------ */
+/* LOGIN POP-UP */
+.login_outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+}
+.login {
+    position: fixed;
+    width: 400px;
+    height: 380px;
+    top: 20%;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    z-index: 99999;
+    text-align: center;
+    border: 1px solid lightgray;
+}
+
+.login h2 {
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+.login_box {
+    width: 300px;
+    height: 45px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.login_button {
+    width: 300px;
+    height: 45px;
+    padding: 5px;
+    margin-top: 30px;
+    background-color: tomato;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-bottom: 3px solid A6402E;
+    cursor: pointer;
+}
+
+i.fa-times{
+    margin: 10px;
+    float: right;
+    cursor: pointer;    
+}
+
+/* COMPACTE WEERGAVE VACATURE EN BERICHT */
+.vac_mini, .ber_mini {
+    background-color: #F0F0F0;
+    padding: 15px;
+    margin: 12px 0px;
+}
+.vac_mini_info, .ber_mini_info {
+    margin: 0 0 6px 0; 
+    color: #999;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+.vac_mini_beschr, .ber_mini_beschr {
+    margin: 6px 0;
+    padding: 0;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: justify;
+    color: #555;
+}

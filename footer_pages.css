@@ -1,0 +1,23 @@
+/* ---------------- *\
+      MAIN AREA
+\* ---------------- */
+
+.overzicht {
+    background-color: #FAFAFA;
+}
+
+.linker_kolom {
+    background-color: #F0F0F0;
+    width: 450px;
+    float: left;
+    letter-spacing: 0.8px;
+    margin: 10px;
+}
+
+.rechter_kolom {
+    background-color: #F0F0F0;
+    width: 450px;
+    float: right;
+    letter-spacing: 0.8px;
+    margin: 10px;
+}
