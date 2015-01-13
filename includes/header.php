@@ -13,8 +13,7 @@
 
 <body>
     <!-- WRAP --> 
-    <div class="wrap">
-        
+
     <!-- HEADER AREA --> 
     <header>
         <div class="menu_login">
