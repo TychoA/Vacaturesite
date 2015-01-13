@@ -226,6 +226,7 @@ sidebar {
 main {
     padding: 30px 0 295px 0;
     overflow: auto;
+    margin: 0 auto;
 }
 main.no_top_padding {
     padding: 0 0 295px 0; 
