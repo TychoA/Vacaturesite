@@ -101,7 +101,7 @@
                         <img src="<?php echo $vac_logo_wg; ?>" alt="<?php echo $vac_naam_wg; ?>" />
                     <?php }?>
                     
-                    <h4>Aangeboden door</h4>
+                    <h4>Aangeboden door:</h4>
                     <p><?php if(!empty($vac_naam_wg)){ echo $vac_naam_wg; }else{ echo "-"; } ?></p><br>
                     <h4>Duur van de stage</h4>
                     <p><?php if(!empty($vac_duur)){ echo $vac_duur; }else{ echo "-"; } ?></p><br>
