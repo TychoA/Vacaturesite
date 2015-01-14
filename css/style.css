@@ -227,6 +227,7 @@ sidebar {
 main {
     padding: 30px 0 295px 0;
     overflow: auto;
+    margin: 0 auto;
 }
 main.no_top_padding {
     padding: 0 0 295px 0; 
@@ -403,7 +404,6 @@ main .searchbar .tijd, main .searchbar .stad {
 }
 
 /* resultaten */
-/* - kolom links */
 main .row_left, main .row_right {
     width: 435px;
     float: left;
@@ -443,6 +443,31 @@ main .clear {
 }
 
 /* DETAILPAGINA VACATURE */
+.alg_informatie h4, .alg_informatie p {
+    display: inline-block;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    vertical-align: text-top;
+}
+.alg_informatie p {
+    width: 500px;
+}
+.alg_informatie h2 {
+    margin-top: 0;
+}
+.alg_informatie img {
+    background-size: 100%; 
+    height: 140px;
+    width: 140px;
+    float: right;
+    margin: 0 15px 0 0;
+}
+.aanbieding h2, .eisen h2, .overig h2 {
+    margin-top: 40px;
+}
+
 .reageren {
     width: 100%;
     padding: 10px 0;

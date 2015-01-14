@@ -1,5 +1,4 @@
-</div>
-<!-- /WRAP -->
+
 
 <!-- FOOTER AREA -->
 <footer>
