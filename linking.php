@@ -8,8 +8,9 @@ $script                 =   './js/script.js';
 
 
 $home                   =   './index.php';
-$inloggen               =   '#';
-$uitloggen              =   '#';
+$inloggen               =   './login_pagina.php';
+$uitloggen              =   './index.php';
+$registreren            =   './registratie_pagina.php';
 $profiel_deactiveren    =   '#';
 $mijn_account           =   './werknemers/mijn_account.php';
 $mijn_profiel           =   './werknemers/mijn_profiel.php';

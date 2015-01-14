@@ -1,0 +1,30 @@
+main .wrapper {
+    text-align: center;
+}
+
+h2 {
+    color:tomato;
+}
+
+.input_gebruikersnaam, .input_wachtwoord{
+    margin: 0 auto;
+    float: left;
+    padding-right: 52px;
+    margin-bottom: 20px;
+}
+
+.gebruikersnaam label, .wachtwoord label {
+    float: left;
+    width: 120px;
+    text-align: left;
+}
+
+.gebruikersnaam{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 300px;
+}
+
+main .login_button {
+    margin-top: 10px;
+}
