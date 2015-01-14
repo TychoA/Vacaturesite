@@ -13,8 +13,7 @@
 
 <body>
     <!-- WRAP --> 
-    <div class="wrap">
-        
+
     <!-- HEADER AREA --> 
     <header>
         <div class="menu_login">
@@ -27,6 +26,7 @@
                     <a href="<?php echo $uitloggen; ?>"><div class="right_item">Uitloggen</div></a>
                     <a href="<?php echo $mijn_account; ?>"><div class="right_item">Welkom, Jaap Verhoeven</div></a>
                 </div>
+                <div class="clear"></div>
             </div>
         </div>
             
