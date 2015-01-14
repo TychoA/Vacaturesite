@@ -2,8 +2,8 @@
     
     <?php        
         try {
-            $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8',
-                'luca', 'fez7cJpE');
+            $db = new PDO('mysql:host=localhost;dbname=webperen;charset=utf8',
+                'root', 'root');
         } catch(PDOException $ex) {
             die("Something went wrong while connecting to the database!");
         }
@@ -90,7 +90,7 @@
             </p>
             
             <h1><?php echo $vac_titel; ?></h1>
-            <p class="date_added">Geplaatst op <?php echo $vac_datum." om ".$vac_tijd."."; ?></p>
+            <p class="date_added">Geplaatst op <?php echo $vac_datum." om ".$vac_tijd; ?></p>
             
             <div class="full">
                 
@@ -101,7 +101,7 @@
                         <img src="<?php echo $vac_logo_wg; ?>" alt="<?php echo $vac_naam_wg; ?>" />
                     <?php }?>
                     
-                    <h4>Aangeboden door:</h4>
+                    <h4>Aangeboden door</h4>
                     <p><?php if(!empty($vac_naam_wg)){ echo $vac_naam_wg; }else{ echo "-"; } ?></p><br>
                     <h4>Duur van de stage</h4>
                     <p><?php if(!empty($vac_duur)){ echo $vac_duur; }else{ echo "-"; } ?></p><br>
