@@ -1,48 +1,25 @@
 <?php
+session_start();
 
-
-// Server data
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "stagepeer";
-
-// Connection with database
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die ("Connection failed!" . $conn->connect_error);
+try {
+$db = new PDO('mysql:host=localhost; dbname=stagepeer', 'root', 'root');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+} 
+catch(PDOException $ex) {
+    echo $ex . "error";
 }
-
-// Select columns from table werknemers
 $sql =  "SELECT * FROM werknemers";
-$result = $conn->query($sql);
+$result = $db->prepare($sql);
 
-// Echo the selected rows
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $gebruikerscontrole = $row["email"];
-        $wachtwoordcontrole = $row["wachtwoord"];
-    } 
-}
-    
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_POST['gebruikersnaam'], $_POST['wachtwoord'])) {
-        
-        $gebruiker = trim($_POST['gebruikersnaam']);
-        $wachtwoord = trim($_POST['wachtwoord']);
-        
-        if($gebruiker == $gebruikerscontrole && $wachtwoord == $wachtwoordcontrole) {
-        
-        header( 'Location: /Vacaturesite/index.php');    
-        } else {
-            echo '<script type="text/javascript"> alert("Ongeldige inloggegevens!");
-            window.location.href = "login_pagina.php";
-            </script>';
-        }
-    } else {
-        echo 'Een vereisd veld bestaat niet!';
+foreach($db->query("SELECT ID, email, wachtwoord, naam FROM werknemers") as $row) {
+    if ($_POST['gebruikersnaam'] === $row['email'] && $_POST['wachtwoord'] === $row['wachtwoord'])  {
+    $_SESSION['userid'] = $userid;
+    echo "<script>window.location= 'index.php' </script>";
+} else {
+    echo "<script>alert('Inloggegevens zijn incorrect!')</script>";
+    echo "<script>window.location= 'login_pagina.php' </script>";
     }
 }
-
-$conn->close();
+session_destroy(); 
 ?>

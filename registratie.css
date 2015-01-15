@@ -3,7 +3,6 @@ main .wrapper { text-align: center; }
 h2 { color:tomato; }
 
 .input_gebruikersnaam, .input_wachtwoord, .input_voornaam, .input_achternaam, .input_telefoon, .input_plaatsnaam {
-    margin: 0 auto;
     float: left;
     padding-right: 52px;
     margin-bottom: 20px;
@@ -13,12 +12,30 @@ h2 { color:tomato; }
     float: left;
     width: 120px;
     text-align: left;
-}
+}   
+
 
 .gebruikersnaam {
-    margin: 0 auto;
     margin-top: 50px;
     width: 300px;
+    display: inline-block;
+    float: right;
+}
+    
+main .login_button { margin-top: 10px; }
+
+.error_div { 
+    width: 330px;
+    height: 300px;
+    margin-top: 50px;
+    display: inline-block;
+    float: right;
+    text-align: left;
 }
 
-main .login_button { margin-top: 10px; }
+.error_div .error {
+    color: red;
+    float: left;
+    clear: left;
+    margin-bottom: 20px;
+}
