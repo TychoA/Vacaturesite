@@ -71,7 +71,7 @@
                 </select>
 
                 <br><p>Zoekenwoorden: </p> 
-                <input class="search" name="zoekveld" type="text" placeholder="Typ hier uw zoekwoorden.."/>
+                <input class="search" name="zoekveld" type="text" placeholder="Typ hier uw zoekwoorden..">
                 
                 <input class="submit" name="zoeken" type="submit" value="Zoeken">
             </form>

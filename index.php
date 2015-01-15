@@ -31,7 +31,7 @@
                 <form action="<?php echo $zoekresultaten.'#searchbar'; ?>" method="post">
                     
                     <div class="search-bar">
-                        <input class="search" name="zoekveld" type="text" placeholder="Doorzoek de vacatures.."/>
+                        <input class="search" name="zoekveld" type="text" placeholder="Doorzoek de vacatures.." >
 
                         <br>
 
