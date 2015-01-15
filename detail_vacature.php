@@ -1,4 +1,31 @@
 <html>
+    
+    <!-- DATA BASE CONNECTIE -->
+    <?php        
+        try {
+            $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8',
+                'luca', 'fez7cJpE');
+        } catch(PDOException $ex) {
+            die("Something went wrong while connecting to the database!");
+        }
+
+        $stmt = $db->query('SELECT * FROM vacatures');
+ 
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $vac_id_wg = $row["ID_werkgevers"];
+            $vac_datum = strtotime($row['datum']);
+            $vac_datum_2 = date("m/d/y",$vac_datum);
+            $vac_duur = $row["duur"];
+            $vac_opleidingen = $row["opleidingen"];
+            $vac_locatie = $row["locatie"];
+            $vac_foto = $row["foto"];
+            $vac_titel = $row["titel"];
+            $vac_beschrijving_aanbod = $row["beschrijving_aanbod"];
+            $vac_beschrijving_eisen = $row["beschrijving_eisen"];
+            $vac_beschrijving_overig = $row["beschrijving_overige"];
+        }
+    ?>
+    
     <?php include './linking.php';?>
 
     <!-- HEADER AREA -->
@@ -53,22 +80,32 @@
                 </a>
             </p>
             
-            <h1>Titel vacature</h1>
-            <p class="date_added">Geplaatst op 01/01/'15</p>
+            <h1><?php echo $vac_titel; ?></h1>
+            <p class="date_added">Geplaatst op <?php echo $vac_datum_2; ?></p>
             
             <div class="full">
                 
+                <div class="alg_info">
+                    <h2>Algemene informatie</h2>
+                    <h4>Duur</h4><p><?php echo $vac_duur; ?></p>
+                    <h4>Opleidingen</h4><p><?php echo $vac_opleidingen; ?></p>
+                    <h4>Locatie</h4><p><?php echo $vac_locatie; ?></p>
+                    <h4>Tags</h4><p><?php echo $vac_tags; ?></p>
+                </div>
+                
                 <div class="aanbieding">
                     <h2>Wat wordt er aangeboden</h2>
-                    <h3>Tussenkop</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. </p>
-                    <h3>Tussenkop</h3>
-                    <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.</p>
+                    <p><?php echo $vac_beschrijving_aanbod; ?></p>
                 </div>
                     
                 <div class="eisen">
                     <h2>De eisen</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. </p>
+                    <p><?php echo $vac_beschrijving_eisen; ?></p>
+                </div>
+                
+                <div class="overig">
+                    <h2>Overige informatie</h2>
+                    <p><?php echo $vac_beschrijving_overig; ?></p>
                 </div>
                     
                 <div class="reageren">
