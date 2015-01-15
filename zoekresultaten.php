@@ -191,7 +191,6 @@
                 //////////////////
 
                 $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
-                $stmt->execute(array(':query' => $query));
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
