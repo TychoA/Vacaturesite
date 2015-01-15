@@ -32,8 +32,7 @@ try {
         }
     }   
     if ($valid) {
-        echo "Login succes";
-        //header ( 'Location:index.php');
+        header ( 'Location:index.php');
     }
 } 
 catch(PDOException $ex) {

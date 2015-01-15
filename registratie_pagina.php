@@ -58,15 +58,15 @@ $params = array(":naam"=>$_POST['voornaam'],
                     <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
                     <!-- NAAM -->
                     <label for="voornaam">Voornaam</label>
-                    <input class="input_voornaam" type="text" name="voornaam" placeholder="Voornaam" required>
+                    <input class="input_voornaam" type="text" name="voornaam" placeholder="Voornaam" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$" required>
                         
                     <!-- ACHTERNAAM -->
                     <label for="achternaam">Achternaam</label>
-                    <input class="input_achternaam" type="text" name="achternaam" placeholder="Achternaam" required>
+                    <input class="input_achternaam" type="text" name="achternaam" placeholder="Achternaam" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,30}$" required>
                         
                     <!-- PLAATSNAAM -->
                     <label for="plaatsnaam">Plaatsnaam</label>
-                    <input class="input_plaatsnaam" type="text" name="plaatsnaam" placeholder="Plaatsnaam" required>
+                    <input class="input_plaatsnaam" type="text" name="plaatsnaam" placeholder="Plaatsnaam" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,30}$" required>
                     
                     <!-- EMAIL -->
                     <label for="gebruikersnaam">E-mail</label>
@@ -74,7 +74,7 @@ $params = array(":naam"=>$_POST['voornaam'],
                         
                     <!-- TELEFOON -->
                     <label for="telefoon">Telefoon</label>
-                    <input class="input_telefoon" type="tel" name="telefoon" placeholder="Telefoonnummer" maxlength="11" minlength="8" required>
+                    <input class="input_telefoon" type="text" name="telefoon" placeholder="Telefoonnummer" pattern="^[0-9]{10}" maxlength="10" required>
                     
                     <!-- WACHTWOORD -->
                     <label for="wachtwoord">Wachtwoord</label>
@@ -93,5 +93,4 @@ $params = array(":naam"=>$_POST['voornaam'],
      <!-- FOOTER AREA -->
         <?php include './includes/footer.php';?>
     <!-- /FOOTER AREA -->
-</html>
 </html>
