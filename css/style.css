@@ -420,7 +420,7 @@ footer {
 main .searchbar {
     background: #F5F5F5;
     margin: 20px 0px 20px 0px;
-    padding: 5px 18px;
+    padding: 10px;
     
 }
 main .searchbar p {
@@ -431,12 +431,12 @@ main .searchbar a {
     color: #444;
 }
 main .searchbar .search, main .searchbar .filters {
-    width: 217px;
+    width: 222px;
     height: 20px;
     margin: 5px;
 }
 main .searchbar .tijd, main .searchbar .search {
-    width: 735px;
+    width: 750px;
     height: 20px;
     margin: 5px;
     padding: 12px;  
