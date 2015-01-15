@@ -330,7 +330,7 @@ footer {
     display: block;
     color: white;
     font-size: 30px;
-    margin-top: 130px;
+    margin-top: 100px;
     padding: 0px;
     text-shadow: #444 0px 1px;
  }
@@ -343,11 +343,54 @@ footer {
     width: 100%;
     height: 360px;
 }
-.search-area i {
-    margin-left: 20px;
-    font-size: 28px;
+.search-area .search-bar {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    width: 630px;
+    padding: 10px;
+    font-size: 12px; 
+    margin-top: -10px;
+    background: rgba(255, 255, 255, 0.7);
+}
+.search-area p, .search-area .submit {
+    display: inline;
+    margin-left: 10px;
     color: tomato;
-    text-shadow: #AAA 0px 1px 3px;; 
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+}
+.search-area a {
+    color: #444;
+}
+.search-area .search-bar input {
+    background-color: #FFF;
+}
+.search-area .search-bar .filters {
+    width: 100px;
+    height: 20px;
+    margin: 5px;
+    border: none;
+}
+.search-area .search-bar .search {
+    width: 620px;
+    padding: 15px;
+    height: 20px;
+    margin: 5px;
+    border: none;
+}
+.search-area .submit {
+    width: 200px;
+    padding: 10px;
+    background-color: tomato;
+    color: #FFF;
+    border: none; 
+    margin: 10px 0 0 450px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    
 }
 .search-field {
     display: inline;
@@ -389,38 +432,47 @@ main .searchbar p {
 main .searchbar a {
     color: #444;
 }
-main .searchbar .search, main .searchbar .opleiding {
-    width: 150px;
+main .searchbar .search, main .searchbar .filters {
+    width: 217px;
     height: 20px;
     margin: 5px;
     border: none;
     background: #FFF;
 }
-main .searchbar .tijd, main .searchbar .stad {
-    height: 22px;
-    margin-left: 5px;
+main .searchbar .tijd, main .searchbar .search {
+    width: 735px;
+    height: 20px;
+    margin: 5px;
+    padding: 4px;    
 }
 
 /* resultaten */
+main .resultaten {
+    width: 920px;
+}
 /* - kolom links */
 main .row_left, main .row_right {
     width: 435px;
+>>>>>>> fa06ecc47dcc95857f234d55343eaf251fac951c
     float: left;
     margin-bottom: 10px;
     background: #FAFAFA;
     padding: 20px;
 }
-main .row_left {
-    margin-right: 10px;
+main .resultaten .info {
+    color: #888;
+    font-size: 11px;
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 1px;
 }
-main .row_left .vac_mini, main .row_right .vac_mini {
-    float: right;
+main .resultaten .vac_mini{
+    float: left;
+    width: 410px;
     height: 100px;
-    margin: 5px 0;
+    margin: 10px;
 }
-main .row_left .vac_mini #image, main .row_right .vac_mini #image {
-    background-image: url(../img/ing.png);
-    background-size: 100%; 
+main .resultaten .vac_mini img{
     height: 100px;
     width: 100px;
     float: left;
