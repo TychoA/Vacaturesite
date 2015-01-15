@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $valid = false;
     }
 }
-
 try {
     $db = new PDO('mysql:host=localhost; dbname=stagepeer', 'root', 'root');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -31,8 +30,7 @@ try {
             $valid = true;
             }
         }
-    }
-    
+    }   
     if ($valid) {
         echo "Login succes";
         //header ( 'Location:index.php');
@@ -41,7 +39,6 @@ try {
 catch(PDOException $ex) {
     echo $ex . "error";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -65,21 +62,17 @@ catch(PDOException $ex) {
 <main>
     <div class="wrapper">
         <h2>Login</h2>
-        <div class="error_div">
-            <span class="error">* <?php echo $loginErr; ?></span>
-            <span class="error">* <?php echo $wachtwoordErr; ?></span>
-        </div>
-            <div class="gebruikersnaam">
-                <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
+        <div class="gebruikersnaam">
+            <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
                 <label for="gebruikersnaam">E-mail</label>
-                <input class="input_gebruikersnaam" type="email" name="gebruikersnaam" placeholder="E-mail" maxlength="50" />
+                <input class="input_gebruikersnaam" type="email" name="gebruikersnaam" placeholder="E-mail" maxlength="50" required>
 
                 <label for="wachtwoord">Wachtwoord</label>
-                <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50"/><span class="error">
-                <input type="submit" class="login_button" value="Login"></button>
-
-                </form>    
-            </div>
+                <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50" required>
+                
+                <input type="submit" class="login_button" value="Login">
+            </form>    
+        </div>
     </div>
 </main>
 <!-- /MAIN AREA -->

@@ -16,26 +16,9 @@ h2 { color:tomato; }
 
 
 .gebruikersnaam {
+    margin: 0 auto;
     margin-top: 20px;
     width: 300px;
-    display: inline-block;
-    float: right;
 }
     
 main .login_button { margin-top: 10px; }
-
-.error_div { 
-    width: 330px;
-    height: 300px;
-    margin-top: 50px;
-    display: inline-block;
-    float: right;
-    text-align: left;
-}
-
-.error_div .error {
-    color: red;
-    float: left;
-    clear: left;
-    margin-bottom: 20px;
-}
