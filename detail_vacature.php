@@ -53,7 +53,7 @@
     <main class="no_top_padding">
         <div class="wrapper">  
             <!-- Search Bar -->
-            <form id="searchbar" class="searchbar" action="<?php echo $_SERVER['PHP_SELF'].'#searchbar'; ?>" method="post">
+            <form id="searchbar" class="searchbar" action="<?php echo $zoekresultaten; ?>#searchbar" method="post">
                 
                 <p>Omgeving: </p>
                 <select class="filters" name="omgeving">
