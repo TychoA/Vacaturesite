@@ -41,7 +41,7 @@ $params = array(":naam"=>$_POST['voornaam'],
                 $passwordErr = "Wachtwoord ontbreekt";
                 $valid = false;
             }          
-            } 
+        } 
         
         
         if ($valid) {
@@ -85,10 +85,9 @@ $params = array(":naam"=>$_POST['voornaam'],
                     <span class="error"> * <?php echo $telefoonErr; ?></span>
                     <span class="error"> * <?php echo $passwordErr; ?></span> 
                 </div>
-            
+                <p style="color:red; position:relative; left: 60px;">Vereiste velden *</p>    
                 <div class="gebruikersnaam">
                     <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
-                        
                     <!-- NAAM -->
                     <label for="voornaam">Voornaam</label>
                     <input class="input_voornaam" type="text" name="voornaam" placeholder="Voornaam" />
