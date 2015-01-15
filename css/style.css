@@ -356,7 +356,7 @@ footer {
 }
 .search-area p, .search-area .submit {
     display: inline;
-    margin-left: 10px;
+    margin: 0 10px;
     color: tomato;
     text-transform: uppercase;
     font-size: 12px;
@@ -369,8 +369,9 @@ footer {
     background-color: #FFF;
 }
 .search-area .search-bar .filters {
-    width: 100px;
+    width: 111px;
     height: 20px;
+    margin-right: 10px;
 }
 .search-area .search-bar .search {
     width: 620px;

@@ -62,7 +62,7 @@
                             <option value="Anders">Anders</option>
                         </select> 
 
-                        <p>Studierichting: </p>
+                        <p>Studie: </p>
                         <select class="filters" name="opleiding">
                             <option value="alles">Selecteer...</option>
                             <option value="Informatica">WO - Informatica</option>
