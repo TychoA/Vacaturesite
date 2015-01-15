@@ -439,7 +439,7 @@ main .searchbar .tijd, main .searchbar .search {
     width: 735px;
     height: 20px;
     margin: 5px;
-    padding: 6px 4px;  
+    padding: 12px;  
     border: none;
 }
 
