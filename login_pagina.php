@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>    
+<html>
     <?php include './linking.php'; ?>
     <link rel="stylesheet" href="login.css">
     
@@ -22,12 +22,13 @@
                 <div class="gebruikersnaam">
                     <form method="post" action="login.php">
                     <label for="gebruikersnaam">E-mail</label>
-                    <input class="input_gebruikersnaam" type="text" name="gebruikersnaam" placeholder="E-mail" maxlength="50" />
+                    <input class="input_gebruikersnaam" type="email" name="gebruikersnaam" placeholder="E-mail" maxlength="50" />
                     
                     <label for="wachtwoord">Wachtwoord</label>
-                    <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50"/>
+                    <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50"/><span class="error">
                     <input type="submit" class="login_button" value="Login"></button>
-                    </form>
+                    
+                    </form>    
                 </div>
         </div>
     </main>
