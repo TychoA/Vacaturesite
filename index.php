@@ -1,4 +1,7 @@
 <html>
+    
+    <?php include './includes/database_con.php';?>
+    
     <?php include './linking.php';?>
 
     <!-- HEADER AREA -->
