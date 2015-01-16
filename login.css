@@ -19,7 +19,7 @@ h2 {
     text-align: left;
 }
 
-.gebruikersnaam{
+.gebruikersnaam {
     margin: 0 auto;
     margin-top: 50px;
     width: 300px;
@@ -27,20 +27,4 @@ h2 {
 
 main .login_button {
     margin-top: 10px;
-}
-
-.error_div { 
-    width: 330px;
-    height: 100px;
-    margin-top: 30px;
-    display: inline-block;
-    float: right;
-    text-align: left;
-}
-
-.error_div .error {
-    color: red;
-    float: left;
-    clear: left;
-    margin-bottom: 20px;
 }
