@@ -1,14 +1,6 @@
 <html>
-    
-    <!-- DATA BASE CONNECTIE -->
-    <?php        
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8',
-                'luca', 'fez7cJpE');
-        } catch(PDOException $ex) {
-            die("Something went wrong while connecting to the database!");
-        }
-    ?>
+
+    <?php include './includes/database_con.php';?>
     
     <?php include './linking.php';?>
 
@@ -83,15 +75,6 @@
             <?php 
 
             if( isset($_POST['zoekveld']) && isset($_POST['omgeving']) && isset($_POST['duur']) && isset($_POST['opleiding']) ){
-                // Connect to database    
-                try {
-                    $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8', 'luca', 'fez7cJpE');
-                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-                } catch(PDOException $ex) {
-                    echo "An error occured!"; //user friendly message
-                }
-
                 // Create search output  
                 $zoekveld = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['zoekveld']);
 
@@ -188,6 +171,9 @@
                         $info_resultaten .= ' / "' . $zoekveld . '"';
                     }
                 }
+                
+                $query = "SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50";
+                
                 //////////////////
 
                 $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
