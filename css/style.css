@@ -404,6 +404,15 @@ footer {
     margin-top: -10px;
     background: rgba(255, 255, 255, 0.9);
 }
+.nieuwste_vac {
+    padding: 60px 0;
+}
+.nieuwste_vac .third {
+    width: 260px;
+    height: 100px;
+    float: left;
+    margin: 20px 15px;
+}
 .columns {
     float: left;
     width: 230px;
