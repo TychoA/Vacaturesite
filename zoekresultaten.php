@@ -191,7 +191,7 @@
                     
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
                         $res_timestamp = strtotime($row['datum']);
-                        $datum = date("m/d/y",$res_timestamp);
+                        $datum = date("d/m/y",$res_timestamp);
                         $tijd = date("H:i",$res_timestamp);
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
@@ -215,7 +215,7 @@
                     echo '<p class="info">Er zijn ' . $row_count . ' resultaten gevonden voor ' . $info_resultaten . '.</p>';
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
                         $res_timestamp = strtotime($row['datum']);
-                        $datum = date("m/d/y",$res_timestamp);
+                        $datum = date("d/m/y",$res_timestamp);
                         $tijd = date("H:i",$res_timestamp);
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
