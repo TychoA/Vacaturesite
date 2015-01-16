@@ -220,7 +220,7 @@
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
                 
-                        echo "<a href=".$detail_vacature."?id=.".$row["ID"].">";
+                        echo "<a href=".$detail_vacature."?id=".$row["ID"].">";
                         echo    "<div class='vac_mini'>";
                                     if($row["foto"]==1){ 
                         echo            "<img src=".$row['url_foto']." alt=".$row['naam']."/>"; 
