@@ -83,8 +83,33 @@
             </div>
         </div>
         
-        <div class="wrapper">
-            <div class="columns">
+        <div class="wrapper nieuwste_vac">
+            <h2 class="looks_like_h1">Nieuwste vacatures</h2>
+            
+            <?php 
+            
+                $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID ORDER BY datum DESC LIMIT 3");
+                $stmt->execute();
+                $row_count = $stmt->rowCount();
+
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+                    $res_timestamp = strtotime($row['datum']);
+                    $datum = date("d/m/y",$res_timestamp);
+                    $tijd = date("H:i",$res_timestamp);
+
+                    $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
+
+                    echo "<a href=".$detail_vacature."?id=".$row["ID"].">";
+                    echo    "<div class='vac_mini third'>";
+                    echo        "<h4>".$row["titel"]."</h4>";
+                    echo        "<p class='vac_mini_info'>".$row["naam"]." | ".$row["locatie"]." | ".$datum." ".$tijd."</p>";
+                    echo        "<p class='vac_mini_beschr'>".$res_beschr."...</p>";
+                    echo    "</div>";        
+                    echo "</a>";    
+
+                } ?>
+            
+            <!--<div class="columns">
                 <h2 class="looks_like_h1">Title #1</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
             </div>
@@ -97,7 +122,7 @@
             <div class="columns col">
                 <h2 class="looks_like_h1">Title #3</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-            </div>
+            </div>-->
         </div> 
     </main>
     <!-- /MAIN AREA -->
