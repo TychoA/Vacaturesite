@@ -25,7 +25,7 @@
                     <a href="<?php echo $nl; ?>"><div class="nl">NL</div></a>
                 </div>
                 <div class="right">
-                    <a href="<?php echo $registreren; ?>"><div class="right_item">Registreren</div></a>              
+                    <a href="<?php echo $registreren;?>"><div class="right_item">Registreren</div></a>              
                     <a href="<?php echo $inloggen; ?>"><div class="right_item">Inloggen</div></a>
                 </div>
             </div>

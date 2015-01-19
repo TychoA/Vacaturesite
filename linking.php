@@ -10,7 +10,7 @@ $script                 =   './js/script.js';
 $home                   =   './index.php';
 $inloggen               =   './login_pagina.php';
 $uitloggen              =   './index.php';
-$registreren            =   './registratie_pagina.php';
+$registreren            =   './registratie_pagina.php?link=1';
 $profiel_deactiveren    =   '#';
 $mijn_account           =   './werknemers/mijn_account.php';
 $mijn_profiel           =   './werknemers/mijn_profiel.php';

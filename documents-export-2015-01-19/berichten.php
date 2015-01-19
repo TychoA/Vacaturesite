@@ -19,7 +19,7 @@
     
     <!-- MAIN AREA -->
     <div class="wrapper  beheer">  
-        <?php include '../includes/sidebar_werkgevers.php';?>
+        <?php include '../includes/sidebar_werknemers.php';?>
             
         <main>
             <h1>Mijn berichten</h1>

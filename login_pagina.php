@@ -2,8 +2,8 @@
 session_start();
 ob_start();
 
+$login = "";
 $valid = false;
-$loginErr = $wachtwoordErr = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {    
     if (empty($_POST['gebruikersnaam'])) {
@@ -20,7 +20,7 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     
-    $sql = $db->prepare("SELECT email, wachtwoord FROM werknemers");
+    $sql = $db->prepare("SELECT werkgevers.email, werkgevers.wachtwoord FROM werkgevers LEFT JOIN werknemers ON (werkgevers.email = werknemers.email AND werkgevers.wachtwoord = werknemers.wachtwoord) UNION SELECT werknemers.email, werknemers.wachtwoord FROM werknemers LEFT JOIN werkgevers ON (werknemers.email = werkgevers.email AND werknemers.wachtwoord = werkgevers.wachtwoord)");
     $sql->execute();
     
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -28,7 +28,7 @@ try {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($row['email'] === $_POST['gebruikersnaam'] && $row['wachtwoord'] === $_POST['wachtwoord']) {
             $valid = true;
-            }
+            }  
         }
     }   
     if ($valid) {
@@ -69,7 +69,8 @@ catch(PDOException $ex) {
                 <label for="wachtwoord">Wachtwoord</label>
                 <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50" required>
                 
-                <input type="submit" class="login_button" value="Login">
+                <input type="submit" class="login_button" value="Login" name="submit">
+                <?php if (isset($_POST['submit'])) { echo "<script>alert('Deze inloggegevens zijn incorrect!')</script>";} ?>
             </form>    
         </div>
     </div>
