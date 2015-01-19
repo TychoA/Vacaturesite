@@ -1,5 +1,7 @@
 <html>
-    <?php include './linking.php';?>
+    <?php 
+    session_start();
+    include './linking.php'; ?>
 
     <!-- HEADER AREA -->
     <?php include '../includes/header.php';?>
@@ -22,56 +24,23 @@
         <?php include '../includes/sidebar_werknemers.php';?>
             
         <main>
-            <h1>Mijn Berichten</h1>
-            <p class="back">
+            <h1>Mijn berichten</h1>
+            <p class="back inbox">
                 <a href="<?php echo $mijn_account; ?>">
                     <i class="fa fa-chevron-left"></i>Terug naar overzicht
                 </a>
+                <a class="toInbox">
+                     <i class="fa fa-inbox fa-2x"></i>Ontvangen
+                </a>
+                <a class="toSend">
+                     <i class="fa fa-send fa-2x"></i>Verstuurd
+                </a>
             </p>
                 
-            <div class="full">
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="vac_mini_info">Afzener | Tijd en datum</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>   
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="vac_mini_info">Afzener | Tijd en datum</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div> 
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="vac_mini_info">Afzener | Tijd en datum</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>   
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="vac_mini_info">Afzener | Tijd en datum</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div> 
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="vac_mini_info">Afzener | Tijd en datum</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div> 
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope-o fa-fw"></i> Titel bericht</h4>
-                    <p class="vac_mini_info">Afzener | Tijd en datum</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>
+            <div class="full" id="divInbox">
+                <?php 
+                     include 'inbox.php';
+                ?>
             </div>
         </main>
     </div>
@@ -81,7 +50,9 @@
         <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
     
+    <script>
     
+    </script>
 </body>
     
 </html>

@@ -933,3 +933,22 @@ i.fa-times{
     font-family: 'Open Sans', sans-serif;
 }
 
+main .inbox a {
+    margin-right: 15px;
+}
+
+main .inbox a:active, main .inbox a:hover {
+    color: tomato;
+}
+
+.ber_mini h4.klikt {
+    cursor: pointer
+}
+
+.toInbox {
+    cursor: pointer;
+}
+
+.toSend {
+    cursor: pointer;
+}
