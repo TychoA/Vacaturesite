@@ -11,18 +11,25 @@
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $vac_id_wg = $row["ID_werkgevers"];
             $vac_naam_wg = $row["naam"];
-            $vac_datum = strtotime($row['datum']);
-            $vac_datum_2 = date("m/d/y",$vac_datum);
+            
+            $vac_titel = $row["titel"];
+            
+            $vac_timestamp = strtotime($row['datum']);
+            $vac_datum = date("m/d/y",$vac_timestamp);
+            $vac_tijd = date("H:i",$vac_timestamp);
+            
             $vac_duur = $row["duur"];
             $vac_opleidingen = $row["opleidingen"];
             $vac_locatie = $row["locatie"];
+            $vac_tags = $row["tags"];
+            
             $vac_foto = $row["foto"];
             $vac_url_foto = $row["url_foto"];
-            $vac_titel = $row["titel"];
+            
             $vac_beschrijving_aanbod = $row["beschrijving_aanbod"];
             $vac_beschrijving_eisen = $row["beschrijving_eisen"];
             $vac_beschrijving_overig = $row["beschrijving_overige"];
-            $vac_tags = $row["tags"];
+            
         }
     ?>
     
@@ -95,7 +102,7 @@
             </form>
             
             <h1><?php echo $vac_titel; ?></h1>
-            <p class="date_added">Geplaatst op <?php echo $vac_datum_2; ?></p>
+            <p class="date_added">Geplaatst op <?php echo $vac_datum; ?> om <?php echo $vac_tijd; ?></p>
             
             <div class="full alg_informatie">
                 <h2>Algemene informatie</h2>
