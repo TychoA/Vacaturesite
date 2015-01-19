@@ -1,15 +1,38 @@
 <?php
 $valid = false;
-$voornaamErr = $achternaamErr = $plaatsnaamErr = $gebruikerErr = $telefoonErr = $passwordErr = "";
+$werkgever = "false";
+$werknemer = "false";
 
-if (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
+// Variabelen voor werkgevers
+if (isset($_POST['bedrijf'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
 {
-$params = array(":naam"=>$_POST['voornaam'], 
+    $params = array(":naam"=>$_POST['bedrijf'],
+                    ":plaatsnaam"=>$_POST['plaatsnaam'],
+                    ":email"=>$_POST['gebruikersnaam'],
+                    ":telefoon"=>$_POST['telefoon'],
+                    ":wachtwoord"=>$_POST['wachtwoord']);
+                   
+                    foreach($params as $par) { echo $par . "<br>";}
+                    echo "<br>" . "werkgever";
+                    $werkgever = true;
+} 
+
+// Variabelen voor werknemers
+elseif (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
+{
+    $params = array(":naam"=>$_POST['voornaam'], 
                 ":achternaam"=>$_POST['achternaam'], 
                 ":plaatsnaam"=>$_POST['plaatsnaam'], 
                 ":email"=>$_POST['gebruikersnaam'], 
                 ":telefoon"=>$_POST['telefoon'], 
                 ":wachtwoord"=>$_POST['wachtwoord']);
+                
+                foreach($params as $par) {echo $par . "<br>";};
+                echo "<br>" . "werknemer";
+                $werkgever = true;
+
+}
+    if (!empty($params)) {
     try 
     {
         $db = new PDO('mysql:host=localhost; dbname=stagepeer', 'root', 'root');
@@ -20,17 +43,27 @@ $params = array(":naam"=>$_POST['voornaam'],
             if (!empty($par)) {
                 $valid = true;
             }
-        }    
-        if ($valid) {
+        }  
+        // Invoegen in de werknemer database
+        if ($valid && $werknemer == true) {
             $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, plaatsnaam, email) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email)");
             $sql->execute($params);
-        } 
-
+            
+            
+        } elseif($valid && $werkgever == true) {
+        // Invoegen in de werkgever database
+             $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, plaatsnaam, email) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email)");
+             $sql->execute($params);
+            
+            
+        }   
     }   
     catch(PDOException $ex) {
         echo $ex . "error";
     }  
-}
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -56,35 +89,27 @@ $params = array(":naam"=>$_POST['voornaam'],
             <h2>Registratie</h2>
                 <div class="gebruikersnaam">
                     <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
-                    <!-- NAAM -->
-                    <label for="voornaam">Voornaam</label>
-                    <input class="input_voornaam" type="text" name="voornaam" placeholder="Voornaam" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,20}$" required>
-                        
-                    <!-- ACHTERNAAM -->
-                    <label for="achternaam">Achternaam</label>
-                    <input class="input_achternaam" type="text" name="achternaam" placeholder="Achternaam" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,30}$" required>
-                        
-                    <!-- PLAATSNAAM -->
-                    <label for="plaatsnaam">Plaatsnaam</label>
-                    <input class="input_plaatsnaam" type="text" name="plaatsnaam" placeholder="Plaatsnaam" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,30}$" required>
                     
-                    <!-- EMAIL -->
-                    <label for="gebruikersnaam">E-mail</label>
-                    <input class="input_gebruikersnaam" type="email" name="gebruikersnaam" placeholder="E-mail" required>
+                    <!-- TEST -->    
+                    <a href="?link=1" name="Werknemer" id="werknemer">Werknemer</a> 
+                    <a href="?link=2" name="Werkgever" id="werkgever">Werkgever</a>
                         
-                    <!-- TELEFOON -->
-                    <label for="telefoon">Telefoon</label>
-                    <input class="input_telefoon" type="text" name="telefoon" placeholder="Telefoonnummer" pattern="^[0-9]{10}" maxlength="10" required>
-                    
-                    <!-- WACHTWOORD -->
-                    <label for="wachtwoord">Wachtwoord</label>
-                    <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" required>
-                    
-                    <input type="submit" class="login_button" value="Registreer" </input>
-                        
-                    <?php if($valid) { echo "<script>alert('Je bent succesvol registreerd!')</script>"; echo "<script>window.location = 'login_pagina.php'</script>"; } ?>
-
-                    </form>
+                    <?php 
+                        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                            $link = $_GET['link'];
+                            if ($link == '1') {
+                                include('werknemer.php');
+                                $werknemer = true;
+                            } 
+                            if ($link == '2') {
+                                include('werkgever.php');
+                                $werkgever = true;
+                            }
+                        }
+                     ?>
+                                                
+                    <?php if($valid) { echo "<script>alert('Je bent succesvol registreerd!')</script>"; echo "<script>window.location = 'login_pagina.php'</script>"; } ?>  
+                </form>
                 </div>
         </div>
     </main>
