@@ -79,6 +79,7 @@
                 $zoekveld = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['zoekveld']);
 
                 $sqlquery= "";
+                $sqlarray = "";
                 
                 $info_resultaten = "";
                     
@@ -89,14 +90,17 @@
                 if ($_POST['omgeving'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_omgeving = "locatie='" . $_POST['omgeving'] ."'";
-
+                    $query_omgeving = "locatie=:omgeving";
+                    
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
                         $sqlquery = "WHERE " . $query_omgeving;
                     } else {
                         $sqlquery .= " AND " . $query_omgeving;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':omgeving'] = $_POST['omgeving'];
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -111,7 +115,7 @@
                 if ($_POST['duur'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_duur = "duur='" . $_POST['duur'] ."'";
+                    $query_duur = "duur=:duur";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -119,6 +123,9 @@
                     } else {
                         $sqlquery .= " AND " . $query_duur;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':duur'] = $_POST['duur'];
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -133,7 +140,7 @@
                 if ($_POST['opleiding'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_opleiding = "opleidingen LIKE '%" . $_POST['opleiding'] ."%'";
+                    $query_opleiding = "opleidingen LIKE :opleiding";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -141,6 +148,9 @@
                     } else {
                         $sqlquery .= " AND " . $query_opleiding;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':opleiding'] = "%".$_POST['opleiding']."%";
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -155,7 +165,7 @@
                 if ($zoekveld != "") {
 
                     /* MAAK query deel */
-                    $query_zoekveld = "MATCH (titel, locatie, opleidingen, tags, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige) AGAINST ('".$zoekveld."' IN BOOLEAN MODE)";
+                    $query_zoekveld = "MATCH (titel, locatie, opleidingen, tags, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige) AGAINST (:zoekveld IN BOOLEAN MODE)";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -163,6 +173,10 @@
                     } else {
                         $sqlquery .= " AND " . $query_zoekveld;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':zoekveld'] = "'".$zoekveld."'";
+
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -171,12 +185,10 @@
                         $info_resultaten .= ' / "' . $zoekveld . '"';
                     }
                 }
-                
-                $query = "SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50";
-                
                 //////////////////
 
                 $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
+                $stmt->execute($sqlarray);
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
