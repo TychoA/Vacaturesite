@@ -903,3 +903,33 @@ i.fa-times{
     text-align: justify;
     color: #555;
 }
+
+/* MAREKS VERANDERINGEN */
+.button_beant {
+    width: 150px;
+    height: 25px;
+    padding: 6px;
+    background-color: tomato;
+    border: none;
+    color: white;
+    font-size: 12px;
+    border-bottom: 3px solid #A6402E;
+    cursor: pointer;
+}
+
+.button_beant:hover {
+    background-color: #B6402E;
+    border-bottom: 3px solid tomato;
+    color: lightgray;
+}
+
+.textarea_beant {
+    width: 100%;
+    border: 1px solid #DDD;
+    background-color: #F5F5F5;
+    padding: 6px;
+    margin: 10px 0; 
+    float: left;
+    font-family: 'Open Sans', sans-serif;
+}
+
