@@ -1,3 +1,23 @@
+<?php 
+    include '../includes/connect.php';
+    
+    $userID = '1'; //UserID moet al bekend zijn.
+    $aantalNieuweBerichten = 0;
+    $sql = "SELECT *
+            FROM verstuurd_werkgever 
+            INNER JOIN werkgevers
+            ON werkgevers.ID = verstuurd_werkgever.ID_werkgever 
+            AND verstuurd_werkgever.ID_werknemer=".$userID."
+            AND verstuurd_werkgever.gelezen=0";
+
+    $results = $db->query($sql);
+    foreach($results as $row) 
+    { 
+        $aantalNieuweBerichten++;
+    }
+?>
+   
+
 <sidebar>
     <img class="face" src="../img/me.png" alt="Naam Voornaam" /> 
     
@@ -13,7 +33,7 @@
         </a>
             
         <a class="sidebar_element" href="<?php echo $berichten; ?>">
-            <i class="fa fa-envelope fa-fw fa-lg"></i>5 ongelezen berichten
+            <i class="fa fa-envelope fa-fw fa-lg"></i><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
         </a>
             
         <a class="sidebar_element" href="<?php echo $instellingen; ?>">
