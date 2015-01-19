@@ -1,14 +1,6 @@
 <html>
-    
-    <!-- DATA BASE CONNECTIE -->
-    <?php        
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8',
-                'luca', 'fez7cJpE');
-        } catch(PDOException $ex) {
-            die("Something went wrong while connecting to the database!");
-        }
-    ?>
+
+    <?php include './includes/connect.php';?>
     
     <?php include './linking.php';?>
 
@@ -83,19 +75,11 @@
             <?php 
 
             if( isset($_POST['zoekveld']) && isset($_POST['omgeving']) && isset($_POST['duur']) && isset($_POST['opleiding']) ){
-                // Connect to database    
-                try {
-                    $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8', 'luca', 'fez7cJpE');
-                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-                } catch(PDOException $ex) {
-                    echo "An error occured!"; //user friendly message
-                }
-
                 // Create search output  
                 $zoekveld = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['zoekveld']);
 
                 $sqlquery= "";
+                $sqlarray = "";
                 
                 $info_resultaten = "";
                     
@@ -106,14 +90,17 @@
                 if ($_POST['omgeving'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_omgeving = "locatie='" . $_POST['omgeving'] ."'";
-
+                    $query_omgeving = "locatie=:omgeving";
+                    
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
                         $sqlquery = "WHERE " . $query_omgeving;
                     } else {
                         $sqlquery .= " AND " . $query_omgeving;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':omgeving'] = $_POST['omgeving'];
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -128,7 +115,7 @@
                 if ($_POST['duur'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_duur = "duur='" . $_POST['duur'] ."'";
+                    $query_duur = "duur=:duur";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -136,6 +123,9 @@
                     } else {
                         $sqlquery .= " AND " . $query_duur;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':duur'] = $_POST['duur'];
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -150,7 +140,7 @@
                 if ($_POST['opleiding'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_opleiding = "opleidingen LIKE '%" . $_POST['opleiding'] ."%'";
+                    $query_opleiding = "opleidingen LIKE :opleiding";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -158,6 +148,9 @@
                     } else {
                         $sqlquery .= " AND " . $query_opleiding;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':opleiding'] = "%".$_POST['opleiding']."%";
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -172,7 +165,7 @@
                 if ($zoekveld != "") {
 
                     /* MAAK query deel */
-                    $query_zoekveld = "MATCH (titel, locatie, opleidingen, tags, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige) AGAINST ('".$zoekveld."' IN BOOLEAN MODE)";
+                    $query_zoekveld = "MATCH (titel, locatie, opleidingen, tags, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige) AGAINST (:zoekveld IN BOOLEAN MODE)";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -180,6 +173,10 @@
                     } else {
                         $sqlquery .= " AND " . $query_zoekveld;
                     }
+                    
+                    /* ADD variabele SQLARRAY */
+                    $sqlarray[':zoekveld'] = "'".$zoekveld."'";
+
 
                     /* Info resultaten */
                     if ($info_resultaten == ""){
@@ -191,6 +188,7 @@
                 //////////////////
 
                 $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
+                $stmt->execute($sqlarray);
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
@@ -205,7 +203,7 @@
                     
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
                         $res_timestamp = strtotime($row['datum']);
-                        $datum = date("m/d/y",$res_timestamp);
+                        $datum = date("d/m/y",$res_timestamp);
                         $tijd = date("H:i",$res_timestamp);
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
@@ -229,12 +227,12 @@
                     echo '<p class="info">Er zijn ' . $row_count . ' resultaten gevonden voor ' . $info_resultaten . '.</p>';
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
                         $res_timestamp = strtotime($row['datum']);
-                        $datum = date("m/d/y",$res_timestamp);
+                        $datum = date("d/m/y",$res_timestamp);
                         $tijd = date("H:i",$res_timestamp);
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
                 
-                        echo "<a href=".$detail_vacature."?id=.".$row["ID"].">";
+                        echo "<a href=".$detail_vacature."?id=".$row["ID"].">";
                         echo    "<div class='vac_mini'>";
                                     if($row["foto"]==1){ 
                         echo            "<img src=".$row['url_foto']." alt=".$row['naam']."/>"; 

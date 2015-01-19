@@ -404,6 +404,15 @@ footer {
     margin-top: -10px;
     background: rgba(255, 255, 255, 0.9);
 }
+.nieuwste_vac {
+    padding: 60px 0;
+}
+.nieuwste_vac .third {
+    width: 260px;
+    height: 100px;
+    float: left;
+    margin: 20px 15px;
+}
 .columns {
     float: left;
     width: 230px;
@@ -574,11 +583,18 @@ main .clear {
     margin-right: 30px;
 }
 .blok_search form {
-    padding: 20px 0; 
+    padding: 0; 
+    margin: 0;
 }
-.blok_search span{
-    width: 20%; 
-    float: left;
+.blok_search form p{
+    width: 65px; 
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.blok_search form .search{
+    width: 100%;
+    margin-top: 15px;
 }
 .blok_search input{
     width: 80%;
@@ -587,15 +603,23 @@ main .clear {
     padding: 6px; 
     margin-bottom: 15px;
 }
-.blok_search input#zoekwoorden {
-    width: 100%; 
+.blok_search .filters {
+    width: 123px;
 }
-.blok_search input#duur {
-    width: 20px;
+.blok_search .omgeving {
+    width: 65px;
+}
+.blok_search .periode {
+    width: 52px;
+    margin-left: 10px;
+}
+.blok_search .studie {
+    width: 45px;
+    margin-left: 10px;
 }
 .blok_search input#submit {
     width: 100%;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
     background-color: tomato;
     color: #FFF;
     font-weight: 600;
@@ -603,6 +627,15 @@ main .clear {
     text-transform: uppercase;
     font-size: 12px;
 }
+.beheer .info {
+    color: #888;
+    font-size: 11px;
+    text-align: left;
+    font-style: italic;
+    letter-spacing: 1px;
+    padding: 0 15px;
+}
+
 
 /* EDIT PROFILE */
 main .fa-pencil {

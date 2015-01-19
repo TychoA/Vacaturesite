@@ -1,33 +1,35 @@
 <html>
-    
-    <!-- DATA BASE CONNECTIE -->
-    <?php        
-        try {
-            $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8',
-                'luca', 'fez7cJpE');
-        } catch(PDOException $ex) {
-            die("Something went wrong while connecting to the database!");
-        }
 
-        $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=1');
-        $stmt->execute(array());
+    <?php include './includes/connect.php';?>
+    
+    <?php        
+
+        $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=:id');
+        $stmt->execute(array(':id' => $_GET['id']));
         $stmt->execute();
  
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $vac_id_wg = $row["ID_werkgevers"];
             $vac_naam_wg = $row["naam"];
-            $vac_datum = strtotime($row['datum']);
-            $vac_datum_2 = date("m/d/y",$vac_datum);
+            
+            $vac_titel = $row["titel"];
+            
+            $vac_timestamp = strtotime($row['datum']);
+            $vac_datum = date("m/d/y",$vac_timestamp);
+            $vac_tijd = date("H:i",$vac_timestamp);
+            
             $vac_duur = $row["duur"];
             $vac_opleidingen = $row["opleidingen"];
             $vac_locatie = $row["locatie"];
+            $vac_tags = $row["tags"];
+            
             $vac_foto = $row["foto"];
             $vac_url_foto = $row["url_foto"];
-            $vac_titel = $row["titel"];
+            
             $vac_beschrijving_aanbod = $row["beschrijving_aanbod"];
             $vac_beschrijving_eisen = $row["beschrijving_eisen"];
             $vac_beschrijving_overig = $row["beschrijving_overige"];
-            $vac_tags = $row["tags"];
+            
         }
     ?>
     
@@ -99,14 +101,8 @@
                 <input class="submit" name="zoeken" type="submit" value="Zoeken">
             </form>
             
-            <p class="back back_zoekresultaten">
-                <a href="<?php echo $zoekresultaten; ?>">
-                    <i class="fa fa-chevron-left">  </i>Terug naar overzicht met zoekresultaten
-                </a>
-            </p>
-            
             <h1><?php echo $vac_titel; ?></h1>
-            <p class="date_added">Geplaatst op <?php echo $vac_datum_2; ?></p>
+            <p class="date_added">Geplaatst op <?php echo $vac_datum; ?> om <?php echo $vac_tijd; ?></p>
             
             <div class="full alg_informatie">
                 <h2>Algemene informatie</h2>

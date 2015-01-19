@@ -1,4 +1,6 @@
 <html>
+    <?php include '../includes/connect.php';?>
+    
     <?php include './linking.php';?>
 
     <!-- HEADER AREA -->
@@ -30,16 +32,34 @@
             </p>
                 
             <div class="full"> 
-                <div class="vac_mini">
-                    <h4><i class="fa fa-heart fa-fw"></i> Titel vacature</h4>
-                    <p class="vac_mini_info">Naam bedrijf | Locatie | Duur | Geplaatst op 12/01/'15</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div>
-                <div class="vac_mini">
-                    <h4><i class="fa fa-heart fa-fw"></i> Titel vacature</h4>
-                    <p class="vac_mini_info">Naam bedrijf | Locatie | Duur | Geplaatst op 12/01/'15</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div>
+                
+                <?php 
+            
+                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werkgevers.ID = 1");
+                $stmt->execute();
+                $row_count = $stmt->rowCount();
+
+                if ($row_count > 0) {
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+                        $res_timestamp = strtotime($row['datum']);
+                        $datum = date("d/m/y",$res_timestamp);
+                        $tijd = date("H:i",$res_timestamp);
+
+                        $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 300);
+
+                        echo "<a href=".$detail_vacature."?id=".$row["ID_vacatures"].">";
+                        echo    "<div class='vac_mini'>";
+                        echo        "<h4><i class='fa fa-heart fa-fw'></i> ".$row["titel"]."</h4>";
+                        echo        "<p class='vac_mini_info'>".$row["naam"]." | ".$row["locatie"]." | Geplaatst op ".$datum." om ".$tijd."</p>";
+                        echo        "<p class='vac_mini_beschr'>".$res_beschr."...</p>";
+                        echo    "</div>";        
+                        echo "</a>";    
+
+                    }
+                } else {
+                    echo "<p class='info'>Je hebt nog geen vacature als favoriet opgeslagen!</p>";
+                }?>
+                
             </div>
         </main>
     </div>
