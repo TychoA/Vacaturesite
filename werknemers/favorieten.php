@@ -1,5 +1,5 @@
 <html>
-    <?php include '../includes/database_con.php';?>
+    <?php include '../includes/connect.php';?>
     
     <?php include './linking.php';?>
 
