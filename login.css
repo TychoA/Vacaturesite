@@ -8,7 +8,7 @@ h2 {
 
 .input_gebruikersnaam, .input_wachtwoord{
     margin: 0 auto;
-    float: left;
+    float: right;
     padding-right: 52px;
     margin-bottom: 20px;
 }
@@ -17,14 +17,16 @@ h2 {
     float: left;
     width: 120px;
     text-align: left;
+    margin-bottom: 19px;
 }
 
 .gebruikersnaam {
     margin: 0 auto;
     margin-top: 50px;
-    width: 300px;
+    width: 350px;
 }
 
 main .login_button {
     margin-top: 10px;
+    width:350px;
 }

@@ -2,12 +2,15 @@ main .wrapper { text-align: center; }
 
 h2 { color:tomato; }
 
-main .login_button { margin-top: 10px; }
+main .login_button { 
+    margin-top: 10px;
+    width: 350px;
+}
 
 .soort { color: grey;}
 
-.input_gebruikersnaam, .input_wachtwoord, .input_voornaam, .input_achternaam, .input_telefoon, .input_plaatsnaam , .soort{
-    float: left;
+.input_gebruikersnaam, .input_wachtwoord, .input_voornaam, .input_achternaam, .input_telefoon, .input_plaatsnaam {
+    float: right;
     padding-right: 52px;
     margin-bottom: 20px;
 }
@@ -23,7 +26,7 @@ main .login_button { margin-top: 10px; }
 .gebruikersnaam {
     margin: 0 auto;
     margin-top: 20px;
-    width: 300px;
+    width: 350px;
 }
 
 #werknemer { float:left; }
