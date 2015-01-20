@@ -11,7 +11,8 @@ if (isset($_POST['bedrijf'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_P
                     ":plaatsnaam"=>$_POST['plaatsnaam'],
                     ":email"=>$_POST['gebruikersnaam'],
                     ":telefoon"=>$_POST['telefoon'],
-                    ":wachtwoord"=>$_POST['wachtwoord']);
+                    ":wachtwoord"=>$_POST['wachtwoord'],
+                   ":soort"=>"werkgever");
                     $werkgever = true;
 } 
 // Variabelen voor werknemers
@@ -22,7 +23,8 @@ elseif (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['plaatsnaam'], $_
                 ":plaatsnaam"=>$_POST['plaatsnaam'], 
                 ":email"=>$_POST['gebruikersnaam'], 
                 ":telefoon"=>$_POST['telefoon'], 
-                ":wachtwoord"=>$_POST['wachtwoord']);
+                ":wachtwoord"=>$_POST['wachtwoord'],
+                   ":soort"=>"werknemer");
                 $werknemer = true;
 
 }
@@ -44,7 +46,6 @@ if (!empty($params)) {
         $check = $db->prepare("SELECT werknemers.email FROM werknemers LEFT JOIN werkgevers ON werknemers.email = werkgevers.email UNION SELECT werkgevers.email FROM werkgevers LEFT JOIN werknemers ON werkgevers.email = werknemers.email");
         $check->execute();
         $result = $check->fetchAll(PDO::FETCH_ASSOC);
-        print_r($result);
         foreach ($result as $email) {
             if ($email['email'] == $_POST['gebruikersnaam']) {
                 $replica = true;
@@ -53,13 +54,13 @@ if (!empty($params)) {
 
         // Invoegen in de werknemer database
         if ($valid == true && $werknemer == true && $replica == false) {
-            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, plaatsnaam, email) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email)");
+            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, plaatsnaam, email, soort) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
             $sql->execute($params);
 
 
         } elseif($valid == true && $werkgever == true && $replica == false) {
         // Invoegen in de werkgever database
-            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, plaatsnaam, email) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email)");
+            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, plaatsnaam, email, soort) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
             $sql->execute($params); 
         }   
     }   
@@ -91,12 +92,10 @@ if (!empty($params)) {
         <div class="wrapper">
             <h2>Registratie</h2>
                 <div class="gebruikersnaam">
+                    <a class="soort" href="?link=1" name="Werknemer" id="werknemer">Werknemer</a> 
+                    <a class="soort" href="?link=2" name="Werkgever" id="werkgever">Werkgever</a>                        
                     <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
-                    
-                    <!-- TEST -->    
-                    <a href="?link=1" name="Werknemer" id="werknemer">Werknemer</a> 
-                    <a href="?link=2" name="Werkgever" id="werkgever">Werkgever</a>
-                        
+                      
                     <?php 
                         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             $link = $_GET['link'];
