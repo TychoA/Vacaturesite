@@ -5,33 +5,35 @@ ob_start();
 $login = "";
 $valid = false;
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {    
-    if (empty($_POST['gebruikersnaam'])) {
-        $loginErr = "E-mail of wachtwoord is incorrect";
-        $valid = false;
-    }
-    if (empty($_POST['wachtwoord'])) {
-        $wachtwoordErr = "Wachtwoord ontbreekt";
-        $valid = false;
-    }
-}
 try {
-    $db = new PDO('mysql:host=localhost; dbname=stagepeer', 'root', 'root');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+     include('./includes/connect.php');
     
-    $sql = $db->prepare("SELECT werkgevers.email, werkgevers.wachtwoord FROM werkgevers LEFT JOIN werknemers ON (werkgevers.email = werknemers.email AND werkgevers.wachtwoord = werknemers.wachtwoord) UNION SELECT werknemers.email, werknemers.wachtwoord FROM werknemers LEFT JOIN werkgevers ON (werknemers.email = werkgevers.email AND werknemers.wachtwoord = werkgevers.wachtwoord)");
+    $sql = $db->prepare("SELECT werkgevers.id, werkgevers.email, werkgevers.wachtwoord, werkgevers.soort FROM werkgevers LEFT JOIN werknemers ON (werkgevers.email = werknemers.email AND werkgevers.wachtwoord = werknemers.wachtwoord AND werkgevers.soort = werknemers.soort AND werkgevers.id = werknemers.id) UNION SELECT werknemers.id, werknemers.email, werknemers.wachtwoord, werknemers.soort FROM werknemers LEFT JOIN werkgevers ON (werknemers.email = werkgevers.email AND werknemers.wachtwoord = werkgevers.wachtwoord AND werknemers.soort = werkgevers.soort AND werknemers.id = werkgevers.id)");
     $sql->execute();
-    
+        
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row) {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if ($row['email'] === $_POST['gebruikersnaam'] && $row['wachtwoord'] === $_POST['wachtwoord']) {
-            $valid = true;
-            }  
+    foreach($result as $row) 
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+        {
+            if ($row['email'] === trim($_POST['gebruikersnaam']) && $row['wachtwoord'] === trim($_POST['wachtwoord'])) 
+            {
+                if ($row['soort'] == "werknemer") 
+            {
+                $werknemer = true;
+                $_SESSION['werknemerid'] = $row['id'];
+                
+            } else 
+            {
+                $werkgever = true;
+                $_SESSION['werkgeverid'] = $row['id'];
+            }
+                $valid = true;
+            }
         }
     }   
-    if ($valid) {
+    if ($valid) 
+    {
         header ( 'Location:index.php');
     }
 } 
