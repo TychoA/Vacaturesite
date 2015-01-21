@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-include '../connect.php';
+include '../includes/connect.php';
 
 $bedrijfID = $_SESSION['bedrijfID'];
 $antwoord = strip_tags($_POST['update_text']);

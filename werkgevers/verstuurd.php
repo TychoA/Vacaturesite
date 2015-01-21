@@ -1,6 +1,6 @@
 <?php  
     session_start();
-    include '../connect.php';
+    include '../includes/connect.php';
 
     $bedrijfID = $_SESSION['bedrijfID']; // UserID moet al bekend zijn.
     $array_ber = []; //alle bericht-gegevens + naam werkgever

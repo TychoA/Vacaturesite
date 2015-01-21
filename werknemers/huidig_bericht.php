@@ -1,22 +1,22 @@
 <?php 
-session_start();
+session_start(); 
 include '../includes/connect.php';
 
 $array_berichten = $_SESSION['array_ber'];
-$bericht_klikt = $_GET["id"]; // Nummer van aangeklikte bericht wordt uit de URL gehaald
+$bericht_klikt = $_GET["id"]; // Nummer van aangeklikte bericht wordt uit de URL gehaald (zie JS)
 
 $titel = $array_berichten[$bericht_klikt][0];
 $werkgever = $array_berichten[$bericht_klikt][1];
 $datum = $array_berichten[$bericht_klikt][2];
 $bericht = $array_berichten[$bericht_klikt][3];
 $bericht_ID = $array_berichten[$bericht_klikt][5];
-$werknemer_ID = $array_berichten[$bericht_klikt][6];
+$werkgever_ID = $array_berichten[$bericht_klikt][6];
 $vacature_ID = $array_berichten[$bericht_klikt][7];
 
-$_SESSION['array_beantwoorden'] = [$titel, $werkgever, $datum, $bericht, $bericht_ID, $werknemer_ID, $vacature_ID];
+$_SESSION['array_beantwoorden'] = [$titel, $werkgever, $datum, $bericht, $bericht_ID, $werkgever_ID, $vacature_ID];
 
-// Update of het bericht gelezen is of niet
-$update_gelezen = "UPDATE verstuurd_werknemer SET gelezen='1' WHERE ID=".$bericht_ID;
+// Update of het bericht gelezen
+$update_gelezen = "UPDATE verstuurd_werkgever SET gelezen='1' WHERE ID=".$bericht_ID;
 $db->query($update_gelezen);
 
 // Weergeven van aangeklikte bericht
@@ -25,7 +25,6 @@ echo '<div class="ber_mini">
         <p class="vac_mini_info">'.$werkgever.' | '.$datum.'</p>
         <p class="ber_mini_beschr">'.$bericht.'</p>
       </div>';
-
 ?>
 
 <div class="ber_beant">

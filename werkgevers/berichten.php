@@ -1,5 +1,7 @@
 <html>
-    <?php include './linking.php'; ?>
+    <?php 
+        session_start();
+        include './linking.php'; ?>
 
     <!-- HEADER AREA -->
     <?php include '../includes/header.php';?>
