@@ -7,7 +7,17 @@ window.onload = function () {
         unreadMails = document.getElementsByClassName('unread').length,
         verstuurdKlik = false, //check of erop ontvangen is geklikt
         AlRead = false,
-        clicked; // Onthoudt welk bericht wordt aangeklikt
+        webadres = window.location.href,// Check op welke pagina we zitten
+        clicked, // Onthoudt welk bericht wordt aangeklikt
+        reageerDiv = document.getElementsByClassName('reageren')[0], // Variablen voor het reageren op vacatures
+        beantwoordArea = document.getElementsByClassName('beantwoorden')[0],
+        beantwoordClicked = 0;
+    
+    //
+    // HIERONDER: ALLES VOOR DE INBOX
+    // INLADEN VAN INBOX, VERSTUURD, HUIDIG_BERICHT; 
+    // WETEN WELK BERICHT IS GEKLIKT,
+    //
     
     function getXMLHttpRequest() { // Ook voor oudere browsers
         if (window.XMLHttpRequest) {
@@ -137,8 +147,40 @@ window.onload = function () {
         
     }
     
-    toInbox.onclick = loadInbox;
-    toSend.onclick = loadSend;
+    // Alleen als we op berichten.php zitten, dit laden.
+    if (webadres.indexOf('berichten.php') >= 0) {
+        toInbox.onclick = loadInbox;
+        toSend.onclick = loadSend;
+        makeClickable();
+    }
     
-    makeClickable();
+    //
+    // HIERONDER: DETAILS_VACATURE PAGINA
+    // FUNCTIE'S VOOR HET OPENEN VAN REAGEREN
+    //
+    
+    function slowFall() {
+        var textarea = document.getElementById('beantwoord'), i = 50,
+            fall = setInterval(function () {
+                textarea.style.height = i;
+                if (i < 200) {
+                    i += 10;
+                } else {
+                    clearInterval(fall);
+                }
+            }, 50);
+        
+        fall();
+    }
+
+    reageerDiv.onclick = function () {
+        if (!beantwoordClicked) {
+            beantwoordArea.style.display = 'block';
+            beantwoordClicked = 1;
+            slowFall();
+        } else {
+            beantwoordArea.style.display = 'none';
+            beantwoordClicked = 0;
+        }
+    };
 };
