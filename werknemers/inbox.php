@@ -1,7 +1,7 @@
 <?php  
     include '../includes/connect.php';
 
-    $userID = '1'; //UserID moet al bekend zijn.
+    $userID = $_SESSION['werknemersid']; //UserID moet al bekend zijn.
     $array_ber = []; //alle bericht-gegevens + naam werkgever
 
     //SQL-query om alle berichten en werkgevers-naam op te vragen in phpmyadmin
