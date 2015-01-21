@@ -1,30 +1,16 @@
 <?php session_start(); ?>
 <html>
     
-    <?php // include './includes/connect.php';?>
+    <?php include './includes/connect.php'; ?>
     
-    <?php include './linking.php';?>
+    <?php include './linking.php'; ?>
 
     <!-- HEADER AREA -->
-    <?php include './includes/header.php';?>
+    <?php include './includes/header.php'; ?>
             
         <div class="sub_menu_home"></div>    
     </header>
     <!-- /HEADER AREA -->
-    
-    <!-- INLOG POP-UP -->
-    <!--<section class="login_outer">
-        <div class="login">
-            <i class="fa fa-times"></i>
-            <form>
-                <h2>Log in</h2>
-                <input type="text" class="login_box" placeholder="Gebruikersnaam">
-                <input type="text" class="login_box" placeholder="Wachtwoord">  
-                <input type="submit" class="login_button" value="Verstuur">
-            </form>  
-        </div>
-    </section>-->
-    <!-- /INLOG POP-UP -->
 
     <!-- MAIN AREA -->
     <main class="no_top_padding">
@@ -87,7 +73,27 @@
         <div class="wrapper nieuwste_vac">
             <h2 class="looks_like_h1">Nieuwste vacatures</h2>
             
-            
+            <?php 
+             
+                $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID ORDER BY datum DESC LIMIT 3");
+                $stmt->execute();
+                $row_count = $stmt->rowCount();
+
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+                    $res_timestamp = strtotime($row['datum']);
+                    $datum = date("d/m/y H:i",$res_timestamp);
+
+                    $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
+
+                    echo "<a href=".$detail_vacature."?id=".$row["ID"].">";
+                    echo    "<div class='vac_mini third'>";
+                    echo        "<h4>".$row["titel"]."</h4>";
+                    echo        "<p class='vac_mini_info'>".$row["naam"]." | ".$row["locatie"]." | ".$datum."</p>";
+                    echo        "<p class='vac_mini_beschr'>".$res_beschr."...</p>";
+                    echo    "</div>";        
+                    echo "</a>";    
+
+                } ?>
         </div> 
     </main>
     <!-- /MAIN AREA -->
