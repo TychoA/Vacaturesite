@@ -99,6 +99,7 @@ window.onload = function () {
                 }
             }
         }
+<<<<<<< HEAD
 
         if (onRequest !== null) {
             onRequest.open("GET", "inbox.php", true);
@@ -129,6 +130,11 @@ window.onload = function () {
 
         if (onRequest !== null) {
             onRequest.open("GET", "verstuurd.php", true);
+=======
+
+        if (onRequest !== null) {
+            onRequest.open("GET", "inbox.php", true);
+>>>>>>> d7534605867a55b8cb082be950722e5c5645206d
             onRequest.onreadystatechange = handler;
             onRequest.send(null);
         } else {
@@ -137,10 +143,41 @@ window.onload = function () {
         
     }
     
+<<<<<<< HEAD
+=======
+    function loadSend() {
+        var onRequest = getXMLHttpRequest();
+        function handler() {
+            if (onRequest.readyState === 4) {
+                if (onRequest.status === 200) {
+                    var verstuurd = document.getElementsByClassName('klikt verstuurd');
+                    document.getElementById('divInbox').innerHTML = onRequest.responseText;
+                    // Opnieuw h4 klikbaar maken
+                    makeClickable();
+                    
+                    for (j = 0; j < verstuurd.length; j += 1) {
+                        verstuurd[j].addEventListener("click", ver_Klik(j));
+                    }
+                }
+            }
+        }
+
+        if (onRequest !== null) {
+            onRequest.open("GET", "verstuurd.php", true);
+            onRequest.onreadystatechange = handler;
+            onRequest.send(null);
+        } else {
+            window.alert("AJAX (XMLHTTP) not supported.");
+        }
+        
+    }
+    
+>>>>>>> d7534605867a55b8cb082be950722e5c5645206d
     toInbox.onclick = loadInbox;
     toSend.onclick = loadSend;
     
     makeClickable();
+<<<<<<< HEAD
 };
 
 /* DELETE FAVORIET */
@@ -148,3 +185,6 @@ window.onload = function () {
 
         
 }*/
+=======
+};
+>>>>>>> d7534605867a55b8cb082be950722e5c5645206d
