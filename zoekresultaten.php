@@ -90,7 +90,7 @@
                 if ($_POST['omgeving'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_omgeving = "locatie=:omgeving";
+                    $query_omgeving = "locatie=:omgeving OR locatie='alles'";
                     
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -140,7 +140,7 @@
                 if ($_POST['opleiding'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_opleiding = "opleidingen LIKE :opleiding";
+                    $query_opleiding = "opleidingen='alles' OR opleidingen LIKE :opleiding";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){

@@ -721,15 +721,25 @@ main .fa-pencil:hover {
     width: 250px;
     margin-bottom: 10px;
 }
+.vac_toevoegen .info {
+    text-align: right;
+    margin-bottom: -25px;
+}
 .vac_toevoegen input, .vac_toevoegen select {
     display: inline-block;
     width: 250px;
 }
-.vac_toevoegen input#duur, .vac_toevoegen input#logo {
+.vac_toevoegen input#duur, .vac_toevoegen input#logo,
+.vac_toevoegen input#checkbox {
 		width: 10px;	
 }
-.vac_toevoegen #duur_tag, .vac_toevoegen #logo_tag {
+.vac_toevoegen #duur_tag, .vac_toevoegen #logo_tag, .vac_toevoegen #checkbox_tag {
 		margin-right: 20px;	
+} 
+.vac_toevoegen .studierichtingen {
+    display: inline-block;
+    
+    vertical-align: text-top;
 }
 .vac_toevoegen input#submit {
     background-color: tomato;
@@ -748,6 +758,11 @@ main .fa-pencil:hover {
 .vac_toevoegen_textareas textarea {
     width: 500px;
     height: 200px;
+}
+.vac_toevoegen_textareas #tags {
+    width: 500px;
+    height: 25px;
+    padding: 5px;
 }
 .vac_toevoegen input#toevoegen {
     background-color: tomato;
@@ -902,6 +917,14 @@ i.fa-times{
     line-height: 16px;
     text-align: justify;
     color: #555;
+}
+.delete {
+    float: right;
+    padding: 6px;
+    color: #888;
+}
+.delete:hover {
+    color: #444;
 }
 
 /* MAREKS VERANDERINGEN */

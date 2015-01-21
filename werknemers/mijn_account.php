@@ -76,7 +76,7 @@
             
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, werknemers.plaatsnaam, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE locatie = werkgevers.plaatsnaam");
+                $stmt = $db->prepare("SELECT ID_werkgevers, werkgevers.ID, werkgevers.naam, vacatures.ID, locatie, datum, titel, beschrijving_aanbod, werknemers.ID, werknemers.plaatsnaam FROM vacatures INNER JOIN werkgevers ON ID_werkgevers = werkgevers.ID INNER JOIN werknemers ON werknemers.plaatsnaam = locatie ORDER BY datum DESC LIMIT 3");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
@@ -106,7 +106,7 @@
                 
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werkgevers.ID = 1");
+                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werkgevers.ID = 1 LIMIT 3");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
