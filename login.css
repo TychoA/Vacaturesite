@@ -17,7 +17,7 @@ h2 {
     float: left;
     width: 120px;
     text-align: left;
-    margin-bottom: 19px;
+    clear:both;
 }
 
 .gebruikersnaam {
@@ -28,6 +28,5 @@ h2 {
 
 main .login_button {
     margin-top: 10px;
-
     width: 350px;
 }
