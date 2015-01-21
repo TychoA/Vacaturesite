@@ -952,3 +952,25 @@ main .inbox a:active, main .inbox a:hover {
 .toSend {
     cursor: pointer;
 }
+
+.reageren {
+    cursor: pointer;
+}
+
+.beantwoorden {
+    display: none;
+}
+
+#beantwoord {
+    padding: 8px;    
+}
+
+.reageren_button {
+    display: block;
+    background-color: tomato;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}

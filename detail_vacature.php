@@ -3,9 +3,9 @@
     <?php include './includes/connect.php';?>
     
     <?php        
-
+        $userID = '1';
         $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=:id');
-        $stmt->execute(array(':id' => $_GET['id']));
+        $stmt->execute(array(':id' =>   $_GET['id']));
         $stmt->execute();
  
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -30,6 +30,27 @@
             $vac_beschrijving_eisen = $row["beschrijving_eisen"];
             $vac_beschrijving_overig = $row["beschrijving_overige"];
             
+        }
+
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['beantwoord'])) {
+                $update_verzend = "INSERT INTO `stagepeer`.`verstuurd_werknemer` (`ID`, `ID_werknemer`, `ID_werkgever`, `ID_vacature`, `datum`, `titel`, `bericht`, `gelezen`) VALUES (NULL, :werknemerid, :werkgeverid, :vacatureid, CURRENT_TIMESTAMP, :new_title, :new_text, '0')";
+                
+                $sth2 = $db->prepare($update_verzend);
+                $sth2->execute(array( 
+                    ':new_text' => $_POST['beantwoord'],
+                    ':new_title' => $vac_titel,
+                    ':werknemerid' => $userID,
+                    ':werkgeverid' =>$vac_id_wg,
+                    'vacatureid' => $_GET['id']
+                 ));
+                echo '<script>alert("Uw bericht is verzonden. Bedankt voor het reageren.");</script>';
+                
+            } else {
+                echo '<script>alert("Uw bericht is NIET verzonden. Probeer het opnieuw.");</script>';    
+            }
         }
     ?>
     
@@ -134,7 +155,13 @@
                     <h2>Overige informatie</h2>
                     <p><?php echo $vac_beschrijving_overig; ?></p>
                 </div>
-                    
+                <div class="beantwoorden">
+                   <h2>Uw reactie:</h2>
+                    <form method="post" action="">
+                        <textarea name="beantwoord" id="beantwoord" cols="80" rows="1" placeholder="Geachte meneer/mevrouw,"></textarea>
+                        <button type="submit" class="reageren_button">Reageren</button>
+                    </form>
+                </div>
                 <div class="reageren">
                     Reageer nu op deze vacature
                 </div>
