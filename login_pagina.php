@@ -72,7 +72,7 @@ catch(PDOException $ex) {
                 <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50" required>
                 
                 <input type="submit" class="login_button" value="Login" name="submit">
-                <?php if (isset($_POST['submit'])) { echo "<script>alert('Deze inloggegevens zijn incorrect!')</script>";} ?>
+                <?php if (isset($_POST['submit'], $_POST['gebruikersnaam']) && $valid == false) { echo "<script>alert('Deze inloggegevens zijn incorrect!')</script>";} ?>
             </form>    
         </div>
     </div>
