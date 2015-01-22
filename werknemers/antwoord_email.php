@@ -1,8 +1,10 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();                
+}
 include '../includes/connect.php';
 
-$User_ID = $_SESSION['userID'];
+$User_ID = $_SESSION['werknemerid'];
 $antwoord = strip_tags($_POST['update_text']);
 $array_beantwoorden = $_SESSION['array_beantwoorden'];
 

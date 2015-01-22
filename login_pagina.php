@@ -16,24 +16,22 @@ try {
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') 
         {
-            if ($row['email'] === trim($_POST['gebruikersnaam']) && $row['wachtwoord'] === trim($_POST['wachtwoord'])) 
-            {
-                if ($row['soort'] == "werknemer") 
-            {
-                $werknemer = true;
-                $_SESSION['werknemerid'] = $row['id'];
-                
-            } else 
-            {
-                $werkgever = true;
-                $_SESSION['werkgeverid'] = $row['id'];
-            }
+            if ($row['email'] === trim($_POST['gebruikersnaam']) && $row['wachtwoord'] === trim($_POST['wachtwoord'])) {
+                session_destroy(); // voor de zekerheid
+                session_start();
+                if ($row['soort'] == "werknemer") {
+                    $werknemer = true;
+                    $_SESSION['werknemerid'] = $row['id'];  
+                } else {
+                    $werkgever = true;
+                    $_SESSION['werkgeverid'] = $row['id'];
+                }
                 $valid = true;
             }
         }
     }   
-    if ($valid) 
-    {
+    if ($valid) {
+        $_SESSION['valid'] = true;
         header ( 'Location:index.php');
     }
 } 

@@ -1,5 +1,8 @@
 <?php 
-session_start(); 
+if (!isset($_SESSION)) {
+        session_start();                  
+} 
+$userID = $_SESSION['werknemerid']; 
 include '../includes/connect.php';
 
 $array_berichten = $_SESSION['array_ber'];

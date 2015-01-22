@@ -6,7 +6,8 @@ $script                 =   '../js/script.js';
 
 $home                   =   '../index.php';
 $inloggen               =   '#';
-$uitloggen              =   '#';
+$uitloggen              =   '../logout.php';
+$registreren            =   './registratie_pagina.php?link=1';
 $profiel_deactiveren    =   '#';
 $mijn_account           =   './mijn_account.php';
 $mijn_profiel           =   './mijn_profiel.php';

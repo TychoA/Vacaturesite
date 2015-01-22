@@ -1,8 +1,9 @@
 <?php  
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();                
+    }
+    $bedrijfID = $_SESSION['werkgeverid'];
     include '../includes/connect.php';
-
-    $bedrijfID = $_SESSION['bedrijfID']; // UserID moet al bekend zijn.
     $array_ber = []; //alle bericht-gegevens + naam werkgever
 
     //SQL-query om alle berichten en werkgevers-naam op te vragen in phpmyadmin

@@ -1,3 +1,13 @@
+<?php session_start();
+
+// Check of je ingelogd bent EN een werknemer bent, anders ga je naar de login_pagina.php
+if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SESSION['werkgeverid']))) {
+    $bedrijfID = $_SESSION['werkgeverid'];
+} else {
+    header ( 'Location:../login_pagina.php');
+}
+
+?>
 <html>
     <?php include './linking.php';?>
 

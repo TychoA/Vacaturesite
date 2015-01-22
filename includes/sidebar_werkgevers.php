@@ -1,7 +1,10 @@
 <?php 
     include '../includes/connect.php';
-    
-    $bedrijfID = '1'; //UserID moet al bekend zijn.
+    include '../includes/connect.php';
+    if (!isset($_SESSION)) {
+        session_start();  
+    }
+    $bedrijfID = $_SESSION['werkgeverid'];
     $aantalNieuweBerichten = 0;
     $sql = "SELECT *
             FROM verstuurd_werknemer

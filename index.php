@@ -101,7 +101,6 @@
     <!-- FOOTER AREA -->
         <?php include './includes/footer.php';?>
     <!-- /FOOTER AREA -->
-<?php echo $_SESSION['werknemerid']; ?>
     
 </body>
     

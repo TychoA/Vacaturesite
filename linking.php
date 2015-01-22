@@ -1,6 +1,25 @@
 <?php
 
-/* !! linkt naar alle pagina's van werknemers en NIET naar werkgevers !! */
+//links voor werknemer of werkgever
+if (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid'])) {
+    $mijn_account           =   './werknemers/mijn_account.php';
+    $mijn_profiel           =   './werknemers/mijn_profiel.php';
+    $favorieten             =   './werknemers/favorieten.php';
+    $berichten              =   './werknemers/berichten.php';
+    $instellingen           =   './werknemers/instellingen.php';
+} elseif (isset($_SESSION['werkgeverid']) && !empty($_SESSION['werkgeverid'])) {
+    $mijn_account           =   './werkgevers/mijn_account.php';
+    $mijn_profiel           =   './werkgevers/mijn_profiel.php';
+    $favorieten             =   './werkgevers/favorieten.php';
+    $berichten              =   './werkgevers/berichten.php';
+    $instellingen           =   './werkgevers/instellingen.php';
+} else {
+    $mijn_account           =   './login_pagina.php';
+    $mijn_profiel           =   './login_pagina.php';
+    $favorieten             =   './login_pagina.php';
+    $berichten              =   './login_pagina.php';
+    $instellingen           =   './login_pagina.php';    
+}
 
 $style                  =   './css/style.css';
 $font_awesome           =   './includes/font_awesome/css/font-awesome.min.css';
@@ -12,11 +31,6 @@ $inloggen               =   './login_pagina.php';
 $uitloggen              =   './index.php';
 $registreren            =   './registratie_pagina.php?link=1';
 $profiel_deactiveren    =   '#';
-$mijn_account           =   './werknemers/mijn_account.php';
-$mijn_profiel           =   './werknemers/mijn_profiel.php';
-$favorieten             =   './werknemers/favorieten.php';
-$berichten              =   './werknemers/berichten.php';
-$instellingen           =   './werknemers/instellingen.php';
 
 $zoekresultaten         =   './zoekresultaten.php';
 $detail_vacature        =   './detail_vacature.php';

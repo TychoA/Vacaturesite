@@ -1,3 +1,13 @@
+<?php session_start(); 
+
+// Check of je ingelogd bent EN een werknemer bent, anders ga je naar de login_pagina.php
+if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid']))) {
+    $userID = $_SESSION['werknemerid'];
+} else {
+    header ( 'Location:../login_pagina.php');
+}
+
+?>
 <html>
     <?php include '../includes/connect.php';?>
     
@@ -34,8 +44,7 @@
             <div class="full"> 
                 
                 <?php 
-            
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werkgevers.ID = 1");
+                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werknemers.ID =".$userID);
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
