@@ -1,26 +1,7 @@
 <html>
-        
     <?php include '../includes/connect.php';?>
     
     <?php include './linking.php';?>
-
-<script>
-function delVac(idvac, idwn) {
-    var titel = "Titel bericht";
-    var message = "Weet u zeker dat u '" + titel + "' uit uw favorieten wilt verwijderen?";
-    
-    if (confirm(message) == true) {
-        /* code om rij uit database te verwijderen */
-        window.location.replace(<?php echo json_encode($favorieten); ?>);
-    }
-}
-</script>
-    
-    <!-- 
-        $stmt = $db->prepare("DELETE FROM favorieten WHERE ID_werknemers=:idwerknemers AND ID_vacatures=:idvacatures ");
-        $stmt->execute(array(':idwerknemers' => $ID_werknemers, ':idvacatures' => $ID_vacatures));
-    -->
-    
 
     <!-- HEADER AREA -->
     <?php include '../includes/header.php';?>
@@ -60,27 +41,20 @@ function delVac(idvac, idwn) {
 
                 if ($row_count > 0) {
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
-                        $idvac = $row["ID_vacatures"];
-                        $idwn = $row["ID_werknemers"];
                         $res_timestamp = strtotime($row['datum']);
                         $datum = date("d/m/y",$res_timestamp);
                         $tijd = date("H:i",$res_timestamp);
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 300);
 
-                        ?>
-                        <div class='vac_mini'>
-                            <a onclick="delVac()">
-                                <i class='fa fa-close fa-lg delete'></i>
-                            </a>
-                            
-                            <a href="<?php echo $detail_vacature; ?>?id=<?php echo $id; ?>">
-                                <h4><i class='fa fa-heart fa-fw'></i> <?php echo $row["titel"]; ?></h4>
-                                <p class='vac_mini_info'><?php echo $row["naam"]; ?> | <?php echo $row["locatie"]; ?> | Geplaatst op <?php echo $datum; ?> om <?php echo $tijd; ?></p>
-                                <p class='vac_mini_beschr'><?php echo $res_beschr; ?>...</p>
-                            </a>
-                       </div>
-                    <?php
+                        echo "<a href=".$detail_vacature."?id=".$row["ID_vacatures"].">";
+                        echo    "<div class='vac_mini'>";
+                        echo        "<h4><i class='fa fa-heart fa-fw'></i> ".$row["titel"]."</h4>";
+                        echo        "<p class='vac_mini_info'>".$row["naam"]." | ".$row["locatie"]." | Geplaatst op ".$datum." om ".$tijd."</p>";
+                        echo        "<p class='vac_mini_beschr'>".$res_beschr."...</p>";
+                        echo    "</div>";        
+                        echo "</a>";    
+
                     }
                 } else {
                     echo "<p class='info'>Je hebt nog geen vacature als favoriet opgeslagen!</p>";

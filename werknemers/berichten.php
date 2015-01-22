@@ -1,6 +1,6 @@
 <html>
     <?php 
-    session_start();
+
     include './linking.php'; ?>
 
     <!-- HEADER AREA -->
