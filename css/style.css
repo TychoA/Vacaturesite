@@ -86,7 +86,7 @@ header {
 
 /* LOGIN MENU */
 .menu_login {
-    height: 25px;
+    height: 30px;
     background-color: #444;
     font-size: 11px;
     letter-spacing: 0.8px;
@@ -99,11 +99,11 @@ header {
 }
 .left div {
     float: left;
-    padding: 3px 10px 6px 0px;
+    padding: 4px 10px 0px 0px;
 }
 .right div {
     float: right;
-    padding: 3px 0px 6px 10px;
+    padding: 4px 0px 0px 10px;
 }
 .EN, .NL, .right_item {
     display: inline-block;
