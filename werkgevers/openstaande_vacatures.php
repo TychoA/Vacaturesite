@@ -9,6 +9,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
 
 ?>
 <html>
+    <?php include '../includes/connect.php';?>
     <?php include './linking.php';?>
 
     <!-- HEADER AREA -->
@@ -40,36 +41,33 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
             </p>
                 
             <div class="full">
-                <div class="vac_mini">
-                    <h4>Titel vacature</h4>
-                    <p class="vac_mini_info">Locatie | Duur | Geplaatst op 01-01-2015</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div> 
-                <div class="vac_mini">
-                    <h4>Titel vacature</h4>
-                    <p class="vac_mini_info">Locatie | Duur | Geplaatst op 01-01-2015</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div>
-                <div class="vac_mini">
-                    <h4>Titel vacature</h4>
-                    <p class="vac_mini_info">Locatie | Duur | Geplaatst op 01-01-2015</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div> 
-                <div class="vac_mini">
-                    <h4>Titel vacature</h4>
-                    <p class="vac_mini_info">Locatie | Duur | Geplaatst op 01-01-2015</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div>
-                <div class="vac_mini">
-                    <h4>Titel vacature</h4>
-                    <p class="vac_mini_info">Locatie | Duur | Geplaatst op 01-01-2015</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div> 
-                <div class="vac_mini">
-                    <h4>Titel vacature</h4>
-                    <p class="vac_mini_info">Locatie | Duur | Geplaatst op 01-01-2015</p>
-                    <p class="vac_mini_beschr">Lorem ipsum dolor sit amet est tu, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, acd...</p>
-                </div>
+                 <?php 
+            
+                $stmt = $db->prepare("SELECT ID, duur, locatie, datum, titel, beschrijving_aanbod FROM vacatures WHERE ID_werkgevers=:bedrijfid ORDER BY datum DESC");
+                $stmt->execute(array(':bedrijfid' => $bedrijfID));
+                $row_count = $stmt->rowCount();
+
+                if ($row_count > 0) {
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+                        $res_timestamp = strtotime($row['datum']);
+                        $datum = date("d/m/y H:i",$res_timestamp);
+
+                        $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);  
+
+                        echo    "<div class='vac_mini'>";
+                        echo        "<a href='#'><i class='fa fa-close fa-lg delete'></i></a>";
+                        echo        "<a href=".$detail_vacature."?id=".$row["ID_vacatures"].">";
+                        echo            "<h4>".$row["titel"]."</h4>";
+                        echo            "<p class='vac_mini_info'>".$row["duur"]." | ".$row["locatie"]." | ".$datum."</p>";
+                        echo            "<p class='vac_mini_beschr'>".$res_beschr."...</p>";
+                        echo        "</a>";
+                        echo    "</div>";   
+                        
+                        
+                    }
+                } else {
+                    echo "<p class='info'>U heeft momenteel geen openstaande vacatures! Klik links in het menu op 'Vacature toevoegen'.</p>";
+                }?>    
             </div>
         </main>
     </div>
