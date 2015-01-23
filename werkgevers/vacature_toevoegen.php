@@ -9,34 +9,34 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
 
 include '../includes/connect.php';
 
-    if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $_POST['aangeboden'], $_POST['eisen'])) {
+if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $_POST['aangeboden'], $_POST['eisen'])) {
         
-        if (empty($_POST['studierichting'])) {
-            $studierichting = "alles";
-        } else {
-            $studierichting = implode(", ", $_POST['studierichting']);
-        }
-        
-        $beschrijving_aanbod = $_POST['aangeboden'];
-        $beschrijving_eisen = $_POST['eisen'];
-        
-        if (empty($_POST['overig'])) {
-            $beschrijving_overige = "-";
-        } else {
-            $beschrijving_overige = $_POST['overig'];
-        }
-        
-        if (empty($_POST['tags'])) {
-            $tags = "-";
-        } else {
-            $tags = $_POST['tags'];
-        }
-        
-        
-        $stmt = $db->prepare("INSERT INTO vacatures(ID_werkgevers, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags) VALUES(:idwerkgevers,:duur,:opleidingen,:locatie,:foto,:titel,:beschrijving_aanbod,:beschrijving_eisen,:beschrijving_overige, :tags)");
-        $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $_POST['titel'], ':beschrijving_aanbod' => $beschrijving_aanbod, ':beschrijving_eisen' => $beschrijving_eisen, ':beschrijving_overige' => $beschrijving_overige, ':tags' => $tags));
-        
+    if (empty($_POST['studierichting'])) {
+        $studierichting = "alles";
+    } else {
+        $studierichting = implode(", ", $_POST['studierichting']);
     }
+
+    $beschrijving_aanbod = $_POST['aangeboden'];
+    $beschrijving_eisen = $_POST['eisen'];
+
+    if (empty($_POST['overig'])) {
+        $beschrijving_overige = "-";
+    } else {
+        $beschrijving_overige = $_POST['overig'];
+    }
+
+    if (empty($_POST['tags'])) {
+        $tags = "-";
+    } else {
+        $tags = $_POST['tags'];
+    }
+
+
+    $stmt = $db->prepare("INSERT INTO vacatures(ID_werkgevers, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags) VALUES(:idwerkgevers,:duur,:opleidingen,:locatie,:foto,:titel,:beschrijving_aanbod,:beschrijving_eisen,:beschrijving_overige, :tags)");
+    $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $_POST['titel'], ':beschrijving_aanbod' => $beschrijving_aanbod, ':beschrijving_eisen' => $beschrijving_eisen, ':beschrijving_overige' => $beschrijving_overige, ':tags' => $tags));
+
+}
 
 ?>
 <html>
