@@ -164,13 +164,28 @@ window.onload = function () {
             fall = setInterval(function () {
                 textarea.style.height = i;
                 if (i < 200) {
-                    i += 10;
+                    i += 4;
                 } else {
                     clearInterval(fall);
                 }
-            }, 50);
+            }, 10);
         
         fall();
+    }
+    
+    function climb() {
+        var c = 200, i, textarea = document.getElementById('beantwoord');
+        var slowClimb = setInterval(function () {
+            i = c + 'px';
+            textarea.style.height = i;
+            if (c < 0) {
+                clearInterval(slowClimb);
+                beantwoordArea.style.display = 'none';
+                beantwoordClicked = 0;
+            }
+            c -= 5;
+        }, 10);
+        slowClimb();
     }
 
     reageerDiv.onclick = function () {
@@ -179,8 +194,7 @@ window.onload = function () {
             beantwoordClicked = 1;
             slowFall();
         } else {
-            beantwoordArea.style.display = 'none';
-            beantwoordClicked = 0;
+            climb();
         }
     };
 };
