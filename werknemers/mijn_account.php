@@ -86,8 +86,8 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
             
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, werknemers.plaatsnaam, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE locatie = werkgevers.plaatsnaam");
-                $stmt->execute();
+                $stmt = $db->prepare("SELECT ID_werkgevers, werkgevers.ID, werkgevers.naam, vacatures.ID, locatie, datum, titel, beschrijving_aanbod, werknemers.ID, werknemers.plaatsnaam FROM vacatures INNER JOIN werkgevers ON ID_werkgevers = werkgevers.ID INNER JOIN werknemers ON werknemers.plaatsnaam = locatie WHERE werknemers.ID=:werknemersid ORDER BY datum DESC LIMIT 3");
+                $stmt->execute(array(':werknemersid' => $userID));
                 $row_count = $stmt->rowCount();
 
                 if ($row_count > 0) {
@@ -116,8 +116,8 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                 
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werknemers.ID =".$userID);
-                $stmt->execute();
+                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werkgevers.ID=:werknemersid LIMIT 3");
+                $stmt->execute(array(':werknemersid' => $userID));
                 $row_count = $stmt->rowCount();
 
                 if ($row_count > 0) {
