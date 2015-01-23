@@ -70,74 +70,72 @@ include '../includes/connect.php';
                 </a>
             </p>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-		            <div class="full vac_toevoegen">
-		                <p class="info">Velden met * zijn verplicht</p>
-                        <h2>Informatie</h2>
-		                
-		                <h4>Titel*</h4><input type="text" name="titel" placeholder="Titel van de vacature..." required>
-		                		
-		                <h4>Duur van stage*</h4>
-                            <input id="duur" type="radio" name="duur" value="6 maanden" checked > <span id="duur_tag">0,5 jaar</span>
-                            <input id="duur" type="radio" name="duur" value="1 jaar"> <span id="duur_tag">1 jaar</span>
-                            <input id="duur" type="radio" name="duur" value="2 jaar"> <span id="duur_tag">2 jaar</span> 
-                            <input id="duur" type="radio" name="duur" value="Anders"> <span id="duur_tag">Anders</span> 
+                <div class="full vac_toevoegen">
+                    <p class="info">Velden met * zijn verplicht</p>
+                    <h2>Informatie</h2>
 
-                            <h4>Omgeving</h4>
-                            <select name="omgeving">
-                                <option value="alles">Selecteer...</option>
-                                <option value="Noord-Holland">Noord-Holland</option>
-                                <option value="Zuid-Holland">Zuid-Holland</option>
-                                <option value="Utrecht">Utrecht</option>
-                                <option value="Flevoland">Flevoland</option>
-                                <option value="Gelderland">Gelderland</option>
-                                <option value="Overijssel">Overijssel</option>
-                                <option value="Noord-Brabant">Noord-Brabant</option>
-                                <option value="Groningen">Groningen</option>
-                                <option value="Drenthe">Drenthe</option>
-                                <option value="Friesland">Friesland</option>
-                                <option value="Limburg">Limburg</option>
-                                <option value="Zeeland">Zeeland</option>
-                                <option value="Internationaal">Internationaal</option>
-                            </select>
+                    <h4>Titel*</h4><input type="text" name="titel" placeholder="Titel van de vacature..." required>
+
+                    <h4>Duur van stage*</h4>
+                    <input id="duur" type="radio" name="duur" value="6 maanden" checked > <span id="duur_tag">0,5 jaar</span>
+                    <input id="duur" type="radio" name="duur" value="1 jaar"> <span id="duur_tag">1 jaar</span>
+                    <input id="duur" type="radio" name="duur" value="2 jaar"> <span id="duur_tag">2 jaar</span> 
+                    <input id="duur" type="radio" name="duur" value="Anders"> <span id="duur_tag">Anders</span> 
+
+                    <h4>Omgeving</h4>
+                    <select name="omgeving">
+                        <option value="alles">Selecteer...</option>
+                        <option value="Noord-Holland">Noord-Holland</option>
+                        <option value="Zuid-Holland">Zuid-Holland</option>
+                        <option value="Utrecht">Utrecht</option>
+                        <option value="Flevoland">Flevoland</option>
+                        <option value="Gelderland">Gelderland</option>
+                        <option value="Overijssel">Overijssel</option>
+                        <option value="Noord-Brabant">Noord-Brabant</option>
+                        <option value="Groningen">Groningen</option>
+                        <option value="Drenthe">Drenthe</option>
+                        <option value="Friesland">Friesland</option>
+                        <option value="Limburg">Limburg</option>
+                        <option value="Zeeland">Zeeland</option>
+                        <option value="Internationaal">Internationaal</option>
+                    </select>
                         
-                            <h4>Studierichtingen</h4>
-                            <div class="studierichtingen">
-                                <input id="checkbox" type="checkbox" name="studierichting[]" value="Informatica"> 
-                                <span id="checkbox_tag">WO - Informatica</span> <br>
-                                <input id="checkbox" type="checkbox" name="studierichting[]" value="Informatiekunde">
-                                <span id="checkbox_tag">WO - Informatiekunde</span>  <br>
-                                <input id="checkbox" type="checkbox" name="studierichting[]" value="Informatie Multimedia Management"> 
-                                <span id="checkbox_tag">WO - Informatie, Multimedia, Management</span> <br>
-                                <input id="checkbox" type="checkbox" name="studierichting[]" value="Medische Informatiekunde">
-                                <span id="checkbox_tag">WO - Medische Informatiekunde</span> <br>
-                                <input id="checkbox" type="checkbox" name="studierichting[]" value="Kunstmatige Intelligentie">
-                                <span id="checkbox_tag">WO - Kunstmatige Intelligentie</span> <br>
-                                <input id="checkbox" type="checkbox" name="studierichting[]" value="Anders">
-                                <span id="checkbox_tag">Anders</span>
-                            </div>
+                    <h4>Studierichtingen</h4>
+                    <div class="studierichtingen">
+                        <input id="checkbox" type="checkbox" name="studierichting[]" value="Informatica"> 
+                        <span id="checkbox_tag">WO - Informatica</span> <br>
+                        <input id="checkbox" type="checkbox" name="studierichting[]" value="Informatiekunde">
+                        <span id="checkbox_tag">WO - Informatiekunde</span>  <br>
+                        <input id="checkbox" type="checkbox" name="studierichting[]" value="Informatie Multimedia Management"> 
+                        <span id="checkbox_tag">WO - Informatie, Multimedia, Management</span> <br>
+                        <input id="checkbox" type="checkbox" name="studierichting[]" value="Medische Informatiekunde">
+                        <span id="checkbox_tag">WO - Medische Informatiekunde</span> <br>
+                        <input id="checkbox" type="checkbox" name="studierichting[]" value="Kunstmatige Intelligentie">
+                        <span id="checkbox_tag">WO - Kunstmatige Intelligentie</span> <br>
+                        <input id="checkbox" type="checkbox" name="studierichting[]" value="Anders">
+                        <span id="checkbox_tag">Anders</span>
+                    </div>
                         
-                            <h4>Bedrijfslogo weergeven*</h4>
-                            <input id="logo" type="radio" name="logo" value="1" checked > <span id="logo_tag">Ja</span>
-                            <input id="logo" type="radio" name="logo" value="0"> <span id="logo_tag">Nee</span>
-                        </div>
+                    <h4>Bedrijfslogo weergeven*</h4>
+                    <input id="logo" type="radio" name="logo" value="1" checked > <span id="logo_tag">Ja</span>
+                    <input id="logo" type="radio" name="logo" value="0"> <span id="logo_tag">Nee</span>
+                </div>
                 
-                        <div class="full vac_toevoegen_textareas">
-                            <h2>Beschrijving</h2>
-                            <h4>Wat wordt er aangeboden*</h4>
-                            <textarea name="aangeboden" placeholder="..." required></textarea>
-                            <h4>De eisen*</h4>
-                            <textarea name="eisen" placeholder="..." required></textarea>
-                            <h4>Overig</h4>
-                            <textarea name="overig" placeholder="..."></textarea>
-                            <h4>Tags</h4>
-                            <input type="text" id="tags" name="tags" placeholder="Typ hier zoekwoorden/tags...">
-                        
-		                  </div>
+                <div class="full vac_toevoegen_textareas">
+                    <h2>Beschrijving</h2>
+                    <h4>Wat wordt er aangeboden*</h4>
+                    <textarea name="aangeboden" placeholder="..." required></textarea>
+                    <h4>De eisen*</h4>
+                    <textarea name="eisen" placeholder="..." required></textarea>
+                    <h4>Overig</h4>
+                    <textarea name="overig" placeholder="..."></textarea>
+                    <h4>Tags</h4>
+                    <input type="text" id="tags" name="tags" placeholder="Typ hier zoekwoorden/tags...">
+                </div>
 		            
-                        <div class="full vac_toevoegen">
-                            <input id="toevoegen" type="submit" name="submit" value="Vacature toevoegen">
-                        </div>
-
+                <div class="full vac_toevoegen">
+                    <input id="toevoegen" type="submit" name="submit" value="Vacature toevoegen">
+                </div>
           </form>
         </main>
     </div>
