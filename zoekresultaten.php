@@ -79,7 +79,7 @@
                 $zoekveld = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['zoekveld']);
 
                 $sqlquery= "";
-                $sqlarray = "";
+                $sqlarray = array();
                 
                 $info_resultaten = "";
                     
