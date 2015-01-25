@@ -832,7 +832,95 @@ main .fa-pencil:hover {
     margin-top: 15px; 
 }
 
-
+/* ADMIN */
+.menu_admin {
+    height: 80px;
+    padding: 5px 0px;
+    background-color: cornflowerblue;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.8px;
+    text-align: right;
+}
+.logo_admin {
+    height: 60px;
+    float: left;
+    margin-top: 10px;
+    padding: 0;
+}
+.menu_admin p {
+    margin: 20px 0px 20px 20px;
+    padding: 10px 14px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.menu_admin a {
+    color: rgba(255, 255, 255, 0.7);
+}
+.menu_admin a:hover {
+    color: #FFF;
+}
+.admin_titel {
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 3px;
+    border: 1px solid white;
+}
+.admin .info {
+    color: #888;
+    font-size: 11px;
+    text-align: left;
+    font-style: italic;
+    letter-spacing: 1px;
+    padding: 0 15px;
+}
+.account {
+    background-color: #F0F0F0;
+    padding: 15px;
+    margin: 12px 0px;
+    height: 70px;
+}
+.account_info {
+    margin: 0 0 6px 0; 
+    color: #999;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+.account img {
+    height: 70px;
+    width: 70px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+.account .pending_yes, .account .decline {
+    height: 65px;
+    width: 70px;
+    float: right;
+    font-size: 60px;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 5px;
+}
+.account .pending_yes {
+    background-color: palegreen;
+    color: #FFF;
+}
+.account .pending_yes:hover {
+    background-color: limegreen;
+    color: #FFF;
+}
+.account .decline {
+    background-color: limegreen;
+    color: #FFF;
+}
+.account .decline:hover {
+    background-color: palegreen;
+    color: #FFF;
+}
 
 
 
