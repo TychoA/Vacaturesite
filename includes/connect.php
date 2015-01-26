@@ -1,5 +1,5 @@
 <!-- DATA BASE CONNECTIE -->
-    <?php      
+    <?php    
         try {
             $db = new PDO('mysql:host=localhost;dbname=stagepeer;charset=utf8',
                 'tycho', 'P9T6ctsz');
