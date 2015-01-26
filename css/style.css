@@ -1085,3 +1085,18 @@ main .inbox a:active, main .inbox a:hover {
     margin-top: 10px;
     cursor: pointer;
 }
+
+.wachtwoord_vergeten {
+    float: left;
+    font-weight: 300;
+}
+
+.wachtwoord_vergeten:hover {
+    text-decoration: underline;
+}
+.vergeten_div {
+    font-weight: 700;
+    font-size: 13px;
+    width: 100%;
+    padding-top: 30px;
+}
