@@ -103,3 +103,17 @@ if (strpos(getUrl(), 'werknemers') || strpos(getUrl(), 'werkgevers')) {
                 </div>
             </div>
         </div>
+    
+        <div class="menu_admin">
+            
+            <div class="wrapper">
+                <p class="admin_titel">Beheer</p>
+                
+                <a href="admin_werkgevers.php"><p>Werkgevers</p></a>
+                <a href="admin_werknemers.php"><p>Werknemers</p></a>
+                <a href="admin_vacatures.php"><p>Vacatures</p></a>
+                
+            </div>
+        </div>
+            
+    </header>

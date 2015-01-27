@@ -15,16 +15,6 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
 
     <!-- HEADER AREA -->
     <?php include '../includes/header_admin.php';?>
-    
-        <div class="menu_admin">
-            
-            <div class="wrapper">
-                <a href="<?php echo $home; ?>" target="_blank"><p>Bekijk stagepeer.nl</p></a>
-                <p class="admin_titel">Beheer</p>
-            </div>
-        </div>
-            
-    </header>
     <!-- /HEADER AREA -->
     
     <!-- MAIN AREA -->
@@ -32,55 +22,11 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
             
         <main>
             <div class="full admin">
-                <h1>Accounts om te verifi&#235;ren</h1>
+                <h1>Beheer</h1>
                 
-                <?php 
-            
-                $stmt = $db->prepare("SELECT ID, naam, email, telefoonnummer, plaatsnaam, kvk, url_foto FROM werkgevers WHERE verificatie=0");
-                $stmt->execute();
-                $row_count = $stmt->rowCount();
-
-                if ($row_count > 0) {
-                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-                        <div class="account">
-                            <img src="<?php echo $row['url_foto']; ?>" alt="<?php echo $row['naam']; ?>"/>
-                            <a href="update.php?id=<?php echo $row['ID']; ?>&action=accept"><div class="pending_yes"><i class="fa fa-check"></i></div></a>
-                            
-                            <h4><?php echo $row['naam']; ?> (<?php echo $row['email']; ?>)</h4>
-                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['plaatsnaam']; ?> | <?php echo $row['kvk']; ?></p>
-                        </div>
-                        <?php
-                    }
-                } else {
-                    echo "<p class='info'>Er zijn momenteel geen accounts om te verifi&#235;ren!</p>";
-                }?> 
-                
-            </div>
-            
-            <div class="full admin">
-                <h1>Actieve accounts</h1>
-                
-                <?php 
-            
-                $stmt = $db->prepare("SELECT ID, naam, email, telefoonnummer, plaatsnaam, kvk, url_foto FROM werkgevers WHERE verificatie=1");
-                $stmt->execute();
-                $row_count = $stmt->rowCount();
-
-                if ($row_count > 0) {
-                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-                        <div class="account">
-                            <img src="<?php echo $row['url_foto']; ?>" alt="<?php echo $row['naam']; ?>"/>
-                            
-                            <a href="update.php?id=<?php echo $row['ID']; ?>&action=decline"><div class="decline"><i class="fa fa-check"></i></div></a>
-                            
-                            <h4><?php echo $row['naam']; ?> (<?php echo $row['email']; ?>)</h4>
-                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['plaatsnaam']; ?> | <?php echo $row['kvk']; ?></p>
-                        </div>
-                        <?php
-                    }
-                } else {
-                    echo "<p class='info'>Er zijn momenteel geen actieve werkgever accounts!</p>";
-                }?> 
+                <a href="admin_werkgevers.php"><div class="admin_button">werkgevers</div></a>
+                <a href="admin_werknemers.php"><div class="admin_button button_center">werknemers</div></a>
+                <a href="admin_vacatures.php"><div class="admin_button">vacatures</div></a>
                 
             </div>
         </main>
@@ -88,7 +34,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer_admin.php';?>
+        <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
     
     
