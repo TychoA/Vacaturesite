@@ -1157,3 +1157,12 @@ main .inbox a:active, main .inbox a:hover {
     width: 100%;
     padding-top: 30px;
 }
+
+.profiel_face {
+    display: inline-block;
+    float: right;
+}
+
+.profiel_face_img {
+    border: 3px solid #fff;    
+}
