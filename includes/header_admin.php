@@ -85,7 +85,7 @@ if (strpos(getUrl(), 'werknemers') || strpos(getUrl(), 'werkgevers')) {
 		<style type="text/css">
 			#wrap {display:table;height:100%}
 		</style>
-		<![endif]-->
+    <![endif]-->
 </head>
 
 <body>

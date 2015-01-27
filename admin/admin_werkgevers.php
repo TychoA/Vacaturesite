@@ -1,11 +1,3 @@
-<script>
-function deleteWerkgever(id) {
-    if (confirm("Weet u zeker dat u het profiel van deze werknemer wilt verwijderen? Deze handeling is niet ongedaan te maken!") == true) {
-        window.location.assign("update.php?kind=werkgever&action=delete&id=" + id)
-    }
-}
-</script>
-
 <?php session_start();
 
 // Check of je ingelogd bent EN een werknemer bent, anders ga je naar de login_pagina.php
