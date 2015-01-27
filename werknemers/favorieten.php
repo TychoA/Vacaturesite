@@ -42,24 +42,23 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
             </p>
                 
             <div class="full"> 
-                
+                <a href="" name="favorieten"></a>
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werkgevers.ID = 1");
+                $stmt = $db->prepare("SELECT favorieten.id, ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werkgevers.ID = 1");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
                 if ($row_count > 0) {
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
                         $id = $row["ID_vacatures"];
+                        $id_fav = $row["id"];
                         $res_timestamp = strtotime($row['datum']);
                         $datum = date("d/m/y",$res_timestamp);
                         $tijd = date("H:i",$res_timestamp);
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 300);
                         ?>
                         <div class='vac_mini'>
-                            <a>
-                                <i class='fa fa-close fa-lg delete'></i>
-                            </a>
+                                <a href="<?php echo './remove_fav.php?id='.$id_fav; ?>" target="_self"><i class='fa fa-close fa-lg delete'></i></a>
                             
                             <a href="<?php echo $detail_vacature; ?>?id=<?php echo $id; ?>">
                                 <h4><i class='fa fa-heart fa-fw'></i> <?php echo $row["titel"]; ?></h4>

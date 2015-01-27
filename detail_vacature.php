@@ -35,8 +35,8 @@
 
 
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (!empty($_POST['beantwoord'])) {
+        if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+            if (!empty($_POST['beantwoord']) && isset($_SESSION['werknemerid'])) {
                 $update_verzend = "INSERT INTO `stagepeer`.`verstuurd_werknemer` (`ID`, `ID_werknemer`, `ID_werkgever`, `ID_vacature`, `datum`, `titel`, `bericht`, `gelezen`) VALUES (NULL, :werknemerid, :werkgeverid, :vacatureid, CURRENT_TIMESTAMP, :new_title, :new_text, '0')";
                 
                 $sth2 = $db->prepare($update_verzend);

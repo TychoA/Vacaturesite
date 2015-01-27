@@ -97,10 +97,6 @@ if (strpos(getUrl(), 'werknemers') || strpos(getUrl(), 'werkgevers')) {
     <header>
         <div class="menu_login">
             <div class="wrapper">
-                <div class="left">
-                    <a href="<?php echo $en; ?>"><div class="en">EN</div></a>
-                    <a href="<?php echo $nl; ?>"><div class="nl">NL</div></a>
-                </div>
                 <div class="right">
                     <a href="<?php echo $reglink;?>"><div class="right_item"><?php echo $reglog; ?></div></a>              
                     <a href="<?php echo $loggin; ?>"><div class="right_item"><?php echo $inlognaam ?></div></a>
