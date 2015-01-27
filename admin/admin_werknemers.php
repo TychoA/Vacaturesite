@@ -40,7 +40,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                             
                             <h4><?php echo $row['naam']." ".$row['achternaam']; ?> (<?php echo $row['email']; ?>)</h4>
                             <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['plaatsnaam']; ?></p>
-                            <a href="#"><div class="bekijk_profiel">Bekijk gehele profiel</div></a>
+                            <a href="../profiel_werknemer.php?id=<?php echo $id; ?>"><div class="bekijk_profiel">Bekijk gehele profiel</div></a>
                         </div>
                         <?php
                     }

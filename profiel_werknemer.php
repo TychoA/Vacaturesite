@@ -39,7 +39,9 @@ else {
     
         <div class="sub_menu">
             <div class="wrapper">
-                <a href="<?php echo $home; ?>">Profielen</a>
+                <a href="<?php echo $home; ?>">Home</a>
+                <span class="dash">/</span>
+                <a href="#">Profielen</a>
             </div>
         </div>
             

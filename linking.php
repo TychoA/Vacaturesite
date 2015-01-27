@@ -42,9 +42,6 @@ $alg_voorwaarden        =   './alg_voorwaarden.php';
 $privacy_beleid         =   './privacy_beleid.php';
 $sitemap                =   './sitemap.php';
 
-$en                     =   '#';
-$nl                     =   '#';
-
 $logo                   =   './img/stagepeer.png';
 $logo_wit               =   './img/stagepeer_wit.png';
 $webperen               =   './img/De_WebPeren.jpg';
