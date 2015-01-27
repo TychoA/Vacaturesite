@@ -39,9 +39,12 @@
             if (!empty($_POST['beantwoord']) && isset($_SESSION['werknemerid'])) {
                 $update_verzend = "INSERT INTO `stagepeer`.`verstuurd_werknemer` (`ID`, `ID_werknemer`, `ID_werkgever`, `ID_vacature`, `datum`, `titel`, `bericht`, `gelezen`) VALUES (NULL, :werknemerid, :werkgeverid, :vacatureid, CURRENT_TIMESTAMP, :new_title, :new_text, '0')";
                 
+                $bericht = strip_tags(trim($_POST['beantwoord']));
+                $profiel = 'Openbaar <a href="../profiel_werknemer.php?id='.$userID.'" style="color: tomato">profiel</a> van werknemer.';
+                $new_bericht = $bericht.'<br><br> ------------------ <br><br>'.$profiel;
                 $sth2 = $db->prepare($update_verzend);
                 $sth2->execute(array( 
-                    ':new_text' => $_POST['beantwoord'],
+                    ':new_text' => $new_bericht,
                     ':new_title' => $vac_titel,
                     ':werknemerid' => $userID,
                     ':werkgeverid' =>$vac_id_wg,
@@ -50,7 +53,7 @@
                 echo '<script>alert("Uw bericht is verzonden. Bedankt voor het reageren.");</script>';
                 
             } else {
-                echo '<script>alert("Uw bericht is NIET verzonden. Probeer het opnieuw.");</script>';    
+                echo '<script>alert("Error: Uw bericht is NIET verzonden.");</script>';    
             }
         }
     ?>

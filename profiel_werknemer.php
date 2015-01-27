@@ -55,7 +55,6 @@ else {
                 <h2>Algemene Informatie</h2>
                 
                 <div class="profiel_face">
-                <!--   MOET NOG GEDAAN WORDEN  -->
                     <img class="face profiel_face_img" src="<?php echo $url ?>" alt="Naam" />
                 </div>
                     
