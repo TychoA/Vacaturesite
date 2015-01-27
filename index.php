@@ -75,7 +75,7 @@
             
             <?php 
              
-                $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID ORDER BY datum DESC LIMIT 3");
+                $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID ORDER BY datum DESC LIMIT 3");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 

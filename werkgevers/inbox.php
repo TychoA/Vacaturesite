@@ -44,6 +44,21 @@
             $datum = $array_ber[$i][2];
             $bericht = $array_ber[$i][3];
             $gelezen = $array_ber[$i][4];
+            $berichtID = $array_ber[$i][5];
+        
+            $ID_vac = $array_ber[$i][7];
+        
+            $sql_vacature = "SELECT id FROM vacatures";
+            $results_vac = $db->query($sql_vacature);
+            foreach($results_vac as $row_vac) 
+            {
+                if ($row_vac['id'] == $ID_vac) {
+                    $titel = $array_ber[$i][0];
+                } else {
+                    $titel = 'Deze vacature bestaat niet meer';    
+                }
+            }
+            
             $envelop = 'fa fa-envelope fa-fw unread';
 
             if ($gelezen) {
@@ -51,6 +66,7 @@
             }
             
             echo '<div class="ber_mini">
+                    <a href="./remove_ber_wg.php?id='.$berichtID.'" target="_self"><i class="fa fa-close fa-lg delete"></i></a>
                     <h4 class="klikt"><i class="'.$envelop.'"></i> '.$titel.'</h4>
                     <p class="vac_mini_info">'.$werknemer.' | '.$datum.'</p>
                     <p class="ber_mini_beschr">'.substr($bericht, 0, 280).'...</p>

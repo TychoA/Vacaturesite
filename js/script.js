@@ -1,5 +1,4 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
-// MAREKsszzzzz STUKKKKJEEE AFBLIJVEEEENN tycho.
 window.onload = function () {
     "use strict";
     var toInbox = document.getElementsByClassName('toInbox')[0], i, j, k,

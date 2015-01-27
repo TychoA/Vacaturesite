@@ -55,8 +55,8 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);  
 
                         echo    "<div class='vac_mini'>";
-                        echo        "<a href='#'><i class='fa fa-close fa-lg delete'></i></a>";
-                        echo        "<a href=".$detail_vacature."?id=".$row["ID_vacatures"].">";
+                        echo        "<a href='./remove_vacature.php?id=".$row["ID"]."'><i class='fa fa-close fa-lg delete'></i></a>";
+                        echo        "<a href=".$detail_vacature."?id=".$row["ID"].">";
                         echo            "<h4>".$row["titel"]."</h4>";
                         echo            "<p class='vac_mini_info'>".$row["duur"]." | ".$row["locatie"]." | ".$datum."</p>";
                         echo            "<p class='vac_mini_beschr'>".$res_beschr."...</p>";

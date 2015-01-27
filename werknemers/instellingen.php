@@ -4,6 +4,7 @@
     if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid']))) {
          $userID = $_SESSION['werknemerid'];
     } else {
+        session_destroy();
         header ('Location:../login_pagina.php');
     }
     
