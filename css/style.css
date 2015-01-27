@@ -1164,5 +1164,7 @@ main .inbox a:active, main .inbox a:hover {
 }
 
 .profiel_face_img {
-    border: 3px solid #fff;    
+    border: 3px solid #fff;
+    width: 140px;
+    height: 140px;
 }

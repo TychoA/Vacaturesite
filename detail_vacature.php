@@ -1,10 +1,16 @@
 <?php session_start();?>
 <html>
 
-    <?php include './includes/connect.php';?>
+    <?php include './includes/connect.php';
+    
+    
+        // Check of je ingelogd bent EN een werknemer bent, anders ga je naar de login_pagina.php
+        if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid']))) {
+            $userID = $_SESSION['werknemerid'];
+        }
+    ?>
     
     <?php        
-        $userID = '1';
         $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=:id');
         $stmt->execute(array(':id' =>   $_GET['id']));
         $stmt->execute();
