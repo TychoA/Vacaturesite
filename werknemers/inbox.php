@@ -52,6 +52,7 @@
             {
                 if ($row_vac['id'] == $ID_vac) {
                     $titel = $array_ber[$i][0];
+                    break;
                 } else {
                     $titel = 'Deze vacature bestaat niet meer';    
                 }
