@@ -32,6 +32,7 @@ else {
             $tel = $row['telefoonnummer'];
             $locatie = $row['plaatsnaam'];
             $samenvatting = $row['samenvatting'];
+            $url = $row['url_foto'];
         }
     
     ?>
@@ -55,7 +56,7 @@ else {
                 
                 <div class="profiel_face">
                 <!--   MOET NOG GEDAAN WORDEN  -->
-                    <img class="face profiel_face_img" src="./img/me.png" alt="Naam" />
+                    <img class="face profiel_face_img" src="<?php echo $url ?>" alt="Naam" />
                 </div>
                     
                 <div class="edit_name">
