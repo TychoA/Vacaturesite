@@ -1,65 +1,52 @@
-<?php
+<?php 
 
-session_start();
-ob_start();
+// Declaring global variables
+$username = "";
+$password = "";
+    
+// Requesting form input
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['username'], $_POST['password'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        
+        // Password encryption
+        $options = [
+            'cost' => 12,
+            'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+                   ];
+        
+        $hash = password_hash($password, PASSWORD_BCRYPT, $options);
+        
+        // Parameters for registration
+        $params = array(":username"=>$username,
+                        ":password"=>$hash
+        );
+    }
+}
 
-$login = "";
-$valid = false;
-
-try 
-{
-    $db = new PDO('mysql:host=localhost; dbname=stagepeer', 'root', 'root');
+try {
+    $db = new PDO('mysql:host=localhost; dbname=test', 'root', 'root');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     
-    $sql = $db->prepare("SELECT werkgevers.email, werkgevers.wachtwoord, werkgevers.soort FROM werkgevers LEFT JOIN werknemers ON (werkgevers.email = werknemers.email AND werkgevers.wachtwoord = werknemers.wachtwoord AND werkgevers.soort = werknemers.soort) UNION SELECT werknemers.email, werknemers.wachtwoord, werknemers.soort FROM werknemers LEFT JOIN werkgevers ON (werknemers.email = werkgevers.email AND werknemers.wachtwoord = werkgevers.wachtwoord AND werknemers.soort = werkgevers.soort)");
-    $sql->execute();
-        
-    $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-    foreach($result as $row) 
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-        {
-            if ($row['email'] === trim($_POST['gebruikersnaam']) && $row['wachtwoord'] === trim($_POST['wachtwoord'])) 
-            {
-                if ($row['soort'] == "werknemer")
-                {
-                    echo "Werknemer" . "<br>";
-                } else
-                {
-                    echo "Werkgever" . "<br>";
-                }
-                echo "Gegevens kloppen" . "<br>";
-            }
-            else
-            {
-                echo "Gegevens kloppen niet" . "<br>";
-            }
-        }
-    print_r($row);
-    print "<br>" . "<br>";
-    }   
-} 
-catch(PDOException $ex) 
-{
-    echo $ex . "error";
+    $sql = $db->prepare("INSERT INTO gebruiker (username, password) VALUES(:username, :password)");
+    $sql->execute($params);
+} catch (PDOException $ex) {
+    echo $ex . "Error";
 }
-
 ?>
 
-<!DOCTYPE html>
 <html>
-    <head></head>
-    
     <body>
-        <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST">
-            <label for="gebruikersnaam">E-mail</label>
-            <input class="input_gebruikersnaam" type="email" name="gebruikersnaam" placeholder="E-mail" maxlength="50" required>
-
-            <label for="wachtwoord">Wachtwoord</label>
-            <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50" required>
-
-            <input type="submit" class="login_button" value="Login" name="submit">
-        </form>
+       
+       <!-- Normal input -->
+        <fieldset> Normal Input
+            <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+               <input type="text" placeholder="username" name="username" required>
+               <input type="password" placeholder="password" name="password" required>
+               <input type="submit" value="POST" name="submit">
+            </form>
+        </fieldset>
     </body>
 </html>
