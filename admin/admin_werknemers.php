@@ -33,7 +33,7 @@ if (!isset($_SESSION['admin'])) {
                         <div class="account">
                             <img src="<?php echo $row['url_foto']; ?>" alt="<?php echo $row['naam']; ?>"/>
                             
-                            <a onclick="deleteWerknemer(<?php echo $id; ?>)"><div class="decline"><i class="fa fa-close"></i></div></a>
+                            <a href="" onclick="deleteWerknemer(<?php echo $id; ?>)"><div class="decline"><span class="close-big"></span></div></a>
                             
                             <h4><?php echo $row['naam']." ".$row['achternaam']; ?> (<?php echo $row['email']; ?>)</h4>
                             <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['locatie']; ?></p>

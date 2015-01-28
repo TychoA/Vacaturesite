@@ -36,7 +36,7 @@ if (!isset($_SESSION['admin'])) {
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 300);?>
                 
                         <div class='account vac_mini'>
-                            <a onclick="deleteVacature(<?php echo $id; ?>)"><div class="decline"><i class="fa fa-close"></i></div></a>
+                            <a href="" onclick="deleteVacature(<?php echo $id; ?>)"><div class="decline"><span class="close-big"></span></div></a>
                             
                             <a href="<?php echo $detail_vacature; ?>?id=<?php echo $row["ID_vac"]; ?>" target="_blank">
                                 <h4><?php echo $row["titel"]; ?></h4><div class="bekijk_vacature">bekijk gehele vacature</div>

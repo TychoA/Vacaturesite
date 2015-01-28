@@ -36,7 +36,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
             <h1>Mijn berichten</h1>
             <p class="back inbox">
                 <a href="<?php echo $mijn_account; ?>">
-                    <i class="fa fa-chevron-left"></i>Terug naar overzicht
+                    &#171; Terug naar overzicht
                 </a>
                 <a class="toInbox">
                      Ontvangen

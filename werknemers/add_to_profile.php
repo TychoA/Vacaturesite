@@ -48,7 +48,7 @@ if ($_GET['kind'] == 'diploma') {
             <h1 class="edit_profile">Mijn Profiel</h1>
             <p class="back">
                 <a href="<?php echo $mijn_profiel; ?>">
-                    <i class="fa fa-chevron-left"></i>Terug naar profiel
+                    &#171; Terug naar profiel
                 </a>
                 <a class="openbare_profiel" href="../profiel_werknemer.php?id=<?php echo $userID; ?>" target="_blank">
                     bekijk hier je openbare profiel
@@ -70,39 +70,39 @@ if ($_GET['kind'] == 'diploma') {
                             <h4>Vaardigheid</h4>
                             <div class="vaardigheid">
                                 <input type="radio" name="vaardigheid" value="5" checked>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
                                 <br>
                                 <input type="radio" name="vaardigheid" value="4">
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star-o"></span>
                                 <br>
                                 <input type="radio" name="vaardigheid" value="3">
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star-o"></span>
+                                    <span class="star-o"></span>
                                 <br>
                                 <input type="radio" name="vaardigheid" value="2">
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <span class="star"></span>
+                                    <span class="star"></span>
+                                    <span class="star-o"></span>
+                                    <span class="star-o"></span>
+                                    <span class="star-o"></span>
                                 <br>
                                 <input type="radio" name="vaardigheid" value="1">
-                                    <i class="fa fa-star fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
-                                    <i class="fa fa-star-o fa-lg"></i>
+                                    <span class="star"></span>
+                                    <span class="star-o"></span>
+                                    <span class="star-o"></span>
+                                    <span class="star-o"></span>
+                                    <span class="star-o"></span>
                             </div>
                         </div>
                     

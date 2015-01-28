@@ -101,7 +101,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
         $bericht = $array_ber[$i][3];
         
         echo '<div class="ber_mini">
-        <a href="berichten.php"><h4><i class="fa fa-envelope fa-fw unread"></i> '.$titel.'</h4></a>
+        <a href="berichten.php"><h4><span class="envelope unread"></span> '.$titel.'</h4></a>
         <p class="vac_mini_info">'.$werknemer.' | '.$datum.'</p>
         <p class="ber_mini_beschr">'.substr($bericht, 0, 280).'...</p>
         </div>'; // Je kunt alleen de eerste 280 tekens van het bericht zien

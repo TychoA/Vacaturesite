@@ -22,9 +22,9 @@ if (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid'])) {
 }
 
 $style                  =   './css/style.css';
-$font_awesome           =   './includes/font_awesome/css/font-awesome.min.css';
-$icons                  =   '../css/icons.css';
+$icons                  =   './css/sprites.css';
 $script                 =   './js/script.js';
+$favicon                =   './favicon.ico';
 
 
 $home                   =   './index.php';

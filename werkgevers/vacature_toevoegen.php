@@ -73,7 +73,7 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
            <h1>Vacature toevoegen</h1>
             <p class="back">
                 <a href="<?php echo $mijn_account; ?>">
-                    <i class="fa fa-chevron-left"></i>Terug naar overzicht
+                    &#171; Terug naar overzicht
                 </a>
             </p>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

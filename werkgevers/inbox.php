@@ -60,15 +60,15 @@
                 }
             }
             
-            $envelop = 'fa fa-envelope fa-fw unread';
+            $envelop = 'envelope unread';
 
             if ($gelezen) {
-                $envelop = 'fa fa-envelope-o fa-fw read'; 
+                $envelop = 'envelope-o read'; 
             }
             
             echo '<div class="ber_mini">
-                    <a href="./remove_ber_wg.php?id='.$berichtID.'" target="_self"><i class="fa fa-close fa-lg delete"></i></a>
-                    <h4 class="klikt"><i class="'.$envelop.'"></i> '.$titel.'</h4>
+                    <a href="./remove_ber_wg.php?id='.$berichtID.'" target="_self"><span class="close-dark delete"></span></a>
+                    <h4 class="klikt"><span  class="'.$envelop.'"></span> '.$titel.'</h4>
                     <p class="vac_mini_info">'.$werknemer.' | '.$datum.'</p>
                     <p class="ber_mini_beschr">'.substr($bericht, 0, 280).'...</p>
                   </div>'; // Je kunt alleen de eerste 280 tekens van het bericht zien

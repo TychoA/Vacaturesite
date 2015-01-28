@@ -58,7 +58,7 @@
                 }
             }
             echo '<div class="ber_mini">
-                    <h4 class="klikt verstuurd"></i> '.$titel.'</h4>
+                    <h4 class="klikt verstuurd"> '.$titel.'</h4>
                     <p class="vac_mini_info">'.$werknemer.' | '.$datum.'</p>
                     <p class="ber_mini_beschr">'.substr($bericht, 0, 280).'...</p>
                   </div>'; // Je kunt alleen de eerste 280 tekens van het bericht zien

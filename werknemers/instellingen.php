@@ -76,7 +76,7 @@
             <h1>Wachtwoord aanpassen</h1>
             <p class="back">
                 <a href="<?php echo $mijn_account; ?>">
-                    <i class="fa fa-chevron-left"></i>Terug naar overzicht
+                    &#171; Terug naar overzicht
                 </a>
             </p>
                 

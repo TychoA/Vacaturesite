@@ -744,10 +744,8 @@ main a.openbare_profiel:hover {
 }
 .add {
     display: inline-block;
-    padding: 8px 15px 8px 15px;
+    padding: 19px 15px 19px 15px;
     background-color: F0F0F0;
-    font-weight: 600;
-    color: #666;
     margin: 8px;
 }
 .delete_skill, .delete_taal {

@@ -118,8 +118,8 @@ else {
 
 
                         function setStars($aantal) {
-                            $open = '<i class="fa fa-star-o fa-lg"></i>';
-                            $dicht = '<i class="fa fa-star fa-lg"></i>';
+                            $open = '<span class="star-o"></span>';
+                            $dicht = '<span class="star"></span>';
                             $stars = '';
 
                             for ($j = 0; $j < 5; $j++) {
