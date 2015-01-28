@@ -90,7 +90,9 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
         array_push($array_ber, $temp_array);
     }
 
-
+    if (sizeof($array_ber) == 0) {
+        echo '<i>U heeft geen ongelezen berichten.</i>';
+    }
 
     for ($i=0; $i < sizeof($array_ber); $i++) {
         $titel = $array_ber[$i][0];
