@@ -19,20 +19,6 @@
         </div>    
     </header>
     <!-- /HEADER AREA -->
-    
-    <!-- INLOG POP-UP -->
-    <!--<section class="login_outer">
-        <div class="login">
-            <i class="fa fa-times"></i>
-            <form>
-                <h2>Log in</h2>
-                <input type="text" class="login_box" placeholder="Gebruikersnaam">
-                <input type="text" class="login_box" placeholder="Wachtwoord">  
-                <input type="submit" class="login_button" value="Verstuur">
-            </form>  
-        </div>
-    </section>-->
-    <!-- /INLOG POP-UP -->
 
     <!-- MAIN AREA -->
     <main>
