@@ -9,8 +9,8 @@
     <?php include '../includes/header_admin.php';
        
     if (isset($_POST['submit'])) {
-        $naam = $_POST['name'];
-        $ww = $_POST['ww'];
+        $naam = strip_tags(trim($_POST['name']));
+        $ww = strip_tags(trim($_POST['ww']));
         $login = false;
         include '../includes/connect.php';
         $sql = $db->prepare("SELECT * FROM administrator");
