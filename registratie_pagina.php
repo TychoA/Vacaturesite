@@ -7,23 +7,37 @@ $replica = false;
 // Variabelen voor werkgevers
 if (isset($_POST['bedrijf'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
 {
+    $options = [
+            'cost' => 12,
+            'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+                   ];
+    
+    $hash = password_hash($_POST['wachtwoord'], PASSWORD_BCRYPT, $options);
+    
     $params = array(":naam"=>$_POST['bedrijf'],
                     ":plaatsnaam"=>$_POST['plaatsnaam'],
                     ":email"=>$_POST['gebruikersnaam'],
                     ":telefoon"=>$_POST['telefoon'],
-                    ":wachtwoord"=>$_POST['wachtwoord'],
+                    ":wachtwoord"=>$hash,
                    ":soort"=>"werkgever");
                     $werkgever = true;
 } 
 // Variabelen voor werknemers
 elseif (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
 {
+    $options = [
+        'cost' => 12,
+        'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+    ];
+    
+    $hash = password_hash($_POST['wachtwoord'], PASSWORD_BCRYPT, $options);
+    
     $params = array(":naam"=>$_POST['voornaam'], 
                 ":achternaam"=>$_POST['achternaam'], 
                 ":plaatsnaam"=>$_POST['plaatsnaam'], 
                 ":email"=>$_POST['gebruikersnaam'], 
                 ":telefoon"=>$_POST['telefoon'], 
-                ":wachtwoord"=>$_POST['wachtwoord'],
+                ":wachtwoord"=>$hash,
                    ":soort"=>"werknemer");
                 $werknemer = true;
 
@@ -31,7 +45,7 @@ elseif (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['plaatsnaam'], $_
 if (!empty($params)) {
     try 
     {
-        $db = new PDO('mysql:host=localhost; dbname=stagepeer', 'tycho', 'P9T6ctsz');
+        $db = new PDO('mysql:host=localhost; dbname=stagepeer', 'root', 'root');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 

@@ -4,6 +4,7 @@ ob_start();
 
 $login = "";
 $valid = false;
+$password = ""; $dbuser = ""; $dbpass = "";
 
 try {
      include('./includes/connect.php');
@@ -14,9 +15,12 @@ try {
     $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     foreach($result as $row) 
     {
+        $dbuser = $row['email'];
+        $dbpass = $row['wachtwoord'];
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') 
         {
-            if ($row['email'] === trim($_POST['gebruikersnaam']) && $row['wachtwoord'] === trim($_POST['wachtwoord'])) {
+            if ($dbuser === trim($_POST['gebruikersnaam']) && password_verify(trim($_POST['wachtwoord']), $dbpass) === true) {
                 session_destroy(); // voor de zekerheid
                 session_start();
                 if ($row['soort'] == "werknemer") {

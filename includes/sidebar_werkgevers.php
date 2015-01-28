@@ -1,6 +1,5 @@
 <?php 
     include '../includes/connect.php';
-    include '../includes/connect.php';
     if (!isset($_SESSION)) {
         session_start();  
     }
@@ -47,6 +46,7 @@
             <a href="<?php echo $uitloggen; ?>">Uitloggen</a> 
             &#8226; 
             <a href="<?php echo $profiel_deactiveren; ?>">Profiel Deactiveren</a>
+            <?php ?>            
         </div>
     </nav>
 </sidebar>

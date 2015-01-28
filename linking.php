@@ -30,7 +30,7 @@ $home                   =   './index.php';
 $inloggen               =   './login_pagina.php';
 $uitloggen              =   './index.php';
 $registreren            =   './registratie_pagina.php?link=1';
-$profiel_deactiveren    =   '#';
+$profiel_deactiveren    =   './deactivatie.php';
 
 $zoekresultaten         =   './zoekresultaten.php';
 $detail_vacature        =   './detail_vacature.php';
