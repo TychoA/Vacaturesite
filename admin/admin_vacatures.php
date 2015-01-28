@@ -23,7 +23,7 @@ if (!isset($_SESSION['admin'])) {
                 
                 <?php 
             
-                $stmt = $db->prepare("SELECT vacatures.ID AS ID_vac, ID_werkgevers, werkgevers.ID, werkgevers.naam, datum, duur, locatie, foto, titel, beschrijving_aanbod FROM vacatures INNER JOIN werkgevers ON werkgevers.ID = ID_werkgevers");
+                $stmt = $db->prepare("SELECT vacatures.ID AS ID_vac, ID_werkgevers, werkgevers.ID, werkgevers.naam, datum, duur, vacatures.locatie, foto, titel, beschrijving_aanbod FROM vacatures INNER JOIN werkgevers ON werkgevers.ID = ID_werkgevers");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
