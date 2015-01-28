@@ -18,6 +18,14 @@
     { 
         $aantalNieuweBerichten++;
     }
+
+
+    $sql_2 = "SELECT naam FROM werkgevers WHERE id=".$bedrijfID." LIMIT 1";
+    $results_2 = $db->query($sql_2);
+    foreach($results_2 as $row_2) 
+    { 
+        $sidebar_naam = $row_2['naam'];
+    }
 ?>
    
 
@@ -25,7 +33,7 @@
 <sidebar>
     <img class="face" src="../img/logo.png" alt="Naam Voornaam" /> 
     <nav class="nav_sidebar">
-        <div class="sidebar_element_fist">Naam Bedrijf</div>
+        <div class="sidebar_element_fist"><?php echo $sidebar_naam ?></div>
         
         <a class="sidebar_element" href="<?php echo $mijn_profiel; ?>">
             <span class="icon-menu-group"></span> Profiel
