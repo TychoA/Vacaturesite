@@ -37,19 +37,19 @@
         <div class="sidebar_element_fist"><?php echo $sidebar_naam.' '.$sidebar_achternaam; ?></div>
         
         <a class="sidebar_element" href="<?php echo $mijn_profiel; ?>">
-            <span class="icon-menu-user"></span>Mijn Profiel
+            <span class="m-user"></span>Mijn Profiel
         </a>
             
         <a class="sidebar_element" href="<?php echo $favorieten; ?>">
-            <span class="icon-menu-heart"></span>Favorieten
+            <span class="m-heart"></span>Favorieten
         </a>
             
         <a class="sidebar_element" href="<?php echo $berichten; ?>">
-            <span class="icon-menu-envelope"></span><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
+            <span class="m-envelope"></span><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
         </a>
             
         <a class="sidebar_element" href="<?php echo $instellingen; ?>">
-            <span class="icon-menu-cogs"></span>Wachtwoord aanpassen
+            <span class="m-cogs"></span>Wachtwoord aanpassen
         </a>
         
         <div class="sidebar_element_last">
