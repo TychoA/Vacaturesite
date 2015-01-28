@@ -26,7 +26,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                 
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID, naam, achternaam, email, telefoonnummer, plaatsnaam, url_foto FROM werknemers");
+                $stmt = $db->prepare("SELECT ID, naam, achternaam, email, telefoonnummer, locatie, url_foto FROM werknemers");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
@@ -39,7 +39,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                             <a onclick="deleteWerknemer(<?php echo $id; ?>)"><div class="decline"><i class="fa fa-close"></i></div></a>
                             
                             <h4><?php echo $row['naam']." ".$row['achternaam']; ?> (<?php echo $row['email']; ?>)</h4>
-                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['plaatsnaam']; ?></p>
+                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['locatie']; ?></p>
                             <a href="../profiel_werknemer.php?id=<?php echo $id; ?>"><div class="bekijk_profiel">Bekijk gehele profiel</div></a>
                         </div>
                         <?php

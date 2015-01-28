@@ -7,6 +7,44 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
     header ( 'Location:../login_pagina.php');
 }
 
+include '../includes/connect.php';
+
+if (isset($_POST['naam'], $_POST['email'], $_POST['telefoonnummer'], $_POST['locatie'], $_POST['kvk'], $_POST['url_foto'])) {
+    
+    if ($_POST['url_foto'] == "") {
+        $url_foto = "http://ik44.webdb.fnwi.uva.nl/Vacaturesite/img/empty.png"; 
+    } else {
+        $url_foto = $_POST['url_foto']; 
+    }
+    
+    $stmt = $db->prepare("UPDATE werkgevers 
+    SET url_foto=:url_foto, naam=:naam, email=:email, telefoonnummer=:telefoonnummer, locatie=:locatie, kvk=:kvk 
+    WHERE id=:id");
+    $stmt->execute(array(':id' => $bedrijfID, 
+                         ':url_foto' => $url_foto,
+                         ':naam' => $_POST['naam'], 
+                         ':email' => $_POST['email'], 
+                         ':telefoonnummer' => $_POST['telefoonnummer'],
+                         ':locatie' => $_POST['locatie'],
+                         ':kvk' => $_POST['kvk']
+                        ));
+    $mededeling = "Uw gegevens zijn ge&#252;pdate!";
+}
+
+
+$stmt = $db->prepare("SELECT url_foto, naam, email, telefoonnummer, locatie, kvk FROM werkgevers WHERE id=:id");
+$stmt->execute(array(':id' => $bedrijfID));
+
+while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $url_foto = $row['url_foto'];
+    $naam = $row['naam'];
+    $email = $row['email'];
+    $telefoonnummer = $row['telefoonnummer'];
+    $locatie = $row['locatie'];
+    $kvk = $row['kvk'];
+}
+
+
 ?>
 <html>
     <?php include './linking.php';?>
@@ -20,7 +58,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
                 <span class="dash">/</span>
                 <a href="<?php echo $mijn_account; ?>">Mijn Account</a>
                 <span class="dash">/</span>
-                <a href="<?php echo $vacature_toevoegen; ?>">Vacature toevoegen</a>
+                <a href="<?php echo $mijn_profiel; ?>">Mijn profiel</a>
             </div>
         </div>
             
@@ -38,45 +76,71 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
                     <i class="fa fa-chevron-left"></i>Terug naar overzicht
                 </a>
             </p>
+            
+            
+            <?php if (isset($mededeling)) { ?>
+                <div class="full mededeling">
+                    <p><?php echo $mededeling; ?></p>
+                </div>
+            <?php } ?>
                 
-            <div class="full">
-                <h2>Algemene Informatie</h2>
-                
-                <div class="edit_face">
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <h4>Logo</h4>
-                    <img class="preview_face" src="../img/logo.png" alt="Naam" />
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <div class="full">
+                    <h2>Algemene Informatie</h2>
+
+                    <div class="edit_face">
+                        <h4>Logo</h4>
+                        <?php if ($url_foto == "http://ik44.webdb.fnwi.uva.nl/Vacaturesite/img/empty.png") { ?>
+                            <input type="text" name="url_foto" placeholder="Voeg hier de link van vierkante foto toe">
+                        <?php } else { ?>
+                            <input type="text" name="url_foto" value="<?php echo $url_foto; ?>">
+                        <?php } ?>
+                        <br>
+                        <p>Preview:</p><img class="preview_face" src="<?php echo $url_foto; ?>" />
+                    </div>
+
+                    <div class="edit_bedrijf">
+                        <h4>Naam</h4>
+                        <input type="text" name="naam" value="<?php echo $naam; ?>" placeholder="Voornaam..." required>
+                    </div>
+
+                    <div class="edit_email">
+                        <h4>E-mail</h4>
+                        <input type="email" name="email" value="<?php echo $email; ?>" placeholder="E-mail..." required>
+                    </div>
+
+                    <div class="edit_phone">
+                        <h4>Telefoonnummer</h4>
+                        <input type="number" name="telefoonnummer" value="<?php echo $telefoonnummer; ?>" placeholder="Telefoonnummer...">
+                    </div>
+
+                    <div class="edit_location">
+                        <h4>Locatie</h4>
+                        <select name="locatie">
+                            <option value="<?php echo $locatie; ?>"><?php echo $locatie; ?></option>
+                            <option value="Noord-Holland">Noord-Holland</option>
+                            <option value="Zuid-Holland">Zuid-Holland</option>
+                            <option value="Utrecht">Utrecht</option>
+                            <option value="Flevoland">Flevoland</option>
+                            <option value="Gelderland">Gelderland</option>
+                            <option value="Overijssel">Overijssel</option>
+                            <option value="Noord-Brabant">Noord-Brabant</option>
+                            <option value="Groningen">Groningen</option>
+                            <option value="Drenthe">Drenthe</option>
+                            <option value="Friesland">Friesland</option>
+                            <option value="Limburg">Limburg</option>
+                            <option value="Zeeland">Zeeland</option>
+                            <option value="Internationaal">Internationaal</option>
+                        </select>
+                    </div>
+
+                    <div class="edit_kvk">
+                        <h4>KvK-nummer</h4>
+                        <input type="number" name="kvk" value="<?php echo $kvk; ?>" placeholder="KvK-nummer...">
+                    </div>
+                    <input type="submit" value="Opslaan" id="opslaan">
                 </div>
-                    
-                <div class="edit_name">
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <h4>Naam</h4>
-                    <p>Naam Bedrijf</p>
-                </div>
-                    
-                <div class="edit_email">
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <h4>E-mail</h4>
-                    <p>info@naambedrijf.com</p>
-                </div>
-                    
-                <div class="edit_phone">
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <h4>Telefoonnummer</h4>
-                    <p>+ (31) 20 6 12 34 56</p>
-                </div>
-                    
-                <div class="edit_location">
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <h4>Locatie</h4>
-                    <p>Amsterdam, Noord-Holland</p>
-                </div>
-                    
-                <div class="edit_kvk">
-                    <i class="fa fa-pencil fa-fw"></i>
-                    <h4>KvK-nummer</h4><p>01234567</p>
-                </div>
-            </div>
+            </form>
         </main>
     </div>
     <!-- /MAIN AREA -->
