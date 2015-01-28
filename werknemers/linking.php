@@ -2,6 +2,7 @@
 $style                  =   '../css/style.css';
 $icons                  =   '../css/sprites.css';
 $script                 =   '../js/script.js';
+$favicon                =   '../favicon.ico';
 
 
 $home                   =   '../index.php';
