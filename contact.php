@@ -4,7 +4,7 @@
         $email = $_POST['email'];
         $onderwerp = $_POST['onderwerp'];    
         $vraag = $_POST['vraag'];
-        $from = 'From:'.$_POST['email']; 
+        $from = 'From: contactformulier stagepeer.nl'; 
         $to = 'stagepeer@gmail.com'; 
 
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {  
