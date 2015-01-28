@@ -1264,3 +1264,37 @@ main .inbox a:active, main .inbox a:hover {
     width: 140px;
     height: 140px;
 }
+
+main .wrapper {
+    text-align: center;
+}
+
+h2 {
+    color:tomato;
+}
+
+.input_gebruikersnaam, .input_wachtwoord{
+    margin: 0 auto;
+    float: right;
+    padding-right: 52px;
+    margin-bottom: 20px;
+}
+
+.gebruikersnaam label, .wachtwoord label {
+    float: left;
+    width: 120px;
+    text-align: left;
+    margin-bottom: 19px;
+    clear:both;
+}
+
+.gebruikersnaam {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 350px;
+}
+
+main .login_button {
+    margin-top: 10px;
+    width: 350px;
+}

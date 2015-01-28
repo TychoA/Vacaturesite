@@ -1,10 +1,7 @@
 <?php session_start();
 
-// Check of je ingelogd bent EN een werknemer bent, anders ga je naar de login_pagina.php
-if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid']))) {
-    $userID = $_SESSION['werknemerid'];
-} else {
-    header ( 'Location:../login_pagina.php');
+if (!isset($_SESSION['admin'])) {
+     header ( 'Location: ./login_admin.php');
 }
 
 ?>
