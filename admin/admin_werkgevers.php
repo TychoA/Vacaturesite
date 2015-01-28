@@ -23,7 +23,7 @@ if (!isset($_SESSION['admin'])) {
                 
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID, naam, email, telefoonnummer, plaatsnaam, kvk, url_foto FROM werkgevers WHERE verificatie=0");
+                $stmt = $db->prepare("SELECT ID, naam, email, telefoonnummer, locatie, kvk, url_foto FROM werkgevers WHERE verificatie=0");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
@@ -34,7 +34,7 @@ if (!isset($_SESSION['admin'])) {
                             <a href="update.php?id=<?php echo $row['ID']; ?>&kind=werkgever&action=accept"><div class="pending_yes"><i class="fa fa-check"></i></div></a>
                             
                             <h4><?php echo $row['naam']; ?> (<?php echo $row['email']; ?>)</h4>
-                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['plaatsnaam']; ?> | <?php echo $row['kvk']; ?></p>
+                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['locatie']; ?> | <?php echo $row['kvk']; ?></p>
                         </div>
                         <?php
                     }
@@ -49,7 +49,7 @@ if (!isset($_SESSION['admin'])) {
                 
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID, naam, email, telefoonnummer, plaatsnaam, kvk, url_foto FROM werkgevers WHERE verificatie=1");
+                $stmt = $db->prepare("SELECT ID, naam, email, telefoonnummer, locatie, kvk, url_foto FROM werkgevers WHERE verificatie=1");
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
 
@@ -62,7 +62,7 @@ if (!isset($_SESSION['admin'])) {
                             <a onclick="deleteWerkgever(<?php echo $id; ?>)"><div class="decline"><i class="fa fa-close"></i></div></a>
                             
                             <h4><?php echo $row['naam']; ?> (<?php echo $row['email']; ?>)</h4>
-                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['plaatsnaam']; ?> | <?php echo $row['kvk']; ?></p>
+                            <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['locatie']; ?> | <?php echo $row['kvk']; ?></p>
                         </div>
                         <?php
                     }

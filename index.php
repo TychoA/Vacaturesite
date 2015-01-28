@@ -16,7 +16,7 @@
     <main class="no_top_padding">
         <div class="search-area">
             <div class="wrapper">
-                <h3>Een prachtige slogan.</h3>
+                <h3>Working IT.</h3>
                 
                 <form action="<?php echo $zoekresultaten.'#searchbar'; ?>" method="post">
                     
