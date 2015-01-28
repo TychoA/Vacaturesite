@@ -1266,7 +1266,7 @@ main .inbox a:active, main .inbox a:hover {
 }
 
 main .wrapper {
-    text-align: center;
+    text-align: left;
 }
 
 h2 {

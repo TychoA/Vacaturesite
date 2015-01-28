@@ -61,7 +61,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                                 <a href="<?php echo './remove_fav.php?id='.$id_fav; ?>" target="_self"><i class='fa fa-close fa-lg delete'></i></a>
                             
                             <a href="<?php echo $detail_vacature; ?>?id=<?php echo $id; ?>">
-                                <h4><i class='fa fa-heart fa-fw'></i> <?php echo $row["titel"]; ?></h4>
+                                <h4><?php echo $row["titel"]; ?></h4>
                                 <p class='vac_mini_info'><?php echo $row["naam"]; ?> | <?php echo $row["locatie"]; ?> | Geplaatst op <?php echo $datum; ?> om <?php echo $tijd; ?></p>
                                 <p class='vac_mini_beschr'><?php echo $res_beschr; ?>...</p>
                             </a>

@@ -28,19 +28,19 @@
         <div class="sidebar_element_fist">Jaap Verhoeven</div>
         
         <a class="sidebar_element" href="<?php echo $mijn_profiel; ?>">
-            <i class="fa fa-user fa-fw fa-lg"></i>Mijn Profiel
+            <span class="icon-menu-user"></span>Mijn Profiel
         </a>
             
         <a class="sidebar_element" href="<?php echo $favorieten; ?>">
-            <i class="fa fa-heart fa-fw fa-lg"></i>Favorieten
+            <span class="icon-menu-heart"></span>Favorieten
         </a>
             
         <a class="sidebar_element" href="<?php echo $berichten; ?>">
-            <i class="fa fa-envelope fa-fw fa-lg"></i><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
+            <span class="icon-menu-envelope"></span><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
         </a>
             
         <a class="sidebar_element" href="<?php echo $instellingen; ?>">
-            <i class="fa fa-cogs fa-fw fa-lg"></i>Wachtwoord aanpassen
+            <span class="icon-menu-cogs"></span>Wachtwoord aanpassen
         </a>
         
         <div class="sidebar_element_last">

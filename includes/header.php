@@ -77,7 +77,9 @@ if (strpos(getUrl(), 'werknemers') || strpos(getUrl(), 'werkgevers')) {
 ?>
 <head>
     <link href="<?php echo $style; ?>" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo $font_awesome; ?>">
+    <link href="<?php echo $icons; ?>" rel="stylesheet" >
+    <link href="./css/icons.css" rel="stylesheet" >
+    <link href="<?php echo $font_awesome; ?>" rel="stylesheet" >
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,300,400' rel='stylesheet' type='text/css'>
     <script src="<?php echo $script; ?>"></script>
 

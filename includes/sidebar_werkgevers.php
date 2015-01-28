@@ -28,19 +28,19 @@
         <div class="sidebar_element_fist">Naam Bedrijf</div>
         
         <a class="sidebar_element" href="<?php echo $mijn_profiel; ?>">
-                <i class="fa fa-group fa-fw fa-lg"></i> Profiel
+            <span class="icon-menu-group"></span> Profiel
         </a>
         <a class="sidebar_element" href="<?php echo $vacature_toevoegen; ?>">
-            <i class="fa fa-plus fa-fw fa-lg"></i>Nieuwe vacature
+            <span class="icon-menu-plus"></span>Nieuwe vacature
         </a>
         <a class="sidebar_element" href="<?php echo $openstaande_vacatures; ?>">
-            <i class="fa fa-bullhorn fa-fw fa-lg"></i>Openstaande vacatures
+            <span class="icon-menu-bullhorn"></span>Openstaande vacatures
         </a>
         <a class="sidebar_element" href="<?php echo $berichten; ?>">
-            <i class="fa fa-envelope fa-fw fa-lg"></i><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
+            <span class="icon-menu-envelope"></span><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
         </a>
         <a class="sidebar_element" href="<?php echo $instellingen; ?>">
-            <i class="fa fa-cogs fa-fw fa-lg"></i>Wachtwoord aanpassen
+            <span class="icon-menu-cogs"></span></i>Wachtwoord aanpassen
         </a>
         
         <div class="sidebar_element_last">

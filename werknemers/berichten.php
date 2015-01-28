@@ -39,10 +39,10 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                     <i class="fa fa-chevron-left"></i>Terug naar overzicht
                 </a>
                 <a class="toInbox">
-                     <i class="fa fa-inbox fa-2x"></i>Ontvangen
+                     Ontvangen
                 </a>
                 <a class="toSend">
-                     <i class="fa fa-send fa-2x"></i>Verstuurd
+                     Verstuurd
                 </a>
             </p>
                 
