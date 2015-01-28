@@ -7,12 +7,13 @@ $replica = false;
 // Variabelen voor werkgevers
 if (isset($_POST['bedrijf'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
 {
+    $pass = $_POST['wachtwoord'];
     $options = [
             'cost' => 12,
             'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
                    ];
     
-    $hash = password_hash($_POST['wachtwoord'], PASSWORD_BCRYPT, $options);
+    $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
     
     $params = array(":naam"=>$_POST['bedrijf'],
                     ":plaatsnaam"=>$_POST['plaatsnaam'],
