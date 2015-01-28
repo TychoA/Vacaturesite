@@ -131,7 +131,6 @@ header {
     height: 95px;
     float: left;
     margin: 10px 0;
-    margin-left: -50px;
 }
 nav {
     float: right;
@@ -911,6 +910,13 @@ main a.openbare_profiel:hover {
     font-weight: 300;
     text-transform: uppercase;
     float: right;   
+}
+.message_send {
+    color: #888;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: 1px;
+    padding: 0 15px;
 }
 
 /* ALGEMENE VOORWAARDEN */

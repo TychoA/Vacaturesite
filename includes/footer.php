@@ -5,7 +5,7 @@
     <div class="wrapper">
         <div class="footer_left">
             <a href="<?php echo $home; ?>"><img class="footer_logo"  src="<?php echo $logo_wit; ?>" alt="StagePeer" /</a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque hendrerit justo non velit faucibus, a condimentum odio viverra. Proin dictum tincidunt justo, non venenatis leo dictum non.</p>
+            <p>StagePeer is d&#233; plek om op zoek te gaan naar jouw afstudeerstage in de ICT-sector. StagePeer is speciaal gericht op studenten van de Universiteit van Amsterdam en de Vrije Universiteit.</p>
         </div>
         
         <div class="footer_nav">
