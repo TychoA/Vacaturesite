@@ -9,7 +9,7 @@ $home                   =   '../index.php';
 $inloggen               =   '#';
 $uitloggen              =   '../logout.php';
 $registreren            =   './registratie_pagina.php?link=1';
-$profiel_deactiveren    =   '#';
+$profiel_deactiveren    =   '../deactivatie.php';
 $mijn_account           =   './mijn_account.php';
 $mijn_profiel           =   './mijn_profiel.php';
 $vacature_toevoegen     =   './vacature_toevoegen.php';

@@ -58,3 +58,4 @@
             <a href="<?php echo $profiel_deactiveren; ?>">Profiel Deactiveren</a></div>
     </nav>
 </sidebar>
+

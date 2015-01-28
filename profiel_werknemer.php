@@ -8,6 +8,9 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
 } else if (isset($_SESSION['werknemerid']) && $_SESSION['werknemerid'] == $_GET['id']) {
     $userID = $_SESSION['werknemerid'];
     include './includes/connect.php';
+} else if (isset($_SESSION['admin'])) {
+    $userID = $_GET['id'];
+    include './includes/connect.php';
 }
 else {
     header ( 'Location:./login_pagina.php');
