@@ -77,7 +77,7 @@ if (strpos(getUrl(), 'werknemers') || strpos(getUrl(), 'werkgevers')) {
 ?>
 <head>
     <title>StagePeer | Jouw stage in de ICT vind je hier.</title>
-    <!-- gemaakt door Luca Verhees -->
+    <!-- gemaakt door Webperen in opdracht voor WebDB (UvA - Informatiekunde) -->
 	
     <meta name="description" lang="nl" content="StagePeer is d&#233; plek om op zoek te gaan naar jouw afstudeerstage in de ICT-sector. StagePeer is speciaal gericht op studenten van de Universiteit van Amsterdam en de Vrije Universiteit.>">
     <meta name="keywords" content="afstudeerstage, stage, ict, master, amsterdam, universiteit">
@@ -90,7 +90,7 @@ if (strpos(getUrl(), 'werknemers') || strpos(getUrl(), 'werkgevers')) {
     <link href="<?php echo $style; ?>" rel="stylesheet">
     <link href="<?php echo $icons; ?>" rel="stylesheet" >
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,300,400' rel='stylesheet' type='text/css'>
-    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?php echo $favicon; ?>" />
     
     <script src="<?php echo $script; ?>"></script>
 
