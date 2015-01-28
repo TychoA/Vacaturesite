@@ -1,3 +1,31 @@
+<?php
+ if (isset($_POST['naam'], $_POST['email'], $_POST['onderwerp'], $_POST['vraag'])) {
+        $naam = $_POST['naam'];    
+        $email = $_POST['email'];
+        $onderwerp = $_POST['onderwerp'];    
+        $vraag = $_POST['vraag'];
+        $from = 'From: contactformulier stagepeer.nl'; 
+        $to = 'stagepeer@gmail.com'; 
+
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {  
+            $ip=$_SERVER['HTTP_CLIENT_IP']; 
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip=$_SERVER['HTTP_X_FORWARDED_FOR']; 
+        } else { 
+            $ip=$_SERVER['REMOTE_ADDR']; 
+        } 
+
+        $body = "Van: $naam \nE-mail: $email\n\n$vraag";
+
+        if (mail ($to, $naam, $body, $from)) { 
+            $message_send = "Uw bericht is succesvol verstuurd. Wij zullen zo snel mogelijk contact met u opnemen!";
+        } else { 
+            $message_send = "Er is iets fout gegaan! Probeer het opnieuw."; 
+        }
+        
+ }
+?>
+
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -19,20 +47,6 @@
         </div>    
     </header>
     <!-- /HEADER AREA -->
-    
-    <!-- INLOG POP-UP -->
-    <!--<section class="login_outer">
-        <div class="login">
-            <i class="fa fa-times"></i>
-            <form>
-                <h2>Log in</h2>
-                <input type="text" class="login_box" placeholder="Gebruikersnaam">
-                <input type="text" class="login_box" placeholder="Wachtwoord">  
-                <input type="submit" class="login_button" value="Verstuur">
-            </form>  
-        </div>
-    </section>-->
-    <!-- /INLOG POP-UP -->
 
     <!-- MAIN AREA -->
     <main>
@@ -50,10 +64,12 @@
             </div>
             
             <div class="col_2">
-                <h2>Stuur ons een bericht</h2>
-                <form class="contact_formulier">
-                    <h4>Gebruikersnaam</h4> <input type=text name="gebruikersnaam" placeholder="Typ hier uw gebruikersnaam...">
-                    <h4>Onderwerp</h4> <input type=text name="email" placeholder="Typ hier uw e-mailadres..." >
+                <a id="formulier"><h2>Stuur ons een bericht</h2></a>
+                <?php if (isset($message_send)) { echo "<p class='message_send'>".$message_send."</p>";} ?>
+                <form class="contact_formulier" action="<?php echo $_SERVER['PHP_SELF']."#formulier"; ?>" method="post">
+                    <h4>Naam</h4> <input type=text name="naam" placeholder="Typ hier uw naam...">
+                    <h4>E-mail</h4> <input type=text name="email" placeholder="Typ hier uw e-mail...">
+                    <h4>Onderwerp</h4> <input type=text name="onderwerp" placeholder="Typ hier uw e-mailadres..." >
                     <h4>Vraag</h4> <textarea name="vraag" rows="10" cols="30"placeholder="Typ hier uw vraag..."></textarea>
                     
                     <input id="submit" type="submit" value="Verstuur"> 

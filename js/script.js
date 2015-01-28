@@ -1,5 +1,4 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
-// MAREKsszzzzz STUKKKKJEEE AFBLIJVEEEENN tycho.
 window.onload = function () {
     "use strict";
     var toInbox = document.getElementsByClassName('toInbox')[0], i, j, k,
@@ -197,4 +196,24 @@ window.onload = function () {
             climb();
         }
     };
+    
+    
 };
+
+// Confirm boxes in admin
+function deleteVacature(id) {
+    if (confirm("Weet u zeker dat u deze vacature wilt verwijderen? Deze handeling is niet ongedaan te maken!") == true) {
+        window.location.assign("update.php?kind=vacature&id=" + id)
+    }
+}
+function deleteWerknemer(id) {
+    if (confirm("Weet u zeker dat u het profiel van deze werknemer wilt verwijderen? Deze handeling is niet ongedaan te maken!") == true) {
+        window.location.assign("update.php?kind=werknemer&id=" + id)
+    }
+}
+
+function deleteWerkgever(id) {
+    if (confirm("Weet u zeker dat u het profiel van deze werknemer wilt verwijderen? Deze handeling is niet ongedaan te maken!") == true) {
+        window.location.assign("update.php?kind=werkgever&action=delete&id=" + id)
+    }
+}

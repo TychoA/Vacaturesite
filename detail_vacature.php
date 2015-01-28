@@ -1,10 +1,17 @@
+<?php session_start();?>
 <html>
 
-    <?php include './includes/connect.php';?>
+    <?php include './includes/connect.php';
+    
+    
+        // Check of je ingelogd bent EN een werknemer bent, anders ga je naar de login_pagina.php
+        if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid']))) {
+            $userID = $_SESSION['werknemerid'];
+        }
+    ?>
     
     <?php        
-        $userID = '1';
-        $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=:id');
+        $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, vacatures.locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=:id');
         $stmt->execute(array(':id' =>   $_GET['id']));
         $stmt->execute();
  
@@ -34,13 +41,16 @@
 
 
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (!empty($_POST['beantwoord'])) {
+        if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
+            if (!empty($_POST['beantwoord']) && isset($_SESSION['werknemerid'])) {
                 $update_verzend = "INSERT INTO `stagepeer`.`verstuurd_werknemer` (`ID`, `ID_werknemer`, `ID_werkgever`, `ID_vacature`, `datum`, `titel`, `bericht`, `gelezen`) VALUES (NULL, :werknemerid, :werkgeverid, :vacatureid, CURRENT_TIMESTAMP, :new_title, :new_text, '0')";
                 
+                $bericht = strip_tags(trim($_POST['beantwoord']));
+                $profiel = 'Openbaar <a href="../profiel_werknemer.php?id='.$userID.'" style="color: tomato">profiel</a> van werknemer.';
+                $new_bericht = $bericht.'<br><br> ------------------ <br><br>'.$profiel;
                 $sth2 = $db->prepare($update_verzend);
                 $sth2->execute(array( 
-                    ':new_text' => $_POST['beantwoord'],
+                    ':new_text' => $new_bericht,
                     ':new_title' => $vac_titel,
                     ':werknemerid' => $userID,
                     ':werkgeverid' =>$vac_id_wg,
@@ -49,7 +59,7 @@
                 echo '<script>alert("Uw bericht is verzonden. Bedankt voor het reageren.");</script>';
                 
             } else {
-                echo '<script>alert("Uw bericht is NIET verzonden. Probeer het opnieuw.");</script>';    
+                echo '<script>alert("Error: Uw bericht is NIET verzonden.");</script>';    
             }
         }
     ?>
@@ -133,9 +143,9 @@
                 }?>
                 <h4>Bedrijf</h4><p><?php echo $vac_naam_wg; ?></p><br>
                 <h4>Duur</h4><p><?php echo $vac_duur; ?></p><br>
-                <h4>Opleidingen</h4><p><?php echo $vac_opleidingen; ?></p><br>
-                <h4>Locatie</h4><p><?php echo $vac_locatie; ?></p><br>
-                <h4>Tags</h4><p><?php echo $vac_tags; ?></p><br>
+                <h4>Opleidingen</h4><p><?php if ($vac_opleidingen == "") { echo "-"; } else { echo $vac_opleidingen; } ?></p><br>
+                <h4>Locatie</h4><p><?php if ($vac_locatie == "alles") { echo "n.v.t."; } else { echo $vac_locatie; } ?></p><br>
+                <h4>Tags</h4><p><?php if ($vac_tags == "") { echo "-"; } else { echo $vac_tags; } ?></p><br>
                 
                 <div class="clear"></div>
             </div>
@@ -151,10 +161,13 @@
                     <p><?php echo $vac_beschrijving_eisen; ?></p>
                 </div>
                 
+                <?php if ($vac_beschrijving_overig != "") { ?> 
                 <div class="overig">
                     <h2>Overige informatie</h2>
                     <p><?php echo $vac_beschrijving_overig; ?></p>
                 </div>
+                <?php }?>
+                
                 <div class="beantwoorden">
                    <h2>Uw reactie:</h2>
                     <form method="post" action="">

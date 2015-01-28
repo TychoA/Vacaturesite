@@ -38,11 +38,26 @@
 
     // Weergeven van alle berichten
     for ($i=0; $i < sizeof($array_ber); $i++) {
-            $titel = $array_ber[$i][0];
             $werkgever = $array_ber[$i][1];
             $datum = $array_ber[$i][2];
             $bericht = $array_ber[$i][3];
             $gelezen = $array_ber[$i][4];
+            $berichtID = $array_ber[$i][5];
+            
+            $ID_vac = $array_ber[$i][7];
+        
+            $sql_vacature = "SELECT id FROM vacatures";
+            $results_vac = $db->query($sql_vacature);
+            foreach($results_vac as $row_vac) 
+            {
+                if ($row_vac['id'] == $ID_vac) {
+                    $titel = $array_ber[$i][0];
+                    break;
+                } else {
+                    $titel = 'Deze vacature bestaat niet meer';    
+                }
+            }
+            
             $envelop = 'fa fa-envelope fa-fw unread';
 
             if ($gelezen) {
@@ -50,6 +65,7 @@
             }
             
             echo '<div class="ber_mini">
+                    <a href="./remove_ber.php?id='.$berichtID.'" target="_self"><i class="fa fa-close fa-lg delete"></i></a>
                     <h4 class="klikt"><i class="'.$envelop.'"></i> '.$titel.'</h4>
                     <p class="vac_mini_info">'.$werkgever.' | '.$datum.'</p>
                     <p class="ber_mini_beschr">'.substr($bericht, 0, 280).'...</p>

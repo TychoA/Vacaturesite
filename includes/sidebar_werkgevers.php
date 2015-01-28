@@ -17,6 +17,14 @@
     { 
         $aantalNieuweBerichten++;
     }
+
+
+    $sql_2 = "SELECT naam FROM werkgevers WHERE id=".$bedrijfID." LIMIT 1";
+    $results_2 = $db->query($sql_2);
+    foreach($results_2 as $row_2) 
+    { 
+        $sidebar_naam = $row_2['naam'];
+    }
 ?>
    
 
@@ -24,22 +32,22 @@
 <sidebar>
     <img class="face" src="../img/logo.png" alt="Naam Voornaam" /> 
     <nav class="nav_sidebar">
-        <div class="sidebar_element_fist">Naam Bedrijf</div>
+        <div class="sidebar_element_fist"><?php echo $sidebar_naam ?></div>
         
         <a class="sidebar_element" href="<?php echo $mijn_profiel; ?>">
-                <i class="fa fa-group fa-fw fa-lg"></i> Profiel
+            <span class="icon-menu-group"></span> Profiel
         </a>
         <a class="sidebar_element" href="<?php echo $vacature_toevoegen; ?>">
-            <i class="fa fa-plus fa-fw fa-lg"></i>Nieuwe vacature
+            <span class="icon-menu-plus"></span>Nieuwe vacature
         </a>
         <a class="sidebar_element" href="<?php echo $openstaande_vacatures; ?>">
-            <i class="fa fa-bullhorn fa-fw fa-lg"></i>Openstaande vacatures
+            <span class="icon-menu-bullhorn"></span>Openstaande vacatures
         </a>
         <a class="sidebar_element" href="<?php echo $berichten; ?>">
-            <i class="fa fa-envelope fa-fw fa-lg"></i><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
+            <span class="icon-menu-envelope"></span><span id="unread"><?php echo $aantalNieuweBerichten ?> ongelezen bericht(en)</span>
         </a>
         <a class="sidebar_element" href="<?php echo $instellingen; ?>">
-            <i class="fa fa-cogs fa-fw fa-lg"></i>Wachtwoord aanpassen
+            <span class="icon-menu-cogs"></span></i>Wachtwoord aanpassen
         </a>
         
         <div class="sidebar_element_last">

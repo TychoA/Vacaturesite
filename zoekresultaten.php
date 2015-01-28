@@ -79,7 +79,7 @@
                 $zoekveld = preg_replace('#[^a-z 0-9?!]#i', '', $_POST['zoekveld']);
 
                 $sqlquery= "";
-                $sqlarray = "";
+                $sqlarray = array();
                 
                 $info_resultaten = "";
                     
@@ -90,7 +90,7 @@
                 if ($_POST['omgeving'] != "alles") {
 
                     /* MAAK query deel */
-                    $query_omgeving = "locatie=:omgeving OR locatie='alles'";
+                    $query_omgeving = "vacatures.locatie=:omgeving OR vacatures.locatie='alles'";
                     
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
@@ -187,7 +187,7 @@
                 }
                 //////////////////
 
-                $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
+                $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, vacatures.locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
                 $stmt->execute($sqlarray);
                 $stmt->execute();
                 $row_count = $stmt->rowCount();

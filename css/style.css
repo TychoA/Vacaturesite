@@ -86,7 +86,7 @@ header {
 
 /* LOGIN MENU */
 .menu_login {
-    height: 25px;
+    height: 30px;
     background-color: #444;
     font-size: 11px;
     letter-spacing: 0.8px;
@@ -99,11 +99,11 @@ header {
 }
 .left div {
     float: left;
-    padding: 3px 10px 6px 0px;
+    padding: 4px 10px 0px 0px;
 }
 .right div {
     float: right;
-    padding: 3px 0px 6px 10px;
+    padding: 4px 0px 0px 10px;
 }
 .EN, .NL, .right_item {
     display: inline-block;
@@ -131,7 +131,6 @@ header {
     height: 95px;
     float: left;
     margin: 10px 0;
-    margin-left: -50px;
 }
 nav {
     float: right;
@@ -627,7 +626,7 @@ main .clear {
     text-transform: uppercase;
     font-size: 12px;
 }
-.beheer .info {
+.info {
     color: #888;
     font-size: 11px;
     text-align: left;
@@ -638,29 +637,81 @@ main .clear {
 
 
 /* EDIT PROFILE */
-main .fa-pencil {
-    color: lightsalmon;
+main .edit_profile {
+    display: inline-block;
 }
-main .fa-pencil:hover {
-    color: tomato;
+.mededeling {
+    color: cornflowerblue;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+main a.openbare_profiel, main a.openbare_profiel:active, main a.openbare_profiel:visited {
+    margin-left: 10px;
+    background-color: lightsalmon;
+    color: #fff;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    border-radius: 50px;  
+    margin-left: 280px;
+}
+main a.openbare_profiel:hover {
+    background-color: tomato;
+    color: #fff;
 }
 
 /* EDIT PROFILE - Algemene Informatie */
-.edit_face, .edit_name, .edit_email, .edit_phone, .edit_location, .edit_kvk {
+.edit_face, .edit_name, .edit_bedrijf, .edit_email, .edit_phone, .edit_location, .edit_studie, .edit_kvk, .toevoegen {
     margin: 10px 0;
 }
-.edit_face h4, .edit_name h4, .edit_email h4, .edit_phone h4, .edit_location h4, .edit_kvk h4 {
+.edit_face h4, .edit_face p, .edit_name h4, .edit_bedrijf h4, .edit_email h4, .edit_phone h4, .edit_location h4, .edit_studie h4, .edit_kvk h4, .toevoegen h4 {
     display: inline-block;
     width: 150px;
 }
-.edit_name p, .edit_email p, .edit_phone p, .edit_location p, .edit_kvk p {
-    margin: 0;
-    padding: 0;
+.edit_name p, .edit_bedrijf p, .edit_email p, .edit_phone p, .edit_location p, .edit_studie p, .edit_kvk p{
     display: inline-block;
-    width: 300px;
+    width: 200px;
+    margin: 0px;
+}
+.edit_face p {
+    color: lightsalmon;
+    font-style: italic;
+    letter-spacing: 0.5;
 }
 .preview_face {
     vertical-align: text-top;
+    margin-left: 3px;
+    width: 100px;
+    height: 100px;
+}
+.edit_face input, .edit_name input, .edit_bedrijf input, .edit_email input, .edit_phone input, .edit_location input, .edit_studie input, .edit_kvk input, .toevoegen input {
+    width: 400px;
+    padding: 5px;
+}
+.edit_name input {
+    width: 199px;
+}
+.toevoegen textarea {
+    width: 400px;
+    height: 100px;
+    padding: 5px;
+    vertical-align: text-top;
+}
+#samenvatting {
+    width: 550px;
+    height: 150px;
+    padding: 5px;
+}
+#opslaan {
+    margin-left: 480px;
+    background-color: tomato;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: none;
+    margin-top: 20px;
 }
 
 /* EDIT PROFILE - Samenvatting */
@@ -679,7 +730,7 @@ main .fa-pencil:hover {
     background-color: F0F0F0;
     font-weight: 600;
     color: #666;
-    margin: 0px 0px 8px 8px;
+    margin: 8px;
 }
 .skill p, .taal p {
     display: inline-block;
@@ -693,12 +744,50 @@ main .fa-pencil:hover {
 }
 .add {
     display: inline-block;
-    padding: 3px 15px 3px 15px;
+    padding: 8px 15px 8px 15px;
     background-color: F0F0F0;
     font-weight: 600;
     color: #666;
-    margin: 8px 5px;
+    margin: 8px;
 }
+.delete_skill, .delete_taal {
+    width: 20px;
+    height: 16px;
+    background-color: tomato;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    padding-top: 4px;
+    opacity: 0.6;
+    float: right;
+    margin-right: -16px;
+    margin-top: -12px;
+}
+.delete_skill:hover, .delete_taal:hover {
+    opacity: 1;    
+} 
+.delete_cv {
+    color: #666;
+    float: right;
+    font-size: 20px;
+}
+.delete_cv:hover {
+    color: tomato;
+}
+.vaardigheid {
+    display: inline-block;
+    vertical-align: text-top;
+}
+.vaardigheid input {
+    width: 10px;
+}
+.vaardigheid .fa-star {
+    color: gold;
+}
+.vaardigheid .fa-star-o {
+    color: #BBB;
+}
+
 
 /* EDIT PROFILE - Jouw Diploma's & Jouw Werkervaring & Jouw Opledingen en Cursussen */
 
@@ -822,6 +911,13 @@ main .fa-pencil:hover {
     text-transform: uppercase;
     float: right;   
 }
+.message_send {
+    color: #888;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: 1px;
+    padding: 0 15px;
+}
 
 /* ALGEMENE VOORWAARDEN */
 .alg_vw, .pr_bel {
@@ -832,7 +928,152 @@ main .fa-pencil:hover {
     margin-top: 15px; 
 }
 
-
+/* ADMIN */
+.menu_admin {
+    height: 80px;
+    padding: 5px 0px;
+    background-color: cornflowerblue;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.8px;
+    text-align: right;
+}
+.logo_admin {
+    height: 60px;
+    float: left;
+    margin-top: 10px;
+    padding: 0;
+}
+.menu_admin p {
+    margin: 20px 0px 20px 20px;
+    padding: 10px 14px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.menu_admin a {
+    color: rgba(255, 255, 255, 0.7);
+}
+.menu_admin a:hover {
+    color: #FFF;
+}
+.admin_button {
+    width: 260px;
+    height: 100px;
+    text-align: center;
+    background-color: tomato;
+    opacity: 0.9;
+    display: inline-block;
+    margin: 30px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 2px;
+    line-height: 100px;
+}
+.admin_button:hover {
+    opacity: 1;
+}
+.button_center {
+    margin: 0;
+}
+.admin_titel {
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 3px;
+    border: 1px solid white;
+    float: left;
+}
+.admin .info {
+    color: #888;
+    font-size: 11px;
+    text-align: left;
+    font-style: italic;
+    letter-spacing: 1px;
+    padding: 0 15px;
+}
+.admin .bekijk_profiel {
+    display: inline-block;
+    width: 140px;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 0px;
+    border-radius: 3px;
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    margin-top: -5px;
+    opacity: 0.9;
+}
+.admin .bekijk_profiel:hover {
+    opacity: 1;
+}
+.admin .bekijk_vacature {
+    display: inline-block;
+    width: 130px;
+    font-size: 10px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    margin-left: 15px;
+}
+.account {
+    background-color: #F0F0F0;
+    padding: 15px;
+    margin: 12px 0px;
+    height: 70px;
+}
+.account h4 {
+    display: inline-block;
+}
+.account_info {
+    margin: 0 0 6px 0; 
+    color: #999;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+.account img {
+    height: 70px;
+    width: 70px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+.admin .vac_mini {
+    height: 90px;
+}
+.admin .vac_mini_beschr {
+    width: 600px;
+}
+.account .pending_yes, .account .decline {
+    height: 65px;
+    width: 70px;
+    float: right;
+    font-size: 60px;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 5px;
+}
+.account .pending_yes {
+    background-color: palegreen;
+    color: #FFF;
+}
+.account .pending_yes:hover {
+    background-color: limegreen;
+    color: #FFF;
+}
+.account .decline {
+    background-color: #aaa;
+    color: #FFF;
+}
+.account .decline:hover {
+    background-color: #444;
+    color: #FFF;
+}
 
 
 
@@ -996,4 +1237,64 @@ main .inbox a:active, main .inbox a:hover {
     padding: 10px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.wachtwoord_vergeten {
+    float: left;
+    font-weight: 300;
+}
+
+.wachtwoord_vergeten:hover {
+    text-decoration: underline;
+}
+.vergeten_div {
+    font-weight: 700;
+    font-size: 13px;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.profiel_face {
+    display: inline-block;
+    float: right;
+}
+
+.profiel_face_img {
+    border: 3px solid #fff;
+    width: 140px;
+    height: 140px;
+}
+
+main .wrapper {
+    text-align: left;
+}
+
+h2 {
+    color:tomato;
+}
+
+.input_gebruikersnaam, .input_wachtwoord{
+    margin: 0 auto;
+    float: right;
+    padding-right: 52px;
+    margin-bottom: 20px;
+}
+
+.gebruikersnaam label, .wachtwoord label {
+    float: left;
+    width: 120px;
+    text-align: left;
+    margin-bottom: 19px;
+    clear:both;
+}
+
+.gebruikersnaam {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 350px;
+}
+
+main .login_button {
+    margin-top: 10px;
+    width: 350px;
 }

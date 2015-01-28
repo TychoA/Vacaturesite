@@ -23,6 +23,7 @@ if (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid'])) {
 
 $style                  =   './css/style.css';
 $font_awesome           =   './includes/font_awesome/css/font-awesome.min.css';
+$icons                  =   '../css/icons.css';
 $script                 =   './js/script.js';
 
 
@@ -31,6 +32,7 @@ $inloggen               =   './login_pagina.php';
 $uitloggen              =   './index.php';
 $registreren            =   './registratie_pagina.php?link=1';
 $profiel_deactiveren    =   './deactivatie.php';
+$ww_vergeten            =   './wachtwoord_vergeten.php';
 
 $zoekresultaten         =   './zoekresultaten.php';
 $detail_vacature        =   './detail_vacature.php';
@@ -40,9 +42,6 @@ $contact                =   './contact.php';
 $alg_voorwaarden        =   './alg_voorwaarden.php';
 $privacy_beleid         =   './privacy_beleid.php';
 $sitemap                =   './sitemap.php';
-
-$en                     =   '#';
-$nl                     =   '#';
 
 $logo                   =   './img/stagepeer.png';
 $logo_wit               =   './img/stagepeer_wit.png';

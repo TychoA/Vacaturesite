@@ -85,9 +85,16 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                 <h2>Jouw Matches</h2>
             
                 <?php 
-            
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, werknemers.plaatsnaam, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE locatie = werkgevers.plaatsnaam");
-                $stmt->execute();
+                $stmt = $db->prepare("SELECT locatie, studierichting FROM werknemers WHERE id=:id");
+                $stmt->execute(array(':id' => $userID));
+
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+                    $locatie = $row['locatie'];
+                    $studierichting = $row['studierichting'];
+                }
+
+                $stmt = $db->prepare("SELECT vacatures.ID, titel, datum, werkgevers.naam, vacatures.locatie, beschrijving_aanbod FROM vacatures INNER JOIN werkgevers ON ID_werkgevers = werkgevers.ID WHERE vacatures.locatie=:locatie AND opleidingen LIKE :studie LIMIT 3");
+                $stmt->execute(array(':locatie' => $locatie, ':studie' => "%$studierichting%"));
                 $row_count = $stmt->rowCount();
 
                 if ($row_count > 0) {
@@ -97,7 +104,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
 
-                        echo "<a href=".$detail_vacature."?id=".$row["ID_vacatures"].">";
+                        echo "<a href=".$detail_vacature."?id=".$row["ID"].">";
                         echo    "<div class='vac_mini'>";
                         echo        "<h4>".$row["titel"]."</h4>";
                         echo        "<p class='vac_mini_info'>".$row["naam"]." | ".$row["locatie"]." | ".$datum."</p>";
@@ -116,8 +123,8 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                 
                 <?php 
             
-                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werknemers.ID =".$userID);
-                $stmt->execute();
+                $stmt = $db->prepare("SELECT ID_werknemers, ID_vacatures, werknemers.ID, vacatures.ID, vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, vacatures.locatie, datum, titel, beschrijving_aanbod FROM favorieten INNER JOIN werknemers ON ID_werknemers = werknemers.ID INNER JOIN vacatures ON ID_vacatures = vacatures.ID INNER JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID WHERE werknemers.ID=:id LIMIT 3");
+                $stmt->execute(array(':id' => $userID));
                 $row_count = $stmt->rowCount();
 
                 if ($row_count > 0) {

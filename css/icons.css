@@ -1,0 +1,124 @@
+[class^="icon-"], [class*=" icon-"] {
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-image: url(../img/sprite_white.svg);
+	background-color: none;
+}
+.icon-envelope-o {
+	width: 20px;
+	height: 20px;
+	background-position: 0 0;
+}
+.icon-star {
+	width: 19px;
+	height: 20px;
+	background-position: -42px 0;
+}
+.icon-star-o {
+	width: 19px;
+	height: 20px;
+	background-position: -63px 0;
+}
+.icon-user {
+	width: 16px;
+	height: 20px;
+	background-position: -84px 0;
+}
+.icon-check {
+	width: 20px;
+	height: 20px;
+	background-position: -105px 0;
+}
+.icon-close {
+	width: 16px;
+	height: 20px;
+	background-position: -126px 0;
+}
+.icon-inbox {
+	width: 20px;
+	height: 20px;
+	background-position: -147px 0;
+}
+.icon-pencil {
+	width: 20px;
+	height: 20px;
+	background-position: -168px 0;
+}
+.icon-chevron-left {
+	width: 14px;
+	height: 20px;
+	background-position: -189px 0;
+}
+.icon-chevron-right {
+	width: 14px;
+	height: 20px;
+	background-position: 0 -21px;
+}
+
+
+.icon-heart-o {
+	width: 20px;
+	height: 20px;
+	background-position: -63px -21px;
+}
+.icon-bullhorn {
+	width: 20px;
+	height: 20px;
+	background-position: -84px -21px;
+}
+.icon-paper-plane {
+	width: 20px;
+	height: 20px;
+	background-position: -147px -21px;
+}
+
+
+.icon-menu-group {
+	width: 21px;
+	height: 20px;
+	background-position: -105px -21px;
+    vertical-align: text-top;
+    margin-right: 11px;
+}
+.icon-menu-plus {
+	width: 16px;
+	height: 20px;
+	background-position: -21px -21px;
+    vertical-align: text-top;
+    margin-right: 16px;
+}
+.icon-menu-bullhorn {
+	width: 20px;
+	height: 20px;
+	background-position: -84px -21px;
+    vertical-align: text-top;
+    margin-right: 12px;
+}
+.icon-menu-envelope {
+	width: 20px;
+	height: 20px;
+	background-position: -126px -21px;
+    vertical-align: text-top;
+    margin-right: 12px;
+}
+.icon-menu-cogs {
+	width: 21px;
+	height: 20px;
+	background-position: -42px -21px;
+    vertical-align: text-top;
+    margin-right: 11px;
+}
+.icon-menu-heart {
+	width: 20px;
+	height: 20px;
+	background-position: -21px 0;
+    vertical-align: text-top;
+    margin-right: 12px;
+}
+.icon-menu-user {
+	width: 16px;
+	height: 20px;
+	background-position: -84px 0;
+    vertical-align: text-top;
+    margin-right: 16px;
+}
