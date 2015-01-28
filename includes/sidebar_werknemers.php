@@ -4,7 +4,7 @@
         session_start();  
     }
 
-    $userID = $_SESSION['werknemerid']; //UserID moet al bekend zijn.
+    $userID = $_SESSION['werknemerid'];
     $aantalNieuweBerichten = 0;
     $sql = "SELECT *
             FROM verstuurd_werkgever 
@@ -18,6 +18,15 @@
     { 
         $aantalNieuweBerichten++;
     }
+
+    $sql_2 = "SELECT naam, achternaam FROM werknemers WHERE id=".$userID." LIMIT 1";
+    $results_2 = $db->query($sql_2);
+    foreach($results_2 as $row_2) 
+    { 
+        $sidebar_naam = $row_2['naam'];
+        $sidebar_achternaam = $row_2['achternaam'];
+    }
+
 ?>
    
 
@@ -25,7 +34,7 @@
     <img class="face" src="../img/me.png" alt="Naam Voornaam" /> 
     
     <nav class="nav_sidebar">
-        <div class="sidebar_element_fist">Jaap Verhoeven</div>
+        <div class="sidebar_element_fist"><?php echo $sidebar_naam.' '.$sidebar_achternaam; ?></div>
         
         <a class="sidebar_element" href="<?php echo $mijn_profiel; ?>">
             <i class="fa fa-user fa-fw fa-lg"></i>Mijn Profiel

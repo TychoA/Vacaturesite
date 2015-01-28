@@ -10,7 +10,9 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
 include '../includes/connect.php';
 
 if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $_POST['aangeboden'], $_POST['eisen'])) {
-        
+    
+    $titel = strip_tags($_POST['titel']);
+    
     if (empty($_POST['studierichting'])) {
         $studierichting = "alles";
     } else {
@@ -18,23 +20,28 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
     }
 
     $beschrijving_aanbod = $_POST['aangeboden'];
+    $aanbod = strip_tags($beschrijving_aanbod);
+    
     $beschrijving_eisen = $_POST['eisen'];
+    $eisen = strip_tags($beschrijving_eisen);
 
     if (empty($_POST['overig'])) {
-        $beschrijving_overige = "-";
+        $overig = "-";
     } else {
         $beschrijving_overige = $_POST['overig'];
+        $overig = strip_tags($beschrijving_overige);
     }
 
     if (empty($_POST['tags'])) {
         $tags = "-";
     } else {
         $tags = $_POST['tags'];
+        $striptags = strip_tags($tags);
     }
 
 
     $stmt = $db->prepare("INSERT INTO vacatures(ID_werkgevers, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags) VALUES(:idwerkgevers,:duur,:opleidingen,:locatie,:foto,:titel,:beschrijving_aanbod,:beschrijving_eisen,:beschrijving_overige, :tags)");
-    $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $_POST['titel'], ':beschrijving_aanbod' => $beschrijving_aanbod, ':beschrijving_eisen' => $beschrijving_eisen, ':beschrijving_overige' => $beschrijving_overige, ':tags' => $tags));
+    $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $titel, ':beschrijving_aanbod' => $aanbod, ':beschrijving_eisen' => $eisen, ':beschrijving_overige' => $overig, ':tags' => $striptags));
 
 }
 
