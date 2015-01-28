@@ -40,7 +40,7 @@
                     <h2>Admin login:</h2>
                     <div class="gebruikersnaam">
                         <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
-                            <label for="gebruikersnaam">E-mail</label>
+                            <label for="gebruikersnaam">Naam</label>
                             <input class="input_gebruikersnaam" type="text" name="name" placeholder="Gebruikersnaam" maxlength="50" required>
 
                             <label for="wachtwoord">Wachtwoord</label>
