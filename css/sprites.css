@@ -1,0 +1,132 @@
+.accept, .delete, .star-o, .star, .m-bullhorn, .m-cogs, .m-envelope, .m-group, .m-user, .m-heart, .m-plus, .envelope, .envelope-o, .plus, .close-white, .close-dark, .close-light{
+	background: url(../img/sprites.png) no-repeat;
+    display: inline-block;
+}
+
+.accept{
+	background-position: 0 0;
+	width: 43px;
+	height: 55px;
+}
+
+.delete{
+	background-position: -46px 0;
+	width: 55px;
+	height: 55px;
+}
+
+.star-o{
+	background-position: -103px -23px ;
+	width: 17px;
+	height: 18px;
+    vertical-align: text-top;
+}
+
+.star{
+	background-position: -122px -23px ;
+	width: 17px;
+	height: 18px;
+    vertical-align: text-top;
+}
+
+.m-bullhorn{
+	background-position: -102px 0;
+	width: 20px;
+	height: 20px;
+    vertical-align: text-top;
+    margin-right: 11px;
+}
+
+.m-cogs{
+	background-position: -125px 0;
+	width: 21px;
+	height: 20px;
+    vertical-align: text-top;
+    margin-right: 10px;
+}
+
+.m-envelope{
+	background-position: -148px 0;
+	width: 20px;
+	height: 20px;
+    vertical-align: text-top;
+    margin-right: 11px;
+}
+
+.m-group{
+	background-position: -169px 0;
+	width: 21px;
+	height: 20px;
+    vertical-align: text-top;
+    margin-right: 10px;
+}
+
+.m-user{
+	background-position: -192px 0;
+	width: 16px;
+	height: 20px;
+    vertical-align: text-top;
+    margin-right: 15px;
+}
+
+.m-heart{
+	background-position: -211px 0;
+	width: 20px;
+	height: 20px;
+    vertical-align: text-top;
+    margin-right: 11px;
+}
+
+.m-plus{
+	background-position: -234px 0;
+	width: 16px;
+	height: 20px;
+    vertical-align: text-top;
+    margin-right: 15px;
+}
+
+.envelope{
+	background-position: -160px -23px ;
+	width: 15px;
+	height: 15px;
+    vertical-align: text-top;
+    margin-right: 10px;
+}
+
+.envelope-o{
+	background-position: -142px -23px ;
+	width: 15px;
+	height: 15px;
+    vertical-align: text-top;
+    margin-right: 10px;
+}
+
+.plus{
+	background-position: -191px -25px ;
+	width: 12px;
+	height: 15px;
+    vertical-align: text-bottom;
+}
+
+.close-white{
+	background-position: -179px -27px ;
+	width: 8px;
+	height: 10px;
+}
+
+.close-dark{
+	background-position: -217px -24px ;
+	width: 12px;
+	height: 15px;
+    opacity: 0.7;
+}
+.close-dark:hover{
+	opacity: 1;
+}
+
+.close-light{
+	background-position: -204px -24px ;
+	width: 12px;
+	height: 15px;
+}
+

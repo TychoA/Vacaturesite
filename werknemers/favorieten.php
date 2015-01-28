@@ -37,7 +37,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
             <h1>Mijn Favorieten</h1>
             <p class="back">
                 <a href="<?php echo $mijn_account; ?>">
-                    <i class="fa fa-chevron-left"></i>Terug naar overzicht
+                    &#171; Terug naar overzicht
                 </a>
             </p>
                 
@@ -58,7 +58,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 300);
                         ?>
                         <div class='vac_mini'>
-                                <a href="<?php echo './remove_fav.php?id='.$id_fav; ?>" target="_self"><i class='fa fa-close fa-lg delete'></i></a>
+                                <a href="<?php echo './remove_fav.php?id='.$id_fav; ?>" target="_self"><span class="close-dark delete"></span></a>
                             
                             <a href="<?php echo $detail_vacature; ?>?id=<?php echo $id; ?>">
                                 <h4><?php echo $row["titel"]; ?></h4>

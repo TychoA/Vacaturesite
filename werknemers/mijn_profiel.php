@@ -78,7 +78,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             <h1 class="edit_profile">Mijn Profiel</h1>
             <p class="back">
                 <a href="<?php echo $mijn_account; ?>">
-                    <i class="fa fa-chevron-left"></i>Terug naar overzicht
+                    &#171; Terug naar overzicht
                 </a>
                 <a class="openbare_profiel" href="../profiel_werknemer.php?id=<?php echo $userID; ?>" target="_blank">
                     bekijk hier je openbare profiel
@@ -189,8 +189,8 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 
                         function setStars($aantal) {
-                            $open = '<i class="fa fa-star-o fa-lg"></i>';
-                            $dicht = '<i class="fa fa-star fa-lg"></i>';
+                            $open = '<span class="star-o"></span>';
+                            $dicht = '<span class="star"></span>';
                             $stars = '';
 
                             for ($j = 0; $j < 5; $j++) {
@@ -214,7 +214,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             echo '
                                 <div class="skill"><p>'.$sk_naam.'</p>
                                     '.$set_star.'
-                                    <a href="remove_from_profile.php?id='.$sk_id.'&kind=skill"><div class="delete_skill"><i class="fa fa-close fa"></i></div></a>
+                                    <a href="remove_from_profile.php?id='.$sk_id.'&kind=skill"><div class="delete_skill"><span class="close-white"></span></div></a>
                                 </div>
                                 ';
                         }
@@ -222,7 +222,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     ?>
 
                     <a href="add_to_profile.php?kind=Skill"><div class="add">
-                        <p><i class="fa fa-plus fa"></i></p>
+                        <span class="plus"></span>
                     </div></a>
                 </div>
             </form>
@@ -261,7 +261,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         
                         echo '
                               <div class="ber_mini diploma">
-                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=diploma"><div class="delete_cv"><i class="fa fa-close fa"></i></div></a>
+                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=diploma"><div class="delete_cv"><span class="close-white"></span></div></a>
                                 <h4>'.$cv_naam.'</h4>
                                 <p class="ber_mini_info">'.$cv_instituut.' | '.$cv_locatie.' | '.$cv_datum.'</p>
                                 <p>'.$cv_bericht.'</p>
@@ -273,7 +273,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     
                 ?>
                 <a href="add_to_profile.php?kind=diploma"><div class="ber_mini diploma">
-                    <p><i class="fa fa-plus fa"></i> Nieuwe diploma of certificaat toevoegen</p>
+                    <p><span class="plus"></span> Nieuwe diploma of certificaat toevoegen</p>
                 </div></a>
             </div>
             
@@ -312,7 +312,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         
                         echo '
                               <div class="ber_mini diploma">
-                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=werkervaring"><div class="delete_cv"><i class="fa fa-close fa"></i></div></a>
+                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=werkervaring"><div class="delete_cv"><span class="close-white"></span></div></a>
                                 <h4>'.$cv_naam.'</h4>
                                 <p class="ber_mini_info">'.$cv_instituut.' | '.$cv_locatie.' | '.$cv_datum.'</p>
                                 <p>'.$cv_bericht.'</p>
@@ -324,7 +324,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     
                 ?>
                 <a href="add_to_profile.php?kind=Werkervaring"><div class="ber_mini diploma">
-                    <p><i class="fa fa-plus fa"></i> Nieuwe werkervaring toevoegen</p>
+                    <p><span class="plus"></span> Nieuwe werkervaring toevoegen</p>
                 </div></a>
             </div>
                 
@@ -361,7 +361,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         
                         echo '
                               <div class="ber_mini diploma">
-                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=opleiding"><div class="delete_cv"><i class="fa fa-close fa"></i></div></a>
+                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=opleiding"><div class="delete_cv"><span class="close-white"></span></div></a>
                                 <h4>'.$cv_naam.'</h4>
                                 <p class="ber_mini_info">'.$cv_instituut.' | '.$cv_locatie.' | '.$cv_datum.'</p>
                                 <p>'.$cv_bericht.'</p>
@@ -373,7 +373,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     
                 ?>
                 <a href="add_to_profile.php?kind=opleiding"><div class="ber_mini diploma">
-                    <p><i class="fa fa-plus fa"></i> Nieuwe opleiding of cursus toevoegen</p>
+                    <p><span class="plus"></span> Nieuwe opleiding of cursus toevoegen</p>
                 </div></a>
             </div>
                 
@@ -408,7 +408,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                 <p>'.$taal_naam.'</p>
                                 <p>|</p>
                                 <p>'.$taal_nummer.'</p>
-                                <a href="remove_from_profile.php?id='.$taal_id.'&kind=taal"><div class="delete_taal"><i class="fa fa-close fa"></i></div></a>
+                                <a href="remove_from_profile.php?id='.$taal_id.'&kind=taal"><div class="delete_taal"><span class="close-white"></span></div></a>
                             </div> 
                         
                         
@@ -419,7 +419,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 
                 
                 <a href="add_to_profile.php?kind=Taal"><div class="add">
-                    <p><i class="fa fa-plus fa"></i></p>
+                    <span class="plus"></span>
                 </div></a>
             </div>
         </main>
