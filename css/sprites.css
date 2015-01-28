@@ -1,15 +1,15 @@
-.accept, .delete, .star-o, .star, .m-bullhorn, .m-cogs, .m-envelope, .m-group, .m-user, .m-heart, .m-plus, .envelope, .envelope-o, .plus, .close-white, .close-dark, .close-light{
+.accept, .close-big, .star-o, .star, .m-bullhorn, .m-cogs, .m-envelope, .m-group, .m-user, .m-heart, .m-plus, .envelope, .envelope-o, .plus, .close-white, .close-dark, .close-light{
 	background: url(../img/sprites.png) no-repeat;
     display: inline-block;
 }
 
-.accept{
+.close-big{
 	background-position: 0 0;
 	width: 43px;
 	height: 55px;
 }
 
-.delete{
+.accept{
 	background-position: -46px 0;
 	width: 55px;
 	height: 55px;

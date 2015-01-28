@@ -31,7 +31,7 @@ if (!isset($_SESSION['admin'])) {
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                         <div class="account">
                             <img src="<?php echo $row['url_foto']; ?>" alt="<?php echo $row['naam']; ?>"/>
-                            <a href="update.php?id=<?php echo $row['ID']; ?>&kind=werkgever&action=accept"><div class="pending_yes"><i class="fa fa-check"></i></div></a>
+                            <a href="update.php?id=<?php echo $row['ID']; ?>&kind=werkgever&action=accept"><div class="pending_yes"><span class="accept"></span></div></a>
                             
                             <h4><?php echo $row['naam']; ?> (<?php echo $row['email']; ?>)</h4>
                             <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['locatie']; ?> | <?php echo $row['kvk']; ?></p>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['admin'])) {
                         <div class="account">
                             <img src="<?php echo $row['url_foto']; ?>" alt="<?php echo $row['naam']; ?>"/>
                             
-                            <a onclick="deleteWerkgever(<?php echo $id; ?>)"><div class="decline"><i class="fa fa-close"></i></div></a>
+                            <a href="" onclick="deleteWerkgever(<?php echo $id; ?>)"><div class="decline"><span class="close-big"></span></div></a>
                             
                             <h4><?php echo $row['naam']; ?> (<?php echo $row['email']; ?>)</h4>
                             <p class="account_info"><?php echo $row['telefoonnummer']; ?> | <?php echo $row['locatie']; ?> | <?php echo $row['kvk']; ?></p>
