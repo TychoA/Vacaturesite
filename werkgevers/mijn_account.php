@@ -60,41 +60,52 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
             <div class="full">
                 <h2>Ongelezen berichten</h2>
                 
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="ber_mini_info">Naam afzender | 13:25 12/01/'15</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="ber_mini_info">Naam afzender | 13:25 12/01/'15</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="ber_mini_info">Naam afzender | 13:25 12/01/'15</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="ber_mini_info">Naam afzender | 13:25 12/01/'15</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>
-                <div class="ber_mini">
-                    <h4><i class="fa fa-envelope fa-fw"></i> Titel bericht</h4>
-                    <p class="ber_mini_info">Naam afzender | 13:25 12/01/'15</p>
-                    <p class="ber_mini_beschr">Lorem ipsum dolor,</p>
-                    <p class="ber_mini_beschr">Sit amet, consectetur adipiscing elit. Aenean nec aliquam sapien. Cras posuere sagittis est at porttitor. Nam lobortis, est a dignissim tempus, enim tellus aliquet justo, id aliquam mi nulla vitae urna.</p>
-                    <p class="ber_mini_beschr">Pellentesque euismod enim non massa finibus lacinia. Mauris non malesuada neque, condimentum...</p>
-                </div>
+                           
+<?php  
+    $array_ber = []; //alle bericht-gegevens + naam werkgever
+
+    //SQL-query om alle berichten en werkgevers-naam op te vragen in phpmyadmin
+    $sql = "SELECT verstuurd_werknemer.titel, verstuurd_werknemer.datum, verstuurd_werknemer.bericht, verstuurd_werknemer.gelezen, verstuurd_werknemer.ID, werknemers.naam, werknemers.id, ID_vacature
+            FROM verstuurd_werknemer
+            INNER JOIN werknemers
+            ON werknemers.ID = verstuurd_werknemer.ID_werknemer AND verstuurd_werknemer.ID_werkgever=".$bedrijfID."
+            WHERE gelezen = 0
+            ORDER BY verstuurd_werknemer.datum DESC
+            ";
+
+    $results = $db->query($sql);
+
+    foreach($results as $row) 
+    { 
+        $titel = $row['titel'];
+        $werknemer = $row['naam'];
+        $datum = $row['datum'];
+        $bericht = $row['bericht'];
+        $gelezen = $row['gelezen'];
+        $berichtID = $row['ID'];
+        $werknemers_ID = $row['id'];
+        $vacature_ID = $row['ID_vacature'];
+        $temp_array = [$titel, $werknemer, $datum, $bericht, $gelezen, $berichtID, $werknemers_ID, $vacature_ID];
+        //Push alle gevonden berichtgegevens in de array
+        array_push($array_ber, $temp_array);
+    }
+
+
+
+    for ($i=0; $i < sizeof($array_ber); $i++) {
+        $titel = $array_ber[$i][0];
+        $werknemer = $array_ber[$i][1];
+        $datum = $array_ber[$i][2];
+        $bericht = $array_ber[$i][3];
+        
+        echo '<div class="ber_mini">
+        <a href="berichten.php"><h4><i class="fa fa-envelope fa-fw unread"></i> '.$titel.'</h4></a>
+        <p class="vac_mini_info">'.$werknemer.' | '.$datum.'</p>
+        <p class="ber_mini_beschr">'.substr($bericht, 0, 280).'...</p>
+        </div>'; // Je kunt alleen de eerste 280 tekens van het bericht zien
+        
+    }
+?>
                           
             </div>
         </main>
