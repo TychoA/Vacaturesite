@@ -9,38 +9,47 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
 
 include '../includes/connect.php';
 
+$verificatie = "SELECT verificatie FROM werkgevers LIMIT 1";
+$results = $db->query($verificatie);
+    foreach($results as $row) 
+    { 
+        $geverificeerd = $row['verificatie'];
+    }
+
 if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $_POST['aangeboden'], $_POST['eisen'])) {
-    
-    $titel = strip_tags($_POST['titel']);
-    
-    if (empty($_POST['studierichting'])) {
-        $studierichting = "alles";
-    } else {
-        $studierichting = strip_tags(($_POST['studierichting']));
-        $studierichting = implode(", ", $studierichting);
-    }
+   if ($geverificeerd) { 
+        $titel = strip_tags($_POST['titel']);
 
-    $beschrijving_aanbod = $_POST['aangeboden'];
-    $aanbod = strip_tags($beschrijving_aanbod);
-    
-    $beschrijving_eisen = $_POST['eisen'];
-    $eisen = strip_tags($beschrijving_eisen);
+        if (empty($_POST['studierichting'])) {
+            $studierichting = "alles";
+        } else {
+            $studierichting = $_POST['studierichting'];
+            $studierichting = implode(", ", $studierichting);
+        }
 
-    if (empty($_POST['overig'])) {
-        $overig = "-";
-    } else {
-        $beschrijving_overige = $_POST['overig'];
-        $overig = strip_tags($beschrijving_overige);
-    }
+        $beschrijving_aanbod = $_POST['aangeboden'];
+        $aanbod = strip_tags($beschrijving_aanbod);
 
-    if (empty($_POST['tags'])) {
-        $tags = "-";
-    } else {
-        $tags = $_POST['tags'];
-        $striptags = strip_tags($tags);
-    }
+        $beschrijving_eisen = $_POST['eisen'];
+        $eisen = strip_tags($beschrijving_eisen);
 
+        if (empty($_POST['overig'])) {
+            $overig = "-";
+        } else {
+            $beschrijving_overige = $_POST['overig'];
+            $overig = strip_tags($beschrijving_overige);
+        }
 
+        if (empty($_POST['tags'])) {
+            $tags = "-";
+        } else {
+            $tags = $_POST['tags'];
+            $striptags = strip_tags($tags);
+        }
+
+   } else {
+        echo '<script>alert("Vacature kon niet worden toegevoegd");</script>';
+   }
     $stmt = $db->prepare("INSERT INTO vacatures(ID_werkgevers, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags) VALUES(:idwerkgevers,:duur,:opleidingen,:locatie,:foto,:titel,:beschrijving_aanbod,:beschrijving_eisen,:beschrijving_overige, :tags)");
     $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $titel, ':beschrijving_aanbod' => $aanbod, ':beschrijving_eisen' => $eisen, ':beschrijving_overige' => $overig, ':tags' => $striptags));
 
@@ -74,6 +83,12 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
                     &#171; Terug naar overzicht
                 </a>
             </p>
+                      <?php 
+            if (!$geverificeerd) {
+                echo '<div style="font-weight: 700; border: 1px solid lightgray; padding: 5px 0 5px 5px; font-size:16px;">U bent nog niet geverificeerd en kunt daarom geen nieuwe vacatures toevoegen. Even geduld a.u.b.</div>';
+            }
+
+            ?>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="full vac_toevoegen">
                     <p class="info">Velden met * zijn verplicht</p>
