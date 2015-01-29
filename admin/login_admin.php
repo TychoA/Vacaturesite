@@ -57,8 +57,3 @@
     <!-- FOOTER AREA -->
         <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

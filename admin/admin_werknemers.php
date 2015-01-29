@@ -5,12 +5,9 @@ if (!isset($_SESSION['admin'])) {
 }
 
 ?>
-   <html>
+   <!-- HEADER AREA -->
     <?php include '../includes/connect.php';?>
-    
     <?php include './linking.php';?>
-
-    <!-- HEADER AREA -->
     <?php include '../includes/header_admin.php';?>
     <!-- /HEADER AREA -->
     
@@ -53,8 +50,3 @@ if (!isset($_SESSION['admin'])) {
     <!-- FOOTER AREA -->
         <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>
