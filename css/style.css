@@ -1070,6 +1070,17 @@ main .login_button {
     letter-spacing: 0.5px;
 }
 
+/* HOE WERKT HET */
+.logo_groot {
+    width: 40%;
+    display: inline-block;
+    margin-left: 50px;
+}
+.first_alinea {
+    width: 50%;
+    display: inline-block;
+    text-align: justify;
+}
 
 /* CONTACT */
 .contact_formulier h4 {
