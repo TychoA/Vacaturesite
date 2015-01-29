@@ -88,7 +88,7 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
             </p>
                       <?php 
             if (!$geverificeerd) {
-                echo '<div style="font-weight: 700; border: 1px solid lightgray; padding: 5px 0 5px 5px; font-size:16px;">U bent nog niet geverificeerd en kunt daarom geen nieuwe vacatures toevoegen. Even geduld a.u.b.</div>';
+                echo '<div style="font-weight: 700; border: 1px solid lightgray; padding: 5px 0 5px 5px; font-size:16px;">U bent nog niet geverificeerd en kunt daarom geen nieuwe vacatures toevoegen.</div>';
             }
 
             ?>
