@@ -1,5 +1,10 @@
 <?php session_start(); ?>
+<<<<<<< HEAD
 <html>
+=======
+<!DOCTYPE html>
+<html lang="nl">
+>>>>>>> origin/master
 
     <?php include './includes/connect.php';?>
     
