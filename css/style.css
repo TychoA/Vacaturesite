@@ -523,7 +523,7 @@ main .clear {
 .beschrijving p {
     padding: 10px;
 }
-.reageren {
+.reageren, .add_favoriet {
     width: 100%;
     padding: 10px 0;
     background-color: tomato;
@@ -533,6 +533,14 @@ main .clear {
     text-align: center;
     margin: 50px 0 0 0;
     text-transform: uppercase; 
+    opacity: 0.9;
+}
+.add_favoriet {
+    background-color: crimson;
+    margin: 10px 0 0 0;
+}
+.reageren:hover, .add_favoriet:hover {
+    opacity: 1;
 }
 .back_zoekresultaten {
     padding-top: 6px;

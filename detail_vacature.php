@@ -164,6 +164,7 @@
                 </div>
                 <?php }?>
                 
+                
                 <div class="beantwoorden">
                    <h2>Uw reactie:</h2>
                     <form method="post" action="">
@@ -174,6 +175,9 @@
                 <div class="reageren">
                     Reageer nu op deze vacature
                 </div>
+                <a href="add_fav.php?id="<?php echo $_GET['id'];?>><div class="add_favoriet">
+                    Voeg deze vacature toe aan je favorieten
+                </div></a>
             </div>
         </div>
     </main>
