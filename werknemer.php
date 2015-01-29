@@ -4,7 +4,7 @@
 
 <!-- ACHTERNAAM -->
 <label for="achternaam">Achternaam</label>
-<input class="input_achternaam" type="text" name="achternaam" placeholder="Achternaam" pattern="^[a-zA-Z][a-zA-Z-_\.]{1,30}$" required>
+<input class="input_achternaam" type="text" name="achternaam" placeholder="Achternaam" pattern="[a-zA-Z0-9\s]+" required>
 
 <!-- LOCATIE -->
 <label for="locatie">Locatie</label>

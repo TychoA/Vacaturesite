@@ -21,7 +21,7 @@ a, a:hover, a:active, a:visited {
     color: #FFF;
 }
 h1 {
-    padding: 15px 10px 10px;
+    padding: 15px 10px 10px 0px;
     margin: 0 0 10px 0;
     border-bottom: 1px solid #DDD;
     color: tomato;
@@ -183,6 +183,8 @@ sidebar {
 .face {
     border-radius: 138px;
     border: 6px solid #FFF;
+    width: 120px;
+    height: 120px;
 }
 .nav_sidebar {
     width: 240px;
@@ -1085,7 +1087,7 @@ main .login_button {
     width: 300px;
     border: 1px solid #DDD;
     background-color: #F5F5F5;
-    padding: 6px;
+    padding: 5px;
     margin: 10px 0; 
     float: right;
 }

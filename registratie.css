@@ -1,0 +1,48 @@
+main .wrapper_r { text-align: center; }
+
+h2 { color:tomato; }
+
+main .login_button { 
+    margin-top: 10px;
+    width: 350px;
+}
+
+.soort { color: #7A7474;}
+
+
+.input_gebruikersnaam, .input_wachtwoord, .input_voornaam, .input_achternaam, .input_telefoon, .input_plaatsnaam {
+    float: right;
+    padding-right: 52px;
+    margin-bottom: 20px;
+}
+
+.gebruikersnaam label {
+    float: left;
+    width: 120px;
+    text-align: left;
+    clear:both;
+}   
+
+
+.gebruikersnaam {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 350px;
+}
+
+#werknemer { float:left; }
+#werkgever { float:right; }
+
+#werknemer, #werkgever {
+    margin-bottom: 15px;
+    color: #B2B2B2;
+}
+
+#werknemer:hover, #werkgever:hover {
+    color: tomato;
+    font-size: 18px;
+}
+
+.soort {
+    font-size: 15px;
+}

@@ -49,8 +49,7 @@
             $headers = "From: <Stagepeer> "; 
             $headers .= "Content-type: text/html; charset=iso-8859-1 "; 
             $headers .= "Return-Path: Mail-Error <services@stagepeer.nl> "; 
-            // ONLINE WEL TESTEN!
-            // Hier sturen wij de mail  met: mail($email, $onderwerp, $bericht, $headers);
+            mail($email, $onderwerp, $bericht, $headers);
             $bekend = true;
         }
     }

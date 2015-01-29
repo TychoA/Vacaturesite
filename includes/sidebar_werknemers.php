@@ -19,19 +19,20 @@
         $aantalNieuweBerichten++;
     }
 
-    $sql_2 = "SELECT naam, achternaam FROM werknemers WHERE id=".$userID." LIMIT 1";
+    $sql_2 = "SELECT naam, achternaam, url_foto FROM werknemers WHERE id=".$userID." LIMIT 1";
     $results_2 = $db->query($sql_2);
     foreach($results_2 as $row_2) 
     { 
         $sidebar_naam = $row_2['naam'];
         $sidebar_achternaam = $row_2['achternaam'];
+        $url = $row_2['url_foto'];
     }
 
 ?>
    
 
 <sidebar>
-    <img class="face" src="../img/me.png" alt="Naam Voornaam" /> 
+    <img class="face" src="<?php echo $url ?>" alt="Naam Voornaam" /> 
     
     <nav class="nav_sidebar">
         <div class="sidebar_element_fist"><?php echo $sidebar_naam.' '.$sidebar_achternaam; ?></div>
@@ -55,7 +56,7 @@
         <div class="sidebar_element_last">
             <a href="<?php echo $uitloggen; ?>">Uitloggen</a> 
             &#8226; 
-            <a href="<?php echo $profiel_deactiveren; ?>">Profiel Deactiveren</a></div>
+            <a href="<?php echo $profiel_deactiveren; ?>"  onclick="return confirm('Weet u ZEKER dat u uw gehele profiel wilt verwijderen?')">Profiel Deactiveren</a></div>
     </nav>
 </sidebar>
 
