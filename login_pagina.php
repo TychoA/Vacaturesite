@@ -2,9 +2,7 @@
 session_start();
 ob_start();
 
-$login = "";
-$valid = false;
-$password = ""; $dbuser = ""; $dbpass = "";
+$login = ""; $valid = false; $password = ""; $dbuser = ""; $dbpass = "";
 
 try {
      include('./includes/connect.php');
@@ -20,7 +18,7 @@ try {
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') 
         {
-            if ($dbuser === trim($_POST['gebruikersnaam']) && password_verify(trim($_POST['wachtwoord']), $dbpass) === true) {
+            if ($dbuser === trim($_POST['gebruikersnaam']) && $dbpass === trim($_POST['wachtwoord'])) {
                 session_destroy(); // voor de zekerheid
                 session_start();
                 if ($row['soort'] == "werknemer") {
