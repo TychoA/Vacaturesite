@@ -1,4 +1,6 @@
-<html>
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="nl">
 
     <?php include './includes/connect.php';?>
     
