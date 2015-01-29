@@ -85,7 +85,7 @@ if (!empty($params)) {
 
     <!-- MAIN AREA -->
     <main>
-        <div class="wrapper">
+        <div class="wrapper_r">
             <h2>Registratie</h2>
                 <div class="gebruikersnaam">
                     <a class="soort" href="?link=1" name="Werknemer" id="werknemer">Werknemer</a> 
