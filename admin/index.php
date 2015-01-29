@@ -28,5 +28,5 @@ if (!isset($_SESSION['admin'])) {
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer.php';?>
+    <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->

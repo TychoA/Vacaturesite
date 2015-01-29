@@ -42,12 +42,8 @@ catch(PDOException $ex) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<?php include './linking.php'; ?>
-<link rel="stylesheet" href="login.css">
-
 <!-- HEADER AREA -->
+<?php include './linking.php'; ?>
 <?php include './includes/header.php';?>
 
     <div class="sub_menu">
@@ -81,6 +77,5 @@ catch(PDOException $ex) {
 <!-- /MAIN AREA -->
 
  <!-- FOOTER AREA -->
-    <?php include './includes/footer.php';?>
+<?php include './includes/footer.php';?>
 <!-- /FOOTER AREA -->
-</html>

@@ -1,16 +1,13 @@
 <?php session_start();?>
-<html>
 
-    <?php include './includes/connect.php';
-    
-    
+    <?php 
         // Check of je ingelogd bent EN een werknemer bent, anders ga je naar de login_pagina.php
         if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SESSION['werknemerid']))) {
             $userID = $_SESSION['werknemerid'];
         }
-    ?>
-    
-    <?php        
+ 
+        include './includes/connect.php';
+        
         $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, vacatures.locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=:id');
         $stmt->execute(array(':id' =>   $_GET['id']));
         $stmt->execute();
@@ -64,9 +61,8 @@
         }
     ?>
     
-    <?php include './linking.php';?>
-
     <!-- HEADER AREA -->
+    <?php include './linking.php';?>
     <?php include './includes/header.php';?>
     
         <div class="sub_menu">
@@ -184,10 +180,5 @@
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include './includes/footer.php';?>
+    <?php include './includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

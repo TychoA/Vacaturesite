@@ -1,13 +1,7 @@
 <?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="nl">
-    <head>
-        <link rel="stylesheet" href="footer_pages.css" />
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <?php include './linking.php';?>
-
+    
     <!-- HEADER AREA -->
+    <?php include './linking.php';?>
     <?php include './includes/header.php';?>
             
         <div class="sub_menu">
@@ -119,6 +113,5 @@ dat de systemen van StagePeer.nl vrij zijn van onrechtmatig gebruik door derden.
     <!-- MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include './includes/footer.php';?>
+    <?php include './includes/footer.php';?>
     <!-- /FOOTER AREA -->
-</html>

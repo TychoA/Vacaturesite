@@ -66,11 +66,8 @@ if (!empty($params)) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>    
+    <!-- HEADER AREA -->  
     <?php include './linking.php'; ?>
-    
-    <!-- HEADER AREA -->
     <?php include './includes/header.php';?>
     
         <div class="sub_menu">
@@ -111,7 +108,6 @@ if (!empty($params)) {
     </main>
     <!-- /MAIN AREA -->
 
-     <!-- FOOTER AREA -->
-        <?php include './includes/footer.php';?>
+    <!-- FOOTER AREA -->
+    <?php include './includes/footer.php';?>
     <!-- /FOOTER AREA -->
-</html>

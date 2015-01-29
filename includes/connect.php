@@ -9,4 +9,3 @@
             die("Something went wrong while connecting to the database!");
         } 
    ?>
-

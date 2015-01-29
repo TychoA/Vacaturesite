@@ -5,14 +5,12 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
     $bedrijfID = $_SESSION['werkgeverid'];
 } else {
     header ( 'Location:../login_pagina.php');
-}
+}?>
 
-?>
-<html>
+    
+    <!-- HEADER AREA -->
     <?php include '../includes/connect.php';?>
     <?php include './linking.php';?>
-
-    <!-- HEADER AREA -->
     <?php include '../includes/header.php';?>
     
         <div class="sub_menu">
@@ -74,10 +72,5 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer.php';?>
+    <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

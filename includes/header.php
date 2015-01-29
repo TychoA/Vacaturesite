@@ -106,7 +106,7 @@ if (strpos(getUrl(), 'werknemers') || strpos(getUrl(), 'werkgevers')) {
 
     <body>
     
-        <!-- WRAP --> 
+        <!-- WRAP FOR FOOTER --> 
         <div class="wrap">
 
         <!-- HEADER AREA --> 
