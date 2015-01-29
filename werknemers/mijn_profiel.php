@@ -13,21 +13,29 @@ if (isset($_POST['url_foto'], $_POST['naam'], $_POST['achternaam'], $_POST['emai
     if ($_POST['url_foto'] == "") {
         $url_foto = "http://ik44.webdb.fnwi.uva.nl/Vacaturesite/img/empty.png"; 
     } else {
-        $url_foto = $_POST['url_foto']; 
+        $url_foto = strip_tags($_POST['url_foto']); 
     }
+    
+    $naam = strip_tags($_POST['naam']);
+    $achternaam = strip_tags($_POST['achternaam']);
+    $email = strip_tags($_POST['email']);
+    $telefoonnummer = strip_tags($_POST['telefoonnummer']);
+    $locatie = strip_tags($_POST['locatie']);
+    $studierichting = strip_tags($_POST['studierichting']);
+    $samenvatting = strip_tags($_POST['samenvatting']);
     
     $stmt = $db->prepare("UPDATE werknemers 
     SET url_foto=:url_foto, naam=:naam, achternaam=:achternaam, email=:email, telefoonnummer=:telefoonnummer, locatie=:locatie, studierichting=:studierichting, samenvatting=:samenvatting 
     WHERE id=:id");
     $stmt->execute(array(':id' => $userID, 
                          ':url_foto' => $url_foto,
-                         ':naam' => $_POST['naam'], 
-                         ':achternaam' => $_POST['achternaam'],
-                         ':email' => $_POST['email'], 
-                         ':telefoonnummer' => $_POST['telefoonnummer'],
-                         ':locatie' => $_POST['locatie'],
-                         ':studierichting' => $_POST['studierichting'],
-                         ':samenvatting' => $_POST['samenvatting']
+                         ':naam' => $naam, 
+                         ':achternaam' => $achternaam,
+                         ':email' => $email, 
+                         ':telefoonnummer' => $telefoonnummer,
+                         ':locatie' => $locatie,
+                         ':studierichting' => $studierichting,
+                         ':samenvatting' => $samenvatting
                         ));
     $mededeling = "Uw gegevens zijn ge&#252;pdate!";
 }

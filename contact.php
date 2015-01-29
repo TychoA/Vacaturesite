@@ -1,29 +1,45 @@
 <?php
- if (isset($_POST['naam'], $_POST['email'], $_POST['onderwerp'], $_POST['vraag'])) {
-        $naam = $_POST['naam'];    
-        $email = $_POST['email'];
-        $onderwerp = $_POST['onderwerp'];    
-        $vraag = $_POST['vraag'];
-        $from = 'From: contactformulier stagepeer.nl'; 
-        $to = 'stagepeer@gmail.com'; 
+if(isset($_POST['email'])) { 
+    $name = strip_tags($_POST['naam']);
+    $from = strip_tags($_POST['email']); 
+    $subject = strip_tags($_POST['onderwerp']);
+    $question = strip_tags($_POST['vraag']); 
+ 
+    // Check for errors
+    $error_message = "";
+    
+    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+    if(!preg_match($email_exp,$from)) {
+        $error_message .= '- Het ingevulde e-mailadres is niet geldig.<br />';
+    }
+    if(strlen($question) < 5) {
+        $error_message .= '- Het bericht moet uit minimaal 5 tekens bestaan.<br />';
+    }
+ 
+    // Display error message
+    if ($error_message != "") {
+        $notification = "Het spijt ons, maar er zijn fouten gevonden in de gegevens die u probeerde te versturen:<br /><br />";
+        $notification .= $error_message."<br />";
+        $notification .= "Probeert u het alstublieft opnieuw.";
+    } else {
+    // Create email message
+        $email_message  = "Bericht van ".$name." via het contactformulier van StagePeer.nl.\n\n";
+        $email_message .= "Naam: ".$name." (".$from.")\n"; 
+        $email_message .= "Onderwerp: ".$subject."\n\n";
+        $email_message .= "---------------------------------------------------\n\n";
+        $email_message .= $question;
 
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {  
-            $ip=$_SERVER['HTTP_CLIENT_IP']; 
-        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip=$_SERVER['HTTP_X_FORWARDED_FOR']; 
-        } else { 
-            $ip=$_SERVER['REMOTE_ADDR']; 
-        } 
-
-        $body = "Van: $naam \nE-mail: $email\n\n$vraag";
-
-        if (mail ($to, $naam, $body, $from)) { 
-            $message_send = "Uw bericht is succesvol verstuurd. Wij zullen zo snel mogelijk contact met u opnemen!";
-        } else { 
-            $message_send = "Er is iets fout gegaan! Probeer het opnieuw."; 
-        }
+    // Send mail  
+        $header = 'From: Contactformulier';
+        $to = "stagepeer@gmail.com";
+        $subject_email = "Bericht contactformulier StagePeer.nl";
         
- }
+        if (mail('stagepeer@gmail.com', $subject_email, $email_message, $header)) {
+            $notification = "Uw bericht is succesvol verstuurd! Wij nemen zo snel mogelijk contact met u op.";
+        }
+    }
+}
+    
 ?>
 
 <?php session_start(); ?>
@@ -65,12 +81,12 @@
             
             <div class="col_2">
                 <a id="formulier"><h2>Stuur ons een bericht</h2></a>
-                <?php if (isset($message_send)) { echo "<p class='message_send'>".$message_send."</p>";} ?>
+                <?php if (isset($notification)) { echo "<p class='message_send'>".$notification."</p>";} ?>
                 <form class="contact_formulier" action="<?php echo $_SERVER['PHP_SELF']."#formulier"; ?>" method="post">
-                    <h4>Naam</h4> <input type=text name="naam" placeholder="Typ hier uw naam...">
-                    <h4>E-mail</h4> <input type=text name="email" placeholder="Typ hier uw e-mail...">
-                    <h4>Onderwerp</h4> <input type=text name="onderwerp" placeholder="Typ hier uw e-mailadres..." >
-                    <h4>Vraag</h4> <textarea name="vraag" rows="10" cols="30"placeholder="Typ hier uw vraag..."></textarea>
+                    <h4>Naam</h4> <input type=text name="naam" placeholder="Typ hier uw naam..." required>
+                    <h4>E-mail</h4> <input type=text name="email" placeholder="Typ hier uw e-mailadres..." required>
+                    <h4>Onderwerp</h4> <input type=text name="onderwerp" placeholder="Onderwerp..." reqiored>
+                    <h4>Vraag</h4> <textarea name="vraag" rows="10" cols="30"placeholder="Vraag..." required></textarea>
                     
                     <input id="submit" type="submit" value="Verstuur"> 
                 </form>

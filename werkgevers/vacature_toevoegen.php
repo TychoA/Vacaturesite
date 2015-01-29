@@ -16,7 +16,8 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
     if (empty($_POST['studierichting'])) {
         $studierichting = "alles";
     } else {
-        $studierichting = implode(", ", $_POST['studierichting']);
+        $studierichting = strip_tags(($_POST['studierichting']));
+        $studierichting = implode(", ", $studierichting);
     }
 
     $beschrijving_aanbod = $_POST['aangeboden'];
