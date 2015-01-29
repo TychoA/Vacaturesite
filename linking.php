@@ -26,7 +26,6 @@ $icons                  =   './css/sprites.css';
 $script                 =   './js/script.js';
 $favicon                =   './favicon.ico';
 
-
 $home                   =   './index.php';
 $inloggen               =   './login_pagina.php';
 $uitloggen              =   './index.php';
