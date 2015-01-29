@@ -104,6 +104,7 @@ if (!empty($params)) {
     <main>
         <div class="wrapper">
             <h2>Registratie</h2>
+               <?php echo 'Current php version: ' . phpversion(); ?>
                 <div class="gebruikersnaam">
                     <a class="soort" href="?link=1" name="Werknemer" id="werknemer">Werknemer</a> 
                     <a class="soort" href="?link=2" name="Werkgever" id="werkgever">Werkgever</a>                        
