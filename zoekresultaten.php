@@ -185,7 +185,7 @@
                 }
                 //////////////////
 
-                $stmt = $db->prepare("SELECT vacatures.ID, ID_werkgevers, datum, duur, vacatures.locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
+                $stmt = $db->prepare("SELECT vacatures.ID AS id_vac, ID_werkgevers, datum, duur, vacatures.locatie, foto, titel, beschrijving_aanbod, werkgevers.ID, werkgevers.naam, werkgevers.url_foto FROM vacatures JOIN werkgevers ON vacatures.ID_werkgevers = werkgevers.ID " . $sqlquery . " LIMIT 50");
                 $stmt->execute($sqlarray);
                 $stmt->execute();
                 $row_count = $stmt->rowCount();
@@ -206,7 +206,7 @@
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
                 
-                        echo "<a href=".$detail_vacature."?id=".$row["ID"].">";
+                        echo "<a href=".$detail_vacature."?id=".$row["id_vac"].">";
                         echo    "<div class='vac_mini'>";
                                     if($row["foto"]==1){ 
                         echo            "<img src=".$row['url_foto']." alt=".$row['naam']."/>"; 
@@ -230,7 +230,7 @@
 
                         $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
                 
-                        echo "<a href=".$detail_vacature."?id=".$row["ID"].">";
+                        echo "<a href=".$detail_vacature."?id=".$row["id_vac"].">";
                         echo    "<div class='vac_mini'>";
                                     if($row["foto"]==1){ 
                         echo            "<img src=".$row['url_foto']." alt=".$row['naam']."/>"; 

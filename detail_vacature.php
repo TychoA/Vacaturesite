@@ -8,8 +8,10 @@
  
         include './includes/connect.php';
         
+        $id_vac = $_GET['id'];
+
         $stmt = $db->prepare('SELECT vacatures.ID_werkgevers, werkgevers.ID, werkgevers.naam, werkgevers.url_foto, datum, duur, opleidingen, vacatures.locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags  FROM vacatures INNER JOIN werkgevers ON ID_werkgevers=werkgevers.ID WHERE vacatures.ID=:id');
-        $stmt->execute(array(':id' =>   $_GET['id']));
+        $stmt->execute(array(':id' =>   $id_vac));
         $stmt->execute();
  
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -51,7 +53,7 @@
                     ':new_title' => $vac_titel,
                     ':werknemerid' => $userID,
                     ':werkgeverid' =>$vac_id_wg,
-                    'vacatureid' => $_GET['id']
+                    'vacatureid' => $id_vac
                  ));
                 echo '<script>alert("Uw bericht is verzonden. Bedankt voor het reageren.");</script>';
                 
@@ -175,7 +177,7 @@
                 <div class="reageren">
                     Reageer nu op deze vacature
                 </div>
-                <a href="add_fav.php?id="<?php echo $_GET['id'];?>><div class="add_favoriet">
+                <a href="add_fav.php?id=<?php echo $id_vac; ?>"><div class="add_favoriet">
                     Voeg deze vacature toe aan je favorieten
                 </div></a>
             </div>
