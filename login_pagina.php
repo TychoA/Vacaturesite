@@ -62,7 +62,7 @@ catch(PDOException $ex) {
 <!-- MAIN AREA -->
 <main>
     <div class="wrapper">
-        <h2>Login</h2>
+        <h2 class="header-login">Login</h2>
         <div class="gebruikersnaam">
             <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
                 <label for="gebruikersnaam">E-mail</label>
@@ -72,7 +72,7 @@ catch(PDOException $ex) {
                 <input class="input_wachtwoord" type="password" name="wachtwoord" placeholder="Wachtwoord" maxlength="50" required>
                 
                 <input type="submit" class="login_button" value="Login" name="submit">
-                <a href="<?php echo $ww_vergeten; ?>" class="wachtwoord_vergeten">wachtwoord vergeten</a>
+                <a href="<?php echo $ww_vergeten; ?>" class="wachtwoord_vergeten">wachtwoord vergeten?</a>
                 <?php if (isset($_POST['submit'], $_POST['gebruikersnaam']) && $valid == false) { echo "<script>alert('Deze inloggegevens zijn incorrect!')</script>";} ?>
             </form>    
         </div>

@@ -55,6 +55,9 @@ h5 {
     padding-bottom: 5px;
     font-size: 14px;
 }
+.header-login {
+    text-align: center;
+}
 .bold {
     font-weight: 800;
 }

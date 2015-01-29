@@ -37,7 +37,7 @@
             
         <main>
                 <div class="wrapper">
-                    <h2>Admin login:</h2>
+                    <h2 class="header-login">Admin login:</h2>
                     <div class="gebruikersnaam">
                         <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
                             <label for="gebruikersnaam">Naam</label>
