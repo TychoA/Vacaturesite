@@ -3,6 +3,7 @@
 // Declaring global variables
 $username = "";
 $password = "";
+echo 'Current php version: ' . phpversion();
     
 // Requesting form input
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -15,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             'cost' => 12,
             'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
                    ];
-        
+
         $hash = password_hash($password, PASSWORD_BCRYPT, $options);
         
         // Parameters for registration
