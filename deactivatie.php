@@ -26,8 +26,10 @@ if (isset($_SESSION['werknemerid'])) {
         $mail = $row['email'];
     }
     
+    $confirm = "<script>confirm('Weet U zeker dat je het account wilt verwijderen?')</script>";
+    
     // Voer query uit na verstuurde email
-    if (mail($mail, "Account Deactivatie", $bericht)) {
+    if (mail($mail, "Account Deactivatie", $bericht) && $confirm === true) {
         
         $sqln = $db->prepare("DELETE FROM ".$soort." WHERE id=".$userID);
         $sqln->execute();
@@ -58,8 +60,10 @@ else if(isset($_SESSION['werkgeverid'])) {
         $mail = $row['email'];
     }
     
+    $confirm = "<script>confirm('Weet U zeker dat je het account wilt verwijderen?')</script>";
+    
     // Voer query uit na verstuurde email 
-    if (mail($mail, "Account Deactivatie", $bericht)) {
+    if (mail($mail, "Account Deactivatie", $bericht) && $confirm === true) {
         
         $sqlg = $db->prepare("DELETE FROM ".$soort." WHERE id=".$userID);
         $sqlg->execute();
