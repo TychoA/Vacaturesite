@@ -129,7 +129,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
                     <div class="edit_phone">
                         <h4>Telefoonnummer</h4>
-                        <input type="number" name="telefoonnummer" value="<?php echo $telefoonnummer; ?>" placeholder="Telefoonnummer...">
+                        <input type="tel" name="telefoonnummer" value="<?php echo $telefoonnummer; ?>" placeholder="Telefoonnummer...">
                     </div>
 
                     <div class="edit_location">

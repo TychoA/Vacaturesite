@@ -19,18 +19,19 @@
     }
 
 
-    $sql_2 = "SELECT naam FROM werkgevers WHERE id=".$bedrijfID." LIMIT 1";
+    $sql_2 = "SELECT naam, url_foto FROM werkgevers WHERE id=".$bedrijfID." LIMIT 1";
     $results_2 = $db->query($sql_2);
     foreach($results_2 as $row_2) 
     { 
         $sidebar_naam = $row_2['naam'];
+         $url = $row_2['url_foto'];
     }
 ?>
    
 
    
 <sidebar>
-    <img class="face" src="../img/logo.png" alt="Naam Voornaam" /> 
+    <img class="face" src="<?php echo $url ?>" alt="Naam Voornaam" /> 
     <nav class="nav_sidebar">
         <div class="sidebar_element_fist"><?php echo $sidebar_naam ?></div>
         

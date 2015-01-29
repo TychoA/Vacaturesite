@@ -183,6 +183,8 @@ sidebar {
 .face {
     border-radius: 138px;
     border: 6px solid #FFF;
+    width: 120px;
+    height: 120px;
 }
 .nav_sidebar {
     width: 240px;
