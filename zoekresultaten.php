@@ -165,7 +165,7 @@
                 if ($zoekveld != "") {
 
                     /* MAAK query deel */
-                    $query_zoekveld = "MATCH (titel, locatie, opleidingen, tags, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige) AGAINST (:zoekveld IN BOOLEAN MODE)";
+                    $query_zoekveld = "MATCH (titel, vacatures.locatie, opleidingen, tags, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige) AGAINST (:zoekveld IN BOOLEAN MODE)";
 
                     /* ADD query deel to SQLQUERY */
                     if ($sqlquery == ""){
