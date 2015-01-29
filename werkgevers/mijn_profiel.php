@@ -19,11 +19,11 @@ if (isset($_POST['naam'])) {
         $url_foto = strip_tags($_POST['url_foto']); 
     }
     
-    $naam = (strip_tags($_POST['naam']);
-    $email = (strip_tags($_POST['email']);
-    $telefoonnummer = (strip_tags($_POST['telefoonnummer']);
-    $locatie = (strip_tags($_POST['locatie']);
-    $kvk = (strip_tags($_POST['kvk']);
+    $naam = strip_tags($_POST['naam']);
+    $email = strip_tags($_POST['email']);
+    $telefoonnummer = strip_tags($_POST['telefoonnummer']);
+    $locatie = strip_tags($_POST['locatie']);
+    $kvk = strip_tags($_POST['kvk']);
     
     $stmt = $db->prepare("UPDATE werkgevers 
     SET url_foto=:url_foto, naam=:naam, email=:email, telefoonnummer=:telefoonnummer, locatie=:locatie, kvk=:kvk 

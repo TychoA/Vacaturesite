@@ -1,44 +1,27 @@
 <?php
-$valid = false;
-$werkgever = false;
-$werknemer = false;
-$replica = false;
+$valid = false; $werkgever = false; $werknemer = false; $replica = false;
 
 // Variabelen voor werkgevers
 if (isset($_POST['bedrijf'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
-{
-    $pass = $_POST['wachtwoord'];
-    $options = [
-            'cost' => 12,
-            'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
-                   ];
-    
-    $hash = password_hash($pass, PASSWORD_BCRYPT, $options);
-    
+{   
     $params = array(":naam"=>$_POST['bedrijf'],
                     ":plaatsnaam"=>$_POST['plaatsnaam'],
                     ":email"=>$_POST['gebruikersnaam'],
                     ":telefoon"=>$_POST['telefoon'],
-                    ":wachtwoord"=>$hash,
+                    ":wachtwoord"=>$_POST['wachtwoord'],
                    ":soort"=>"werkgever");
                     $werkgever = true;
 } 
 // Variabelen voor werknemers
 elseif (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
 {
-    $options = [
-        'cost' => 12,
-        'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
-    ];
-    
-    $hash = password_hash($_POST['wachtwoord'], PASSWORD_BCRYPT, $options);
-    
+        
     $params = array(":naam"=>$_POST['voornaam'], 
                 ":achternaam"=>$_POST['achternaam'], 
                 ":plaatsnaam"=>$_POST['plaatsnaam'], 
                 ":email"=>$_POST['gebruikersnaam'], 
                 ":telefoon"=>$_POST['telefoon'], 
-                ":wachtwoord"=>$hash,
+                ":wachtwoord"=>$_POST['wachtwoord'],
                    ":soort"=>"werknemer");
                 $werknemer = true;
 
@@ -67,13 +50,13 @@ if (!empty($params)) {
 
         // Invoegen in de werknemer database
         if ($valid == true && $werknemer == true && $replica == false) {
-            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, plaatsnaam, email, soort) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
+            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
             $sql->execute($params);
 
 
         } elseif($valid == true && $werkgever == true && $replica == false) {
         // Invoegen in de werkgever database
-            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, plaatsnaam, email, soort) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
+            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
             $sql->execute($params); 
         }   
     }   
