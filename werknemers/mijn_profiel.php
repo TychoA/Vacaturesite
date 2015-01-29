@@ -266,7 +266,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         
                         echo '
                               <div class="ber_mini diploma">
-                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=diploma"><div class="delete_cv"><span class="close-white"></span></div></a>
+                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=diploma"><div class="delete_cv"><span class="close-dark"></span></div></a>
                                 <h4>'.$cv_naam.'</h4>
                                 <p class="ber_mini_info">'.$cv_instituut.' | '.$cv_locatie.' | '.$cv_datum.'</p>
                                 <p>'.$cv_bericht.'</p>
@@ -317,7 +317,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         
                         echo '
                               <div class="ber_mini diploma">
-                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=werkervaring"><div class="delete_cv"><span class="close-white"></span></div></a>
+                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=werkervaring"><div class="delete_cv"><span class="close-dark"></span></div></a>
                                 <h4>'.$cv_naam.'</h4>
                                 <p class="ber_mini_info">'.$cv_instituut.' | '.$cv_locatie.' | '.$cv_datum.'</p>
                                 <p>'.$cv_bericht.'</p>
@@ -366,7 +366,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         
                         echo '
                               <div class="ber_mini diploma">
-                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=opleiding"><div class="delete_cv"><span class="close-white"></span></div></a>
+                                <a href="remove_from_profile.php?id='.$cv_id.'&kind=opleiding"><div class="delete_cv"><span class="close-dark"></span></div></a>
                                 <h4>'.$cv_naam.'</h4>
                                 <p class="ber_mini_info">'.$cv_instituut.' | '.$cv_locatie.' | '.$cv_datum.'</p>
                                 <p>'.$cv_bericht.'</p>

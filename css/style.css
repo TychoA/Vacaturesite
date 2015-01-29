@@ -378,9 +378,8 @@ footer {
     margin-right: 10px;
 }
 .search-area .search-bar .search {
-    width: 620px;
-    padding: 15px;
-    height: 20px;
+    width: 600px;
+    padding: 8px;
     margin: 5px;
     border: none;
 }
@@ -450,10 +449,10 @@ main .searchbar .search, main .searchbar .filters {
     margin: 5px;
 }
 main .searchbar .tijd, main .searchbar .search {
-    width: 750px;
+    width: 735px;
     height: 20px;
     margin: 5px;
-    padding: 12px;  
+    padding: 2px 8px;  
     border: none;
 }
 
@@ -647,7 +646,7 @@ main .login_button {
     padding: 0;
 }
 .blok_search form .search{
-    width: 100%;
+    width: 557px;
     margin-top: 15px;
 }
 .blok_search input{
@@ -745,7 +744,7 @@ main a.openbare_profiel:hover {
     padding: 5px;
 }
 .edit_name input {
-    width: 199px;
+    width: 191px;
 }
 .toevoegen textarea {
     width: 400px;
@@ -782,7 +781,7 @@ main a.openbare_profiel:hover {
 .skill, .taal {
     display: inline-block;
     padding: 3px 15px 3px 15px;
-    background-color: F0F0F0;
+    background-color: #F0F0F0;
     font-weight: 600;
     color: #666;
     margin: 8px;
@@ -799,8 +798,8 @@ main a.openbare_profiel:hover {
 }
 .add {
     display: inline-block;
-    padding: 19px 15px 19px 15px;
-    background-color: F0F0F0;
+    padding: 15px;
+    background-color: #F0F0F0;
     margin: 8px;
 }
 .delete_skill, .delete_taal {
@@ -810,7 +809,7 @@ main a.openbare_profiel:hover {
     border-radius: 10px;
     text-align: center;
     color: #fff;
-    padding-top: 4px;
+    padding-bottom: 3px;
     opacity: 0.6;
     float: right;
     margin-right: -16px;
@@ -975,7 +974,9 @@ main .inbox a:active, main .inbox a:hover {
 }
 
 #beantwoord {
-    padding: 8px;    
+    padding: 8px;
+    width: 900px;
+    height: 100px;
 }
 
 .reageren_button {
