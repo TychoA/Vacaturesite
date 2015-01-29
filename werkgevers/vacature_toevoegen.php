@@ -46,12 +46,15 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
             $tags = $_POST['tags'];
             $striptags = strip_tags($tags);
         }
-
+       
+       
+           $stmt = $db->prepare("INSERT INTO vacatures(ID_werkgevers, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags) VALUES(:idwerkgevers,:duur,:opleidingen,:locatie,:foto,:titel,:beschrijving_aanbod,:beschrijving_eisen,:beschrijving_overige, :tags)");
+    $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $titel, ':beschrijving_aanbod' => $aanbod, ':beschrijving_eisen' => $eisen, ':beschrijving_overige' => $overig, ':tags' => $striptags));
+       
+       echo '<script>alert("Vacature is toegevoegd.");</script>';
    } else {
         echo '<script>alert("Vacature kon niet worden toegevoegd");</script>';
    }
-    $stmt = $db->prepare("INSERT INTO vacatures(ID_werkgevers, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags) VALUES(:idwerkgevers,:duur,:opleidingen,:locatie,:foto,:titel,:beschrijving_aanbod,:beschrijving_eisen,:beschrijving_overige, :tags)");
-    $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $titel, ':beschrijving_aanbod' => $aanbod, ':beschrijving_eisen' => $eisen, ':beschrijving_overige' => $overig, ':tags' => $striptags));
 
 }?>
 
