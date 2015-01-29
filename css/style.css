@@ -522,7 +522,6 @@ main .clear {
 .beschrijving p {
     padding: 10px;
 }
-
 .reageren {
     width: 100%;
     padding: 10px 0;
@@ -532,10 +531,7 @@ main .clear {
     letter-spacing: 1px;
     text-align: center;
     margin: 50px 0 0 0;
-    text-transform: uppercase;
-    
-    
-    
+    text-transform: uppercase; 
 }
 .back_zoekresultaten {
     padding-top: 6px;
@@ -548,7 +544,65 @@ main .clear {
     margin: -5px 0 20px 0;
     padding: 0;
 }
-/* BEHEER */
+
+/* REGISTREREN, INLOGGEN */
+.login, .registratie { 
+    text-align: center; 
+}
+main .login_button { 
+    margin-top: 10px;
+    width: 350px;
+}
+.input_gebruikersnaam, .input_wachtwoord, .input_voornaam, .input_achternaam, .input_telefoon, .input_locatie {
+    float: right;
+    padding-right: 52px;
+    margin-bottom: 20px;
+}
+.input_locatie {
+    width: 182px;
+}
+.gebruikersnaam label, .wachtwoord label {
+    float: left;
+    width: 120px;
+    text-align: left;
+    clear:both;
+}   
+.gebruikersnaam {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 350px;
+}
+
+#werknemer { float:left; }
+#werkgever { float:right; }
+
+#werknemer, #werkgever {
+    margin-bottom: 15px;
+    color: #EEE;
+}
+
+#werknemer:hover, #werkgever:hover {
+    color: tomato;
+    font-size: 18px;
+}
+
+.soort {
+    font-size: 15px;
+    color: grey;
+}
+main .login_button {
+    margin-top: 10px;
+    width: 350px;
+    background-color: tomato;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* PROFIEL BEHEER */
 .beheer h1 {
     margin: 16px 0;
     color: #444;
@@ -865,6 +919,138 @@ main a.openbare_profiel:hover {
     height: 50px;
 }
 
+/* BERICHTEN */
+.button_beant {
+    width: 150px;
+    height: 25px;
+    padding: 6px;
+    background-color: tomato;
+    border: none;
+    color: white;
+    font-size: 12px;
+    border-bottom: 3px solid #A6402E;
+    cursor: pointer;
+}
+
+.button_beant:hover {
+    background-color: #B6402E;
+    border-bottom: 3px solid tomato;
+    color: lightgray;
+}
+
+.textarea_beant {
+    width: 100%;
+    border: 1px solid #DDD;
+    background-color: #F5F5F5;
+    padding: 6px;
+    margin: 10px 0; 
+    float: left;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main .inbox a {
+    margin-right: 15px;
+}
+
+main .inbox a:active, main .inbox a:hover {
+    color: tomato;
+}
+
+.ber_mini h4.klikt {
+    cursor: pointer
+}
+
+.toInbox {
+    cursor: pointer;
+}
+
+.toSend {
+    cursor: pointer;
+}
+
+.reageren {
+    cursor: pointer;
+}
+
+.beantwoorden {
+    display: none;
+}
+
+#beantwoord {
+    padding: 8px;    
+}
+
+.reageren_button {
+    display: block;
+    background-color: tomato;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.wachtwoord_vergeten {
+    float: left;
+    font-weight: 300;
+}
+
+.wachtwoord_vergeten:hover {
+    text-decoration: underline;
+}
+.vergeten_div {
+    font-weight: 700;
+    font-size: 13px;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.profiel_face {
+    display: inline-block;
+    float: right;
+}
+
+.profiel_face_img {
+    border: 3px solid #fff;
+    width: 140px;
+    height: 140px;
+}
+
+main .wrapper {
+    text-align: left;
+}
+
+h2 {
+    color:tomato;
+}
+
+.input_gebruikersnaam, .input_wachtwoord{
+    margin: 0 auto;
+    float: right;
+    padding-right: 52px;
+    margin-bottom: 20px;
+}
+
+.gebruikersnaam label, .wachtwoord label {
+    float: left;
+    width: 120px;
+    text-align: left;
+    margin-bottom: 19px;
+    clear:both;
+}
+
+.gebruikersnaam {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 350px;
+}
+
+main .login_button {
+    margin-top: 10px;
+    width: 350px;
+}
+
+
 /* WACHTWOORD AANPASSEN */
 .edit_password h4 {
     display: inline-block;
@@ -1081,62 +1267,6 @@ main a.openbare_profiel:hover {
 /* ------------------------------ *\
     VASTE ELEMENTEN
 \* ------------------------------ */
-/* LOGIN POP-UP */
-.login_outer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    display: none;
-}
-.login {
-    position: fixed;
-    width: 400px;
-    height: 380px;
-    top: 20%;
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: white;
-    z-index: 99999;
-    text-align: center;
-    border: 1px solid lightgray;
-}
-
-.login h2 {
-    margin-top: 40px;
-    font-size: 30px;
-}
-
-.login_box {
-    width: 300px;
-    height: 45px;
-    padding: 5px;
-    margin-top: 10px;
-}
-
-.login_button {
-    width: 300px;
-    height: 45px;
-    padding: 5px;
-    margin-top: 30px;
-    background-color: tomato;
-    border: none;
-    color: white;
-    font-size: 18px;
-    border-bottom: 3px solid A6402E;
-    cursor: pointer;
-}
-
-i.fa-times{
-    margin: 10px;
-    float: right;
-    cursor: pointer;    
-}
 
 /* COMPACTE WEERGAVE VACATURE EN BERICHT */
 .vac_mini, .ber_mini {
@@ -1167,135 +1297,4 @@ i.fa-times{
 }
 .delete:hover {
     color: #444;
-}
-
-/* MAREKS VERANDERINGEN */
-.button_beant {
-    width: 150px;
-    height: 25px;
-    padding: 6px;
-    background-color: tomato;
-    border: none;
-    color: white;
-    font-size: 12px;
-    border-bottom: 3px solid #A6402E;
-    cursor: pointer;
-}
-
-.button_beant:hover {
-    background-color: #B6402E;
-    border-bottom: 3px solid tomato;
-    color: lightgray;
-}
-
-.textarea_beant {
-    width: 100%;
-    border: 1px solid #DDD;
-    background-color: #F5F5F5;
-    padding: 6px;
-    margin: 10px 0; 
-    float: left;
-    font-family: 'Open Sans', sans-serif;
-}
-
-main .inbox a {
-    margin-right: 15px;
-}
-
-main .inbox a:active, main .inbox a:hover {
-    color: tomato;
-}
-
-.ber_mini h4.klikt {
-    cursor: pointer
-}
-
-.toInbox {
-    cursor: pointer;
-}
-
-.toSend {
-    cursor: pointer;
-}
-
-.reageren {
-    cursor: pointer;
-}
-
-.beantwoorden {
-    display: none;
-}
-
-#beantwoord {
-    padding: 8px;    
-}
-
-.reageren_button {
-    display: block;
-    background-color: tomato;
-    border: none;
-    color: white;
-    padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.wachtwoord_vergeten {
-    float: left;
-    font-weight: 300;
-}
-
-.wachtwoord_vergeten:hover {
-    text-decoration: underline;
-}
-.vergeten_div {
-    font-weight: 700;
-    font-size: 13px;
-    width: 100%;
-    padding-top: 30px;
-}
-
-.profiel_face {
-    display: inline-block;
-    float: right;
-}
-
-.profiel_face_img {
-    border: 3px solid #fff;
-    width: 140px;
-    height: 140px;
-}
-
-main .wrapper {
-    text-align: left;
-}
-
-h2 {
-    color:tomato;
-}
-
-.input_gebruikersnaam, .input_wachtwoord{
-    margin: 0 auto;
-    float: right;
-    padding-right: 52px;
-    margin-bottom: 20px;
-}
-
-.gebruikersnaam label, .wachtwoord label {
-    float: left;
-    width: 120px;
-    text-align: left;
-    margin-bottom: 19px;
-    clear:both;
-}
-
-.gebruikersnaam {
-    margin: 0 auto;
-    margin-top: 50px;
-    width: 350px;
-}
-
-main .login_button {
-    margin-top: 10px;
-    width: 350px;
 }

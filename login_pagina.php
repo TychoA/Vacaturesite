@@ -61,7 +61,7 @@ catch(PDOException $ex) {
 
 <!-- MAIN AREA -->
 <main>
-    <div class="wrapper">
+    <div class="wrapper login">
         <h2 class="header-login">Login</h2>
         <div class="gebruikersnaam">
             <form method="POST" action="<?php $_SERVER['PHP_SELF'];?>">
