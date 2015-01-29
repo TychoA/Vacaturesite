@@ -580,17 +580,13 @@ main .login_button {
 
 #werknemer, #werkgever {
     margin-bottom: 15px;
-    color: #EEE;
+    color: #BBB;
+    font-size: 15px;
 }
 
 #werknemer:hover, #werkgever:hover {
     color: tomato;
     font-size: 18px;
-}
-
-.soort {
-    font-size: 15px;
-    color: grey;
 }
 main .login_button {
     margin-top: 10px;
