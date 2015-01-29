@@ -5,28 +5,36 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
     $bedrijfID = $_SESSION['werkgeverid'];
 } else {
     header ( 'Location:../login_pagina.php');
-}
+} 
 
 include '../includes/connect.php';
 
-if (isset($_POST['naam'], $_POST['email'], $_POST['telefoonnummer'], $_POST['locatie'], $_POST['kvk'], $_POST['url_foto'])) {
+
+if (isset($_POST['naam'])) {
     
+    // Check of URL voor foto gegeven is, anders zet standaardfoto.
     if ($_POST['url_foto'] == "") {
         $url_foto = "http://ik44.webdb.fnwi.uva.nl/Vacaturesite/img/empty.png"; 
     } else {
-        $url_foto = $_POST['url_foto']; 
+        $url_foto = strip_tags($_POST['url_foto']); 
     }
+    
+    $naam = (strip_tags($_POST['naam']);
+    $email = (strip_tags($_POST['email']);
+    $telefoonnummer = (strip_tags($_POST['telefoonnummer']);
+    $locatie = (strip_tags($_POST['locatie']);
+    $kvk = (strip_tags($_POST['kvk']);
     
     $stmt = $db->prepare("UPDATE werkgevers 
     SET url_foto=:url_foto, naam=:naam, email=:email, telefoonnummer=:telefoonnummer, locatie=:locatie, kvk=:kvk 
     WHERE id=:id");
     $stmt->execute(array(':id' => $bedrijfID, 
                          ':url_foto' => $url_foto,
-                         ':naam' => $_POST['naam'], 
-                         ':email' => $_POST['email'], 
-                         ':telefoonnummer' => $_POST['telefoonnummer'],
-                         ':locatie' => $_POST['locatie'],
-                         ':kvk' => $_POST['kvk']
+                         ':naam' => $naam, 
+                         ':email' => $email, 
+                         ':telefoonnummer' => $telefoonnummer,
+                         ':locatie' => $locatie,
+                         ':kvk' => $kvk
                         ));
     $mededeling = "Uw gegevens zijn ge&#252;pdate!";
 }
@@ -101,7 +109,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
                     <div class="edit_bedrijf">
                         <h4>Naam</h4>
-                        <input type="text" name="naam" value="<?php echo $naam; ?>" placeholder="Voornaam..." required>
+                        <input type="text" name="naam" value="<?php echo $naam; ?>" placeholder="Naam..." required>
                     </div>
 
                     <div class="edit_email">
@@ -136,7 +144,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
                     <div class="edit_kvk">
                         <h4>KvK-nummer</h4>
-                        <input type="number" name="kvk" value="<?php echo $kvk; ?>" placeholder="KvK-nummer...">
+                        <input type="text" name="kvk" value="<?php echo $kvk; ?>" placeholder="KvK-nummer...">
                     </div>
                     <input type="submit" value="Opslaan" id="opslaan">
                 </div>
