@@ -59,7 +59,7 @@
                 echo '<script>alert("Uw bericht is verzonden. Bedankt voor het reageren.");</script>';
                 
             } else {
-                echo '<script>alert("Error: Uw bericht is NIET verzonden.");</script>';    
+                echo '<script>alert("Om te reageren op deze vacature heeft u een werknemers-account nodig.");</script>';    
             }
         }
     ?>
