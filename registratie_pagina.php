@@ -50,13 +50,13 @@ if (!empty($params)) {
 
         // Invoegen in de werknemer database
         if ($valid == true && $werknemer == true && $replica == false) {
-            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, plaatsnaam, email, soort) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
+            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
             $sql->execute($params);
 
 
         } elseif($valid == true && $werkgever == true && $replica == false) {
         // Invoegen in de werkgever database
-            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, plaatsnaam, email, soort) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
+            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
             $sql->execute($params); 
         }   
     }   
