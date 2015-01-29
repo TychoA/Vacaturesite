@@ -17,10 +17,8 @@ else {
 }
 
 ?>
-<html>
-    <?php include './linking.php';?>
-
     <!-- HEADER AREA -->
+    <?php include './linking.php';?>
     <?php include './includes/header.php';
     
         $sql_info = $db->prepare("SELECT * FROM werknemers WHERE id=:id");
@@ -339,10 +337,5 @@ else {
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include './includes/footer.php';?>
+    <?php include './includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

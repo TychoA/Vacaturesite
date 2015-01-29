@@ -58,11 +58,8 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 ?>
 
-<html>
-
-    <?php include './linking.php';?>
-    
     <!-- HEADER AREA -->
+    <?php include './linking.php';?>
     <?php include '../includes/header.php';?>
     
         <div class="sub_menu">
@@ -435,10 +432,5 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer.php';?>
+    <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

@@ -8,12 +8,9 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
 }
 
 ?>
-   <html>
-    <?php include '../includes/connect.php';?>
-    
-    <?php include './linking.php';?>
-
     <!-- HEADER AREA -->
+    <?php include '../includes/connect.php';?>
+    <?php include './linking.php';?>
     <?php include '../includes/header.php';?>
     
         <div class="sub_menu">
@@ -153,10 +150,5 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werknemerid']) && !empty($_SE
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer.php';?>
+    <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

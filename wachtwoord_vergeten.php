@@ -7,13 +7,9 @@
 ?>
 
 
-<!DOCTYPE html>
-<html>
-<?php include './linking.php'; ?>
-<link rel="stylesheet" href="login.css">
-
-<!-- HEADER AREA -->
-<?php include './includes/header.php';
+    <!-- HEADER AREA -->
+    <?php include './linking.php'; ?>
+    <?php include './includes/header.php';
     
     if (isset($_POST['submit'])) {
         $email = trim(strip_tags($_POST['gebruikersnaam']));
@@ -49,8 +45,7 @@
             $headers = "From: <Stagepeer> "; 
             $headers .= "Content-type: text/html; charset=iso-8859-1 "; 
             $headers .= "Return-Path: Mail-Error <services@stagepeer.nl> "; 
-            // ONLINE WEL TESTEN!
-            // Hier sturen wij de mail  met: mail($email, $onderwerp, $bericht, $headers);
+            mail($email, $onderwerp, $bericht, $headers);
             $bekend = true;
         }
     }
@@ -91,7 +86,6 @@
 </main>
 <!-- /MAIN AREA -->
 
- <!-- FOOTER AREA -->
-    <?php include './includes/footer.php';?>
+<!-- FOOTER AREA -->
+<?php include './includes/footer.php';?>
 <!-- /FOOTER AREA -->
-</html>

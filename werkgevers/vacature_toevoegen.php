@@ -44,13 +44,10 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
     $stmt = $db->prepare("INSERT INTO vacatures(ID_werkgevers, duur, opleidingen, locatie, foto, titel, beschrijving_aanbod, beschrijving_eisen, beschrijving_overige, tags) VALUES(:idwerkgevers,:duur,:opleidingen,:locatie,:foto,:titel,:beschrijving_aanbod,:beschrijving_eisen,:beschrijving_overige, :tags)");
     $stmt->execute(array(':idwerkgevers' => $bedrijfID, ':duur' => $_POST['duur'], ':opleidingen' => $studierichting, ':locatie' => $_POST['omgeving'], ':foto' => $_POST['logo'], ':titel' => $titel, ':beschrijving_aanbod' => $aanbod, ':beschrijving_eisen' => $eisen, ':beschrijving_overige' => $overig, ':tags' => $striptags));
 
-}
-
-?>
-<html>
-    <?php include './linking.php';?>
+}?>
 
     <!-- HEADER AREA -->
+    <?php include './linking.php';?>
     <?php include '../includes/header.php';?>
     
         <div class="sub_menu">
@@ -150,10 +147,5 @@ if (isset($_POST['titel'], $_POST['duur'], $_POST['omgeving'], $_POST['logo'], $
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer.php';?>
+    <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

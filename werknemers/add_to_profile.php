@@ -16,13 +16,8 @@ if ($_GET['kind'] == 'diploma') {
 }
 ?>
 
-
-
-<html>
-
-    <?php include './linking.php';?>
-    
     <!-- HEADER AREA -->
+    <?php include './linking.php';?>
     <?php include '../includes/header.php';?>
     
         <div class="sub_menu">
@@ -223,10 +218,5 @@ if ($_GET['kind'] == 'diploma') {
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer.php';?>
+    <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

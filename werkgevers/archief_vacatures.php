@@ -1,7 +1,6 @@
-<html>
-    <?php include './linking.php';?>
 
-    <!-- HEADER AREA -->
+    <!-- HEADER AREA -->    
+    <?php include './linking.php';?>
     <?php include '../includes/header.php';?>
     
         <div class="sub_menu">
@@ -51,10 +50,5 @@
     <!-- /MAIN AREA -->
 
     <!-- FOOTER AREA -->
-        <?php include '../includes/footer.php';?>
+    <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
-    
-    
-</body>
-    
-</html>

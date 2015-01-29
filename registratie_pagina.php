@@ -2,10 +2,10 @@
 $valid = false; $werkgever = false; $werknemer = false; $replica = false;
 
 // Variabelen voor werkgevers
-if (isset($_POST['bedrijf'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
+if (isset($_POST['bedrijf'], $_POST['locatie'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
 {   
     $params = array(":naam"=>$_POST['bedrijf'],
-                    ":plaatsnaam"=>$_POST['plaatsnaam'],
+                    ":locatie"=>$_POST['locatie'],
                     ":email"=>$_POST['gebruikersnaam'],
                     ":telefoon"=>$_POST['telefoon'],
                     ":wachtwoord"=>$_POST['wachtwoord'],
@@ -13,12 +13,12 @@ if (isset($_POST['bedrijf'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_P
                     $werkgever = true;
 } 
 // Variabelen voor werknemers
-elseif (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['plaatsnaam'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
+elseif (isset($_POST['voornaam'], $_POST['achternaam'], $_POST['locatie'], $_POST['gebruikersnaam'], $_POST['telefoon'], $_POST['wachtwoord']))
 {
         
     $params = array(":naam"=>$_POST['voornaam'], 
                 ":achternaam"=>$_POST['achternaam'], 
-                ":plaatsnaam"=>$_POST['plaatsnaam'], 
+                ":locatie"=>$_POST['locatie'], 
                 ":email"=>$_POST['gebruikersnaam'], 
                 ":telefoon"=>$_POST['telefoon'], 
                 ":wachtwoord"=>$_POST['wachtwoord'],
@@ -50,13 +50,13 @@ if (!empty($params)) {
 
         // Invoegen in de werknemer database
         if ($valid == true && $werknemer == true && $replica == false) {
-            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
+            $sql = $db->prepare("INSERT INTO werknemers (naam, achternaam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :achternaam, :wachtwoord, :telefoon, :locatie, :email, :soort)");
             $sql->execute($params);
 
 
         } elseif($valid == true && $werkgever == true && $replica == false) {
         // Invoegen in de werkgever database
-            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :wachtwoord, :telefoon, :plaatsnaam, :email, :soort)");
+            $sql = $db->prepare("INSERT INTO werkgevers (naam, wachtwoord, telefoonnummer, locatie, email, soort) VALUES(:naam, :wachtwoord, :telefoon, :locatie, :email, :soort)");
             $sql->execute($params); 
         }   
     }   
@@ -66,12 +66,8 @@ if (!empty($params)) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>    
+    <!-- HEADER AREA -->  
     <?php include './linking.php'; ?>
-    <link rel="stylesheet" href="registratie.css">
-    
-    <!-- HEADER AREA -->
     <?php include './includes/header.php';?>
     
         <div class="sub_menu">
@@ -85,7 +81,7 @@ if (!empty($params)) {
 
     <!-- MAIN AREA -->
     <main>
-        <div class="wrapper_r">
+        <div class="wrapper registratie">
             <h2>Registratie</h2>
                 <div class="gebruikersnaam">
                     <a class="soort" href="?link=1" name="Werknemer" id="werknemer">Werknemer</a> 
@@ -112,7 +108,6 @@ if (!empty($params)) {
     </main>
     <!-- /MAIN AREA -->
 
-     <!-- FOOTER AREA -->
-        <?php include './includes/footer.php';?>
+    <!-- FOOTER AREA -->
+    <?php include './includes/footer.php';?>
     <!-- /FOOTER AREA -->
-</html>
