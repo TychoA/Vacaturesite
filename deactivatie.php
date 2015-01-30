@@ -10,6 +10,7 @@ $succes = false;
 $mail = "";
 
 // Account deactivatie mail
+$header = 'From : Deactivatie';
 $bericht = "Uw account is succesvol verwijderd.";
 $bericht = wordwrap($bericht, 70, "\r\n");
 
@@ -29,7 +30,7 @@ if (isset($_SESSION['werknemerid'])) {
     //$confirm = "<script>confirm('Weet U zeker dat je het account wilt verwijderen?')</script>";
     
     // Voer query uit na verstuurde email
-    if (mail($mail, "Account Deactivatie", $bericht)) {
+    if (mail($mail, "Account Deactivatie", $bericht, $header)) {
         
         $sqln = $db->prepare("DELETE FROM ".$soort." WHERE id=".$userID);
         $sqln->execute();
@@ -60,10 +61,10 @@ else if(isset($_SESSION['werkgeverid'])) {
         $mail = $row['email'];
     }
     
-    $confirm = "<script>confirm('Weet U zeker dat je het account wilt verwijderen?')</script>";
+    //$confirm = "<script>confirm('Weet U zeker dat je het account wilt verwijderen?')</script>";
     
     // Voer query uit na verstuurde email 
-    if (mail($mail, "Account Deactivatie", $bericht) && $confirm === true) {
+    if (mail($mail, "Account Deactivatie", $bericht, $header)) {
         
         $sqlg = $db->prepare("DELETE FROM ".$soort." WHERE id=".$userID);
         $sqlg->execute();
