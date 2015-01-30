@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
     <!-- HEADER AREA -->
     <?php include './linking.php';?>
     <?php include './includes/header.php';?>

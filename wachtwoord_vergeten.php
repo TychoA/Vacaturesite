@@ -43,7 +43,7 @@
             $bericht = 'Uw wachtwoord bij stagepeer.nl is: '.$wachtwoord;
             
             $header = 'From: Contactformulier';
-            mail('stagepeer@gmail.com', $onderwerp, $bericht, $header)
+            mail('stagepeer@gmail.com', $onderwerp, $bericht, $header);
             $bekend = true;
         }
     }
