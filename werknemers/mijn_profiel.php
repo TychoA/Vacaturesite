@@ -105,7 +105,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     <div class="edit_face">
                         <h4>Foto</h4>
                         <?php if ($url_foto == "http://ik44.webdb.fnwi.uva.nl/Vacaturesite/img/empty.png") { ?>
-                            <input type="text" name="url_foto" placeholder="Voeg hier de link van vierkante foto toe">
+                            <input type="text" name="url_foto" placeholder="Voeg hier de link van VIERKANTE foto toe">
                         <?php } else { ?>
                             <input type="text" name="url_foto" value="<?php echo $url_foto; ?>">
                         <?php } ?>
