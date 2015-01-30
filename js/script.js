@@ -183,7 +183,7 @@ window.onload = function () {
                     beantwoordArea.style.display = 'none';
                     beantwoordClicked = 0;
             }
-            c -= 5;
+            c -= 8;
         }, 10);
         slowClimb();
     }
