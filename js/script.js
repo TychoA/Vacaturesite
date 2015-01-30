@@ -159,11 +159,12 @@ window.onload = function () {
     //
     
     function slowFall() {
-        var textarea = document.getElementById('beantwoord'), i = 20,
+        var textarea = document.getElementById('beantwoord'), i = 20, c,
             fall = setInterval(function () {
-                textarea.style.height = i;
+                c = i + 'px'; 
+                textarea.style.height = c;
                 if (i < 200) {
-                    i += 4 + 'px';
+                    i += 4;
                 } else {
                     clearInterval(fall);
                 }
