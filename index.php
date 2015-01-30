@@ -54,7 +54,7 @@
                             <option value="alles">Selecteer...</option>
                             <option value="Informatica">WO - Informatica</option>
                             <option value="Informatiekunde">WO - Informatiekunde</option>
-                            <option value="Informatie, Multimedia, Management">WO - Informatie, Multimedia, Management</option>
+                            <option value="Informatie Multimedia Management">WO - Informatie, Multimedia, Management</option>
                             <option value="Medische Informatiekunde">WO - Medische Informatiekunde</option>
                             <option value="Kunstmatige Intelligentie">WO - Kunstmatige Intelligentie</option>
                             <option value="Anders">Anders</option>
