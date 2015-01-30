@@ -54,7 +54,7 @@
         <div class="sidebar_element_last">
             <a href="<?php echo $uitloggen; ?>">Uitloggen</a> 
             &#8226; 
-            <a href="<?php echo $profiel_deactiveren; ?>" onclick="confirm('Weet u zeker dat u uw profiel wilt verwijderen?');">Profiel Deactiveren</a>
+            <a href="<?php echo $profiel_deactiveren; ?>" onclick="return confirm('Weet u zeker dat u uw profiel wilt verwijderen?');">Profiel Deactiveren</a>
             <?php ?>            
         </div>
     </nav>
