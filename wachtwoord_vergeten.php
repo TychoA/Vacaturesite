@@ -42,10 +42,8 @@
             $onderwerp = 'Stagepeer: uw persoonlijke wachtwoord';
             $bericht = 'Uw wachtwoord bij stagepeer.nl is: '.$wachtwoord;
             
-            $headers = "From: <Stagepeer> "; 
-            $headers .= "Content-type: text/html; charset=iso-8859-1 "; 
-            $headers .= "Return-Path: Mail-Error <services@stagepeer.nl> "; 
-            mail($email, $onderwerp, $bericht, $headers);
+            $header = 'From: Contactformulier';
+            mail('stagepeer@gmail.com', $onderwerp, $bericht, $header)
             $bekend = true;
         }
     }
