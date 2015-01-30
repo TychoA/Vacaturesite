@@ -82,7 +82,7 @@ if (!empty($params)) {
     <!-- MAIN AREA -->
     <main>
         <div class="wrapper registratie">
-            <h2>Registratie</h2>
+            <h2 class="header-login">Registratie</h2>
                 <div class="gebruikersnaam">
                     <a class="soort" href="?link=1" name="Werknemer" id="werknemer">Werknemer</a> 
                     <a class="soort" href="?link=2" name="Werkgever" id="werkgever">Werkgever</a>                        
