@@ -24,8 +24,8 @@ Wachtwoord:
 
 SAMENSTELLING PROJECTGROEP
 --------------------------------
-Tycho Atsma          - 
-Marek van der Hoeven - 
-Flemming Kaldenbach  - 
-Mitchell Kuin        - 
+Tycho Atsma          - 10791779
+Marek van der Hoeven - 10837787
+Flemming Kaldenbach  - 10441751
+Mitchell Kuin        - 10764631
 Luca Verhees         - 10837833
