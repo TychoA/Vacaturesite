@@ -163,7 +163,7 @@ window.onload = function () {
             fall = setInterval(function () {
                 textarea.style.height = i;
                 if (i < 200) {
-                    i += 4;
+                    i += 4 + 'px';
                 } else {
                     clearInterval(fall);
                 }
