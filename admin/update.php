@@ -37,7 +37,7 @@ if (isset($_GET["id"])) {
         $message .= "Met vriendelijke groet,\n\n";
         $message .= "StagePeer.nl";
         
-        mail($email, $subject, $message, $header));
+        mail($email, $subject, $message, $header);
         
 
         $stmt = $db->prepare("DELETE FROM werknemers WHERE id=:id");
