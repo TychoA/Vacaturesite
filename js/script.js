@@ -173,14 +173,14 @@ window.onload = function () {
     }
     
     function climb() {
-        var c = 200, i, textarea = document.getElementById('beantwoord');
-        var slowClimb = setInterval(function () {
-            i = c + 'px';
-            textarea.style.height = i;
-            if (c < 0) {
-                clearInterval(slowClimb);
-                beantwoordArea.style.display = 'none';
-                beantwoordClicked = 0;
+        var c = 200, i, textarea = document.getElementById('beantwoord'),
+            slowClimb = setInterval(function () {
+                i = c + 'px';
+                textarea.style.height = i;
+                if (c < 0) {
+                    clearInterval(slowClimb);
+                    beantwoordArea.style.display = 'none';
+                    beantwoordClicked = 0;
             }
             c -= 5;
         }, 10);
