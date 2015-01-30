@@ -9,7 +9,7 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
 
 include '../includes/connect.php';
 
-$verificatie = "SELECT verificatie FROM werkgevers LIMIT 1";
+$verificatie = "SELECT verificatie FROM werkgevers WHERE id=".$bedrijfID." LIMIT 1";
 $results = $db->query($verificatie);
     foreach($results as $row) 
     { 
