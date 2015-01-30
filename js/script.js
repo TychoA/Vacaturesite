@@ -164,11 +164,11 @@ window.onload = function () {
                 c = i + 'px'; 
                 textarea.style.height = c;
                 if (i < 200) {
-                    i += 4;
+                    i += 3.5;
                 } else {
                     clearInterval(fall);
                 }
-            }, 10);
+            }, 8);
         
         fall();
     }
