@@ -26,10 +26,10 @@ if (isset($_SESSION['werknemerid'])) {
         $mail = $row['email'];
     }
     
-    $confirm = "<script>confirm('Weet U zeker dat je het account wilt verwijderen?')</script>";
+    //$confirm = "<script>confirm('Weet U zeker dat je het account wilt verwijderen?')</script>";
     
     // Voer query uit na verstuurde email
-    if (mail($mail, "Account Deactivatie", $bericht) && $confirm === true) {
+    if (mail($mail, "Account Deactivatie", $bericht)) {
         
         $sqln = $db->prepare("DELETE FROM ".$soort." WHERE id=".$userID);
         $sqln->execute();
