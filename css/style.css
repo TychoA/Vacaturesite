@@ -883,7 +883,7 @@ main a.openbare_profiel:hover {
 		width: 10px;	
 }
 .vac_toevoegen #duur_tag, .vac_toevoegen #logo_tag, .vac_toevoegen #checkbox_tag {
-		margin-right: 20px;	
+		margin-right: 5px;	
 } 
 .vac_toevoegen .studierichtingen {
     display: inline-block;
