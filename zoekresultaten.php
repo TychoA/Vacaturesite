@@ -204,7 +204,7 @@
                         $datum = date("d/m/y",$res_timestamp);
                         $tijd = date("H:i",$res_timestamp);
 
-                        $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 140);
+                        $res_beschr = mb_substr($row["beschrijving_aanbod"], 0, 90);
                 
                         echo "<a href=".$detail_vacature."?id=".$row["id_vac"].">";
                         echo    "<div class='vac_mini'>";
