@@ -55,3 +55,10 @@ if (isset($_SESSION['valid']) && (isset($_SESSION['werkgeverid']) && !empty($_SE
     <!-- FOOTER AREA -->
     <?php include '../includes/footer.php';?>
     <!-- /FOOTER AREA -->
+    
+    <script>
+    
+    </script>
+</body>
+    
+</html>
